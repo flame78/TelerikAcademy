@@ -13,7 +13,7 @@ namespace _01MobilePhoneDevice
        "sanyo-321r54D", 120, 14, Battery.BatteryType.LiPol, 4.5, Display.ColorDepth._32Bit);
         private string model;
         private string manufacturer;
-        private decimal price;
+        private decimal? price=null;
         private string owner;
         private Battery battery;
         private Display display;
@@ -45,9 +45,9 @@ namespace _01MobilePhoneDevice
             return this.callHistory.Count;
         }
 
-        public void AddCallToHistory(Call call)
+        public void AddCallToHistory(DateTime callDateTime,string dialedPhone,int callDuration)
         {
-            this.callHistory.Add(call);
+            this.callHistory.Add(new Call(callDateTime,dialedPhone,callDuration));
         }
 
         public void RemoveCallFromHistory(int index)
@@ -89,6 +89,18 @@ namespace _01MobilePhoneDevice
         public override string ToString()
         {
             return string.Format("Model {0}, Manufacturer {1}, Price {2:C}, Owner {3}, {4}, {5}", this.model, this.manufacturer, this.price, this.owner, battery, display);
+        }
+
+        public dynamic this[int indexOfCallInHistory, Call.Element typeOfElementToRetyrn]
+        {
+            get
+            {
+                Call call=this.callHistory[indexOfCallInHistory];
+                if (typeOfElementToRetyrn == Call.Element.CallDateTime) return call.CallDateTime;
+                else if (typeOfElementToRetyrn == Call.Element.DialedPhone) return call.DialedPhone;
+                else if (typeOfElementToRetyrn == Call.Element.CallDuration) return call.CallDuration;
+                throw new ArgumentOutOfRangeException("Invalid type of element to return");
+            }
         }
     }
 

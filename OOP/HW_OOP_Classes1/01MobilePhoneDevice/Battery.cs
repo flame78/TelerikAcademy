@@ -14,9 +14,7 @@ namespace _01MobilePhoneDevice
         private double hoursIdle;
         private double hoursTalk;
         private readonly BatteryType batteryType;   
-        private string batteryModel;
-    
-
+     
         public Battery() { }
 
         public Battery(string batteryModel) 

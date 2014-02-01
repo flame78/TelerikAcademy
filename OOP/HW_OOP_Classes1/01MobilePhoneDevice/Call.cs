@@ -9,6 +9,11 @@ namespace _01MobilePhoneDevice
 {
     public class Call
     {
+        public enum Element
+        {
+            CallDateTime, DialedPhone, CallDuration
+        }
+
         private readonly DateTime callDateTime;
         private readonly string dialedPhone;
         private readonly int callDuration;
@@ -32,7 +37,7 @@ namespace _01MobilePhoneDevice
 
         public override string ToString()
         {
-            return string.Format("Call Date/Time {0}, Dialed Phone {1} hours, Call Duration {2}", this.callDateTime, this.dialedPhone, this.callDuration);
+            return string.Format("Call Date/Time {0}, Dialed Phone {1}, Call Duration {2} seconds", this.callDateTime, this.dialedPhone, this.callDuration);
         }
     }
 }

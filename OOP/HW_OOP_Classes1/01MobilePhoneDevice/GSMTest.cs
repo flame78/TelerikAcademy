@@ -26,7 +26,12 @@ namespace _01MobilePhoneDevice
             {
                 Console.WriteLine(item);
             }
+
+            
+            Console.WriteLine("\n--------------->Call GSMCallHistoryTest.Test()\n");
+            
+
+            GSMCallHistoryTest.Test();
         }
     }
 }
-
