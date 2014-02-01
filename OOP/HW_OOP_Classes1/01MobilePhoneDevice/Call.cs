@@ -1,4 +1,6 @@
-﻿using System;
+﻿//8. Create a class Call to hold a call performed through a GSM. It should contain date, time, dialed phone number and duration (in seconds).
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +11,14 @@ namespace _01MobilePhoneDevice
     {
         private readonly DateTime callDateTime;
         private readonly string dialedPhone;
-        private readonly uint callDuration;
+        private readonly int callDuration;
 
-        public Call(DateTime callDateTime,string dialedPhone,uint callDuration )
+        public Call(DateTime callDateTime,string dialedPhone,int callDuration )
         {
             this.callDateTime = callDateTime;
             this.dialedPhone = dialedPhone;
-            this.callDuration = callDuration;
+            if (callDuration < 0) throw new ArgumentOutOfRangeException("Call Duration cannot be negative.");
+            else this.callDuration = callDuration;
         }
 
 
@@ -23,7 +26,9 @@ namespace _01MobilePhoneDevice
 
         public string DialedPhone { get { return this.dialedPhone; } }
 
-        public uint CallDuration { get { return this.callDuration; } }
+        public int CallDuration { get { return this.callDuration; }
+          
+        }
 
         public override string ToString()
         {

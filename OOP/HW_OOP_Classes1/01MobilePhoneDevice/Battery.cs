@@ -4,6 +4,7 @@ namespace _01MobilePhoneDevice
 {
     public class Battery
     {
+        //3.Add an enumeration BatteryType (Li-Ion, NiMH, NiCd, …) and use it as a new field for the batteries.
         public enum BatteryType
         {
             LiIon, NiMH, NiCd, LiPol
@@ -47,6 +48,8 @@ namespace _01MobilePhoneDevice
             return string.Format("Battery model {0}, Idle Time {1} hours, Talk Time {2} hours, Type {3}", this.model, this.hoursIdle, this.hoursTalk, this.batteryType);
             //            base.ToString();
         }
+
+        //5. Use properties to encapsulate the data fields inside the GSM, Battery and Display classes. Ensure all fields hold correct data at any given time.
 
         public double HoursIdle
         {

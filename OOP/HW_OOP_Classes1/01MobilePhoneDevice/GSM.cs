@@ -5,8 +5,10 @@ using System.Text;
 
 namespace _01MobilePhoneDevice
 {
+    //1. Define a class that holds information about a mobile phone device: model, manufacturer, price, owner, battery characteristics (model, hours idle and hours talk) and display characteristics (size and number of colors). Define 3 separate classes (class GSM holding instances of the classes Battery and Display).
     public class GSM
     {
+        //6. Add a static field and a property IPhone4S in the GSM class to hold the information about iPhone 4S.
         private static readonly GSM iphone4S = new GSM("IPhone-4S", "Apple", 900, "Pesho",
        "sanyo-321r54D", 120, 14, Battery.BatteryType.LiPol, 4.5, Display.ColorDepth._32Bit);
         private string model;
@@ -15,7 +17,10 @@ namespace _01MobilePhoneDevice
         private string owner;
         private Battery battery;
         private Display display;
+        //9. Add a property CallHistory in the GSM class to hold a list of the performed calls. Try to use the system class List<Call>.
         private List<Call> callHistory = new List<Call>();
+
+        //2. Define several constructors for the defined classes that take different sets of arguments (the full information for the class or part of it). Assume that model and manufacturer are mandatory (the others are optional). All unknown data fill with null.
 
         public GSM(string model, string manufacturer)
         {
@@ -24,17 +29,20 @@ namespace _01MobilePhoneDevice
             this.manufacturer = manufacturer;
         }
 
-        public GSM(string model, string manufacturer, decimal price, string owner, string batteryModel, double hoursIdle, double hoursTalk, Battery.BatteryType batteryType, double sizeInInches, Display.ColorDepth colorDepth)
+        public GSM(string model, string manufacturer, decimal price, string owner, string batteryModel, double hoursIdle, double hoursTalk, Battery.BatteryType batteryType, double displaySizeInInches, Display.ColorDepth colorDepth)
             : this(model, manufacturer)
         {
             this.price = price;
             this.owner = owner;
             this.battery = new Battery(batteryModel, hoursIdle, hoursTalk, batteryType);
+            this.display = new Display(displaySizeInInches, colorDepth);
         }
 
-        public int CallHistoryCount
+        //10. Add methods in the GSM class for adding and deleting calls from the calls history. Add a method to clear the call history.
+
+        public int CallHistoryCount()
         {
-            get { return this.callHistory.Count; }
+            return this.callHistory.Count;
         }
 
         public void AddCallToHistory(Call call)
@@ -47,45 +55,36 @@ namespace _01MobilePhoneDevice
             this.callHistory.RemoveAt(index);
         }
 
-        public int ClearCallHistory
+        public void ClearCallHistory()
         {
-            get
-            {
-                this.callHistory.Clear();
-                return 0;
-            }
+            this.callHistory.Clear();
         }
 
-        public int PrintCallHistory
+        public void PrintCallHistory()
         {
-            get
+            foreach (var item in this.callHistory)
             {
-                foreach (var item in this.callHistory)
-                {
-                    Console.WriteLine(item);
-                    
-                }
-                return 0;
+                Console.WriteLine(item);
             }
+
         }
+
+        //11. Add a method that calculates the total price of the calls in the call history. Assume the price per minute is fixed and is provided as a parameter.
 
         public decimal PriceOfCalls(decimal pricePerMinute)
         {
-            decimal result=0;
+            decimal result = 0;
 
             foreach (var item in this.callHistory)
             {
-                result += item.CallDuration / 60 * pricePerMinute;
+                result += item.CallDuration * (pricePerMinute / 60);
             }
-
             return result;
         }
 
-
-
-
-
         public static GSM IPhone4S { get { return iphone4S; } }
+
+        //4. Add a method in the GSM class for displaying all information about it. Try to override ToString().
 
         public override string ToString()
         {
