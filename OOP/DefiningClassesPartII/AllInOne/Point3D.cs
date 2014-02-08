@@ -7,7 +7,7 @@ namespace AllInOne
     struct Point3D
     {
         public int X, Y, Z;
-        private static readonly Point3D O = new Point3D(0, 0, 0);
+        private static readonly Point3D pointO = new Point3D(0, 0, 0);
 
         public Point3D(int p1, int p2, int p3)
         {
@@ -16,7 +16,12 @@ namespace AllInOne
             this.Z = p3;
         }
 
-        override string ToString()
+        public static Point3D O()
+        {
+            return pointO;
+        }
+
+        public override string ToString()
         {
             return string.Format(X + ", " + Y + ", " + Z);
         }

@@ -11,7 +11,10 @@ namespace AllInOne
     {
         static void Main(string[] args)
         {
-            Calc.Distance()
+            //Calc.Distance()
+            Console.WriteLine(Point3D.O());
+            Path test = PathStorage.Load("..\\..\\PathLoad.txt");
+            PathStorage.Save(test, "..\\..\\PathSave.txt");
         }
     }
 }

@@ -4,7 +4,7 @@ using System;
 
 namespace AllInOne
 {
-    private static class Calc
+    internal static class Calc
     {
         internal static int Distance(Point3D p1, Point3D p2)
         {
