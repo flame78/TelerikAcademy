@@ -45,6 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="2014-02-04.dat" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
