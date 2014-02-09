@@ -3,6 +3,8 @@
 
 using System;
 
+namespace _11Attributes
+{
     [AttributeVersion("21.11")]
     class Attributes
     {
@@ -13,3 +15,4 @@ using System;
             Console.WriteLine("Current version: {0}", versionAttributes[0]);
         }
     }
+}
