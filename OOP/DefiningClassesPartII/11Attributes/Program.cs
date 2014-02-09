@@ -2,9 +2,8 @@
 //  a version in the format major.minor (e.g. 2.11). Apply the version attribute to a sample class and display its version at runtime.
 
 using System;
-namespace Attributes
-{
-    [AttributeVersion("2.11")]
+
+    [AttributeVersion("21.11")]
     class Attributes
     {
         static void Main(string[] args)
@@ -14,4 +13,3 @@ namespace Attributes
             Console.WriteLine("Current version: {0}", versionAttributes[0]);
         }
     }
-}
