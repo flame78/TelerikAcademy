@@ -5,7 +5,7 @@ using System;
 
 namespace _11Attributes
 {
-    [AttributeVersion("21.11")]
+    [AttributeVersion("2.11")]
     class Attributes
     {
         static void Main(string[] args)
