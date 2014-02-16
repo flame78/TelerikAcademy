@@ -11,7 +11,6 @@ namespace _11Attributes
         static void Main(string[] args)
         {
             object[] versionAttributes = typeof(Attributes).GetCustomAttributes(typeof(AttributeVersion), false);
-
             Console.WriteLine("Current version: {0}", versionAttributes[0]);
         }
     }
