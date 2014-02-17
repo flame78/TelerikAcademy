@@ -5,16 +5,14 @@ using System.Text;
 
 namespace ObjectOrientedProgrammingPrinciplesPartI
 {
-    public class Discipline : IComment
+    public class Discipline : Comment
     {
-        private string comment;
         private string name;
         private uint numberOfExercises;
         private uint numberOfLectures;
 
-        public Discipline(string name, uint numberOfLectures, uint numberOfExercises, string comment = "")
+        public Discipline(string name, uint numberOfLectures, uint numberOfExercises)
         {
-            this.comment = comment;
             this.name = name;
             this.numberOfExercises = numberOfExercises;
             this.numberOfLectures = numberOfLectures;
@@ -26,7 +24,7 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             {
                 throw new System.NotImplementedException();
             }
-                    }
+        }
 
         public uint NumberOfLectures
         {
@@ -34,7 +32,7 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             {
                 throw new System.NotImplementedException();
             }
-           
+
         }
 
         public uint NumberOfExercises
@@ -43,7 +41,7 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             {
                 throw new System.NotImplementedException();
             }
-           
+
         }
 
         public string Comment

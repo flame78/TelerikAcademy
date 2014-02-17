@@ -19,7 +19,6 @@
       <HashCode>AAQAAAQEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Students.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Teacher">
     <Position X="7.25" Y="1.75" Width="1.5" />
@@ -30,7 +29,6 @@
     <ShowAsAssociation>
       <Property Name="Discipline" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.StudentsClass">
     <Position X="4.75" Y="1.75" Width="1.5" />
@@ -42,29 +40,27 @@
       <Property Name="Student" />
       <Property Name="Teacher" />
     </ShowAsAssociation>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Person">
     <Position X="2.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>People.cs</FileName>
+      <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Discipline">
-    <Position X="4.5" Y="5.5" Width="2.25" />
+  <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Comment">
+    <Position X="5.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAEAAAAABAAAIAAAASAAAAEAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Comment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Discipline" Collapsed="true">
+    <Position X="10.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAABAAAIAAAASAAAAEAAAAABAAAAAAAAA=</HashCode>
       <FileName>Discipline.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="ObjectOrientedProgrammingPrinciplesPartI.IComment">
-    <Position X="2.75" Y="7.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IComment.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

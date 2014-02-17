@@ -5,11 +5,11 @@ using System.Text;
 
 namespace ObjectOrientedProgrammingPrinciplesPartI
 {
-    public class Person
+    public class Person : Comment
     {
         private string name;
 
-        public Person(string name)
+        public Person(string name="Unknow")
         {
             this.name = name;
         }
