@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ObjectOrientedProgrammingPrinciplesPartI
 {
-    public class SchoolClass
+    public class StudentsClass : IComment
     {
         public Student Student
         {
@@ -26,6 +26,29 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             }
             set
             {
+            }
+        }
+
+        public int Identifier
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public string Comment
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
             }
         }
     }

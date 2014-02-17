@@ -7,7 +7,7 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
 {
     public class School
     {
-        public SchoolClass SchoolClass
+        public StudentsClass SchoolClass
         {
             get
             {
