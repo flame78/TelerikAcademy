@@ -7,49 +7,49 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
 {
     public class StudentsClass : Comment
     {
-        public Student Student
+        private string classIdentifier;
+        private List<Student> students;
+        private List<Teacher> teachers;
+
+
+        public StudentsClass(string classIdentifier)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.classIdentifier = classIdentifier;
+            this.students = new List<Student>();
+            this.teachers = new List<Teacher>();
         }
 
-        public Teacher Teacher
+        public void AddStudent(Student st)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.students.Add(st);
         }
 
-        public int Identifier
+        public void RemoveStudent(Student st)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.students.Remove(st);
         }
 
-        public string Comment
+        public Student[] GetStudents()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            return this.students.ToArray();
         }
+
+        public void AddTeacher(Teacher tr)
+        {
+            this.teachers.Add(tr);
+        }
+
+        public void RemoveTeacher(Teacher tr)
+        {
+            this.teachers.Remove(tr);
+        }
+
+        public Teacher[] GetTeachers()
+        {
+            return this.teachers.ToArray();
+        }
+
+
+        
     }
 }

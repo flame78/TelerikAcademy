@@ -1,48 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.School">
-    <Position X="1.75" Y="1.25" Width="1.5" />
+    <Position X="2.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAABAABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>School.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="SchoolClass" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Student">
     <Position X="2.5" Y="2.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAQAAAQEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Students.cs</FileName>
+      <HashCode>AAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Student.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Teacher">
     <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Teacher.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Discipline" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.StudentsClass">
     <Position X="4.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQACAgAAAAAAgAAAAAAAAAAAIAQAACAAI=</HashCode>
       <FileName>SchoolClass.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Student" />
-      <Property Name="Teacher" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Person">
-    <Position X="2.75" Y="5" Width="1.5" />
+    <Position X="2.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Person.cs</FileName>
@@ -51,14 +38,14 @@
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Comment">
     <Position X="5.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAIAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Comment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Discipline" Collapsed="true">
-    <Position X="10.75" Y="1.75" Width="1.5" />
+    <Position X="7.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAABAAAIAAAASAAAAEAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAEAAAAABAAAAAAAAA=</HashCode>
       <FileName>Discipline.cs</FileName>
     </TypeIdentifier>
   </Class>

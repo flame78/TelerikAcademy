@@ -9,12 +9,17 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
     {
         private List<string> comments;
 
+        public Comment()
+        {
+            this.comments = new List<string>();
+        }
+
         public void AddComment(string comment)
         {
             this.comments.Add(comment);
         }
 
-        public string[] GetComments()
+        public string[] GetAllComments()
         {
             return this.comments.ToArray();
         }

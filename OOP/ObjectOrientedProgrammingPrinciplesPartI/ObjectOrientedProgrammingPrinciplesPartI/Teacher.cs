@@ -7,28 +7,16 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
 {
     public class Teacher : Person
     {
+        List<Discipline> disciplines;
         
-        public string Comment
+        public Teacher(string name) : base(name)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            disciplines = new List<Discipline>();
         }
 
-        public Discipline Discipline
+        internal void AddDiscipline(Discipline disc)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            this.disciplines.Add(disc);
         }
     }
 }

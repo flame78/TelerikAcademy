@@ -18,42 +18,6 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             this.numberOfLectures = numberOfLectures;
         }
 
-        public string Name
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-        }
-
-        public uint NumberOfLectures
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-        }
-
-        public uint NumberOfExercises
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-        }
-
-        public string Comment
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+       
     }
 }

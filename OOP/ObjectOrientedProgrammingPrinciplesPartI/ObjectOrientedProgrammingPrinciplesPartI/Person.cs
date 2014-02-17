@@ -9,7 +9,7 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
     {
         private string name;
 
-        public Person(string name="Unknow")
+        public Person(string name)
         {
             this.name = name;
         }

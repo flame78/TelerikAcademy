@@ -7,15 +7,18 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
 {
     public class School
     {
-        public StudentsClass SchoolClass
+        List<StudentsClass> classes;
+        private string name;
+
+        public School(string name)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            classes = new List<StudentsClass>();
+            this.name = name;
+        }
+
+        internal void AddClass(StudentsClass studentClass)
+        {
+            this.classes.Add(studentClass);
         }
     }
 }
