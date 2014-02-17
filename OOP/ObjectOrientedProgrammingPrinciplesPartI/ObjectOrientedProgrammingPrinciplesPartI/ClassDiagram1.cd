@@ -12,6 +12,9 @@
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Student">
     <Position X="2.5" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAQAAAQEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Students.cs</FileName>
@@ -41,7 +44,7 @@
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ObjectOrientedProgrammingPrinciplesPartI.People">
+  <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Person">
     <Position X="2.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>

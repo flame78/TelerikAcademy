@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ObjectOrientedProgrammingPrinciplesPartI
 {
-    public class Student : People, IComment
+    public class Student : Person, IComment
     {
         private int classNumber;
         private string comment;
