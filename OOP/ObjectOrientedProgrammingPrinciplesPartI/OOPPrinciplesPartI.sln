@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School", "ObjectOrientedPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2Human", "2Human\2Human.csproj", "{66D6CA49-C8B2-4830-9C5D-4B733B36D806}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animals", "Animals\Animals.csproj", "{4353C865-4F99-4242-B169-8BF649AF012C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{66D6CA49-C8B2-4830-9C5D-4B733B36D806}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D6CA49-C8B2-4830-9C5D-4B733B36D806}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D6CA49-C8B2-4830-9C5D-4B733B36D806}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4353C865-4F99-4242-B169-8BF649AF012C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4353C865-4F99-4242-B169-8BF649AF012C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4353C865-4F99-4242-B169-8BF649AF012C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4353C865-4F99-4242-B169-8BF649AF012C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
