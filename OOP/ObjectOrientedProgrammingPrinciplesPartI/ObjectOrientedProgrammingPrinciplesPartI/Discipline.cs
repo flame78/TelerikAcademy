@@ -20,7 +20,11 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
 
         public override string ToString()
         {
-            StringBuilder result = new StringBuilder("Discipline");
+            string classLevel = "++++";
+            StringBuilder result = new StringBuilder();
+
+            result.Append(classLevel);
+           result.Append("Discipline : ");
             result.Append(this.name);
             result.Append(" : Lectures ");
             result.Append(this.numberOfLectures);
@@ -28,6 +32,7 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             result.Append(this.numberOfExercises);
             result.Append("\n");
             result.Append(this.GetAllCommentsToString());
+            result.Append("\n");
             return result.ToString();
         }
 

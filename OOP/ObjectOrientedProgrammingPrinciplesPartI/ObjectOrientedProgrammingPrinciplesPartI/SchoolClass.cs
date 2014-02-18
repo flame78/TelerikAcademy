@@ -49,7 +49,34 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             return this.teachers.ToArray();
         }
 
+        public override string ToString()
+        {
+            string classLevel = "++";
+            StringBuilder result = new StringBuilder();
 
+            result.Append(classLevel);
+
+            result.Append("Class\n");
+
+            result.Append(classLevel);
+            result.Append(this.classIdentifier);
+            result.Append("\n");
+            result.Append(this.GetAllCommentsToString());
+
+            foreach (var item in this.teachers)
+            {
+                result.Append(item);
+            }
+
+            foreach (var item in this.students)
+            {
+                result.Append(item);
+            }
+
+            result.Append("\n");
+
+            return result.ToString();
+        }
         
     }
 }

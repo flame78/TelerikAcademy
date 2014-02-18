@@ -24,7 +24,16 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
 
         public override string ToString()
         {
-            return "Person Name : "+ this.name + "\n";
+            string classLevel = "++++";
+            StringBuilder result = new StringBuilder();
+
+            result.Append(classLevel);
+            result.Append("Person Name : ");
+            result.Append(this.name);
+            result.Append( "\n\n");
+
+            return result.ToString();
+
         }
     }
 }

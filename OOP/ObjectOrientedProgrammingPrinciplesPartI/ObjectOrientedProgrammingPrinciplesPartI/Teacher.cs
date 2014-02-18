@@ -8,12 +8,12 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
     public class Teacher : Person
     {
         List<Discipline> disciplines;
-        
-        public Teacher(string name) : base(name)
+
+        public Teacher(string name)
+            : base(name)
         {
             disciplines = new List<Discipline>();
         }
-
         internal void AddDiscipline(Discipline disc)
         {
             this.disciplines.Add(disc);
@@ -42,13 +42,19 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
         }
         public override string ToString()
         {
-            StringBuilder result=new StringBuilder("Teacher\n"); 
+            string classLevel = "+++";
+            StringBuilder result = new StringBuilder();
+
+            result.Append(classLevel);
+            result.Append("Teacher\n");
+           
             result.Append(base.ToString());
-           result.Append(this.GetAllCommentsToString());
-           result.Append(this.GetAllDisciplinesToString());
+            result.Append(this.GetAllCommentsToString());
+            result.Append(this.GetAllDisciplinesToString());
+            result.Append("\n");
 
             return result.ToString();
         }
-       
+
     }
 }

@@ -20,5 +20,30 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
         {
             this.classes.Add(studentClass);
         }
+
+        public override string ToString()
+        {
+            string classLevel = "+";
+            StringBuilder result = new StringBuilder();
+
+            result.Append(classLevel);
+
+            result.Append("School\n");
+
+            result.Append(classLevel);
+            result.Append(this.name);
+            result.Append("\n");
+            
+
+            foreach (var item in this.classes)
+            {
+                result.Append(item);
+            }
+            
+            result.Append("\n");
+
+            return result.ToString();
+        }
     }
+
 }

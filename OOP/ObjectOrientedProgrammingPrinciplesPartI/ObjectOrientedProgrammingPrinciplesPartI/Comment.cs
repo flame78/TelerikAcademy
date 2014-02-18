@@ -26,14 +26,19 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
 
         public string GetAllCommentsToString()
         {
+            string classLevel = "+++++";
+           
             StringBuilder result = new StringBuilder();
 
             foreach (var item in this.GetAllComments())
             {
+                result.Append(classLevel);
                 result.Append("Comment : ");
                 result.Append(item);
                 result.Append("\n");
             }
+
+            result.Append("\n");
 
             return result.ToString();
         }
