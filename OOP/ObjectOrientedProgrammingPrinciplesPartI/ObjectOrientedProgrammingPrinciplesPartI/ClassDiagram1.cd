@@ -3,7 +3,7 @@
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.School">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAFAABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>School.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,21 +29,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Person">
-    <Position X="6" Y="2" Width="1.5" />
+    <Position X="5.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Comment">
-    <Position X="9.25" Y="1.25" Width="1.5" />
+    <Position X="7.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAIAAAAAABAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Comment.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectOrientedProgrammingPrinciplesPartI.Discipline" Collapsed="true">
-    <Position X="6" Y="5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAIAAAAAAAAAEAAAAABAAAAAAAAA=</HashCode>
       <FileName>Discipline.cs</FileName>

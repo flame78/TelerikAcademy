@@ -34,11 +34,13 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             firstClass.AddTeacher(teacherRS);
             firstClass.AddStudent(studentGG);
             firstClass.AddStudent(studentII);
+            firstClass.AddComment("BlaBla");
 
 //            Console.WriteLine(firstClass);
 
 
             schoolTk.AddClass(firstClass);
+            
         
             Console.WriteLine(schoolTk);
         }
