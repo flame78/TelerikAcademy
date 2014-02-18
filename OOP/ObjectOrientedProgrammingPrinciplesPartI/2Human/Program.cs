@@ -33,7 +33,7 @@ namespace _2Human
                 Console.WriteLine(item);
             }
 
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("----------Sort by grade------------");
 
              students = students.OrderBy(Student => Student.Grade ).ToList<Student>();
 
@@ -62,7 +62,7 @@ namespace _2Human
 
              workers = workers.OrderByDescending(Worker => Worker.MoneyPerHour()).ToList<Worker>();
 
-             Console.WriteLine("============================");
+             Console.WriteLine("=============Sort by money per hour===============");
 
              foreach (var item in workers)
              {
@@ -71,7 +71,7 @@ namespace _2Human
 
              humans = students.Union<Human>(workers).ToList<Human>();
 
-             Console.WriteLine("============================");
+             Console.WriteLine("============merge students and workers================");
 
              foreach (var item in humans)
              {
@@ -83,7 +83,7 @@ namespace _2Human
                  ThenBy(Human => Human.LastName).
                  ToList<Human>();
 
-             Console.WriteLine("============================");
+             Console.WriteLine("============Sort By first and last name===============");
 
              foreach (var item in humans)
              {
