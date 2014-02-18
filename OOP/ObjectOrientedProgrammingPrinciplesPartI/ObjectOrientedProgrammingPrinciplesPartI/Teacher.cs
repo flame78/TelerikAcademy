@@ -18,5 +18,37 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
         {
             this.disciplines.Add(disc);
         }
+
+        internal void RemoveDiscipline(Discipline disc)
+        {
+            this.disciplines.Remove(disc);
+        }
+
+        internal Discipline[] GetAllDisciplines()
+        {
+            return this.disciplines.ToArray();
+        }
+
+        internal string GetAllDisciplinesToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (var item in this.disciplines)
+            {
+                result.Append(item);
+            }
+
+            return result.ToString();
+        }
+        public override string ToString()
+        {
+            StringBuilder result=new StringBuilder("Teacher\n"); 
+            result.Append(base.ToString());
+           result.Append(this.GetAllCommentsToString());
+           result.Append(this.GetAllDisciplinesToString());
+
+            return result.ToString();
+        }
+       
     }
 }

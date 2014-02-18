@@ -21,5 +21,10 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
                 return this.name;
             }
         }
+
+        public override string ToString()
+        {
+            return "Person Name : "+ this.name + "\n";
+        }
     }
 }

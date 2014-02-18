@@ -23,5 +23,19 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
         {
             return this.comments.ToArray();
         }
+
+        public string GetAllCommentsToString()
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (var item in this.GetAllComments())
+            {
+                result.Append("Comment : ");
+                result.Append(item);
+                result.Append("\n");
+            }
+
+            return result.ToString();
+        }
     }
 }

@@ -22,6 +22,17 @@ namespace ObjectOrientedProgrammingPrinciplesPartI
             }
             
         }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder("Student\n");
+            result.Append(base.ToString());
+            result.Append("Unique class number : ");
+            result.Append(this.classNumber);
+            result.Append("\n");
+            result.Append(this.GetAllCommentsToString());
+            return result.ToString();
+        }
      
     }
 }
