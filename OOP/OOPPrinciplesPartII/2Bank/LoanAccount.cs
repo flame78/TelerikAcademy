@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _2Bank
 {
-    class Mortgage : Account
+    class LoanAccount : Account
     {
     }
 }

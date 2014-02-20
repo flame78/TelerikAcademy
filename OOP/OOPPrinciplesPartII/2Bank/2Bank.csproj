@@ -44,11 +44,11 @@
     <Compile Include="Account.cs" />
     <Compile Include="Companie.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="Deposit.cs" />
+    <Compile Include="DepositAccount.cs" />
     <Compile Include="Individual.cs" />
     <Compile Include="IWithdraw.cs" />
-    <Compile Include="Loan.cs" />
-    <Compile Include="Mortgage.cs" />
+    <Compile Include="LoanAccount.cs" />
+    <Compile Include="MortgageAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
