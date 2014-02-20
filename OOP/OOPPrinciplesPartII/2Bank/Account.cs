@@ -6,24 +6,37 @@ using System.Threading.Tasks;
 
 namespace _2Bank
 {
-    class Account
+    abstract class Account
     {
-        private Customer customer;
-        private decimal balance;
-        private decimal interestRate;
-
-        //decimal Balance()
-        //{ 
-        //    get; { return this.balance; }
-        //    set; { this.balance = value; }
-        //}
-        public void Deposit(decimal money)
-        { 
-
-        }
-        public virtual decimal CalculateInterest(decimal numberOfMonths)
+        public Customer AccountCustomer { get; private set;  }
+        public decimal Balance { get; protected set; }
+        public decimal InterestRate { get; protected set; }
+        public Account(Customer customer, decimal balance, decimal interestRate)
         {
-            return numberOfMonths * this.interestRate;
+          
+            this.AccountCustomer = customer;
+            this.Balance = balance;
+            this.InterestRate = interestRate;
+        }
+        public void Deposit(decimal amount)
+        {
+            if (amount <= 0) throw new ArgumentOutOfRangeException("Cant deposit negative or zere amount.");
+            this.Balance += amount;
+        }
+        public virtual decimal CalculateInterestAmountForMonths(decimal numberOfMonths)
+        {
+            return numberOfMonths * this.InterestRate;
+        }
+
+        public override string ToString()
+        {
+            return this.AccountCustomer.GetType().Name
+                + " : "
+                + this.AccountCustomer.Name
+                + "  Balance = "
+                + this.Balance
+                + "  Interest Rate =  "
+                + this.InterestRate;
         }
     }
 }

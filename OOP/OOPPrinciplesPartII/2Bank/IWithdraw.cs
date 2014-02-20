@@ -8,6 +8,6 @@ namespace _2Bank
 {
     interface IWithdraw
     {
-        bool WithdrawMoney();
+        void WithdrawMoney(decimal amount);
     }
 }

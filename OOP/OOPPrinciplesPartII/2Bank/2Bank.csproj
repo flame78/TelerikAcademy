@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="Companie.cs" />
+    <Compile Include="Company.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DepositAccount.cs" />
     <Compile Include="Individual.cs" />

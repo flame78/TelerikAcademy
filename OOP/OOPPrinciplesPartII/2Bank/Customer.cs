@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace _2Bank
 {
-    class Customer
+    abstract class Customer
     {
+        public string Name { get; protected set; }
+
+        public Customer(string name)
+        {
+            this.Name = name;
+        }
     }
 }
