@@ -24,7 +24,7 @@ namespace _5BitArray64
 
             Console.WriteLine(new string('-', 40));
 
-            Console.WriteLine(ba.Equals(ba2));
+            Console.WriteLine(ba.Equals(1));
 
             Console.WriteLine(new string('-',40));
 
