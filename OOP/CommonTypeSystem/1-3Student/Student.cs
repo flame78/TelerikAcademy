@@ -63,8 +63,8 @@ namespace _1_3Student
             {
                 result.Append(property.Name);
                 result.Append(" : ");
-                result.Append(property.GetValue(this));
-                result.Append(Environment.NewLine);
+                result.AppendLine(property.GetValue(this).ToString());
+               
             }
 
             return result.ToString(); 
