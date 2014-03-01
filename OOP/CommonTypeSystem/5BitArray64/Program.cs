@@ -30,7 +30,7 @@ namespace _5BitArray64
 
             foreach (var bit in ba)
             {
-                Console.WriteLine(bit);
+                Console.Write(bit+", ");
             }
         }
     }
