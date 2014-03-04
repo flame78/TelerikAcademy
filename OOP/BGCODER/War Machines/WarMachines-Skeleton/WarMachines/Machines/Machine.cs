@@ -70,15 +70,15 @@ namespace WarMachines.Machines
 
             result.Append("- ");
             result.Append(this.name);
-            result.Append("\n *Type: ");
+            result.Append("\r\n *Type: ");
             result.Append(this.GetType().Name);
-            result.Append("\n *Health: ");
+            result.Append("\r\n *Health: ");
             result.Append(this.HealthPoints);
-            result.Append("\n *Attack: ");
+            result.Append("\r\n *Attack: ");
             result.Append(this.AttackPoints);
-            result.Append("\n *Defense: ");
+            result.Append("\r\n *Defense: ");
             result.Append(this.DefensePoints);
-            result.Append("\n *Targets: ");
+            result.Append("\r\n *Targets: ");
             if (this.targets.Count() == 0) result.Append("None");
             else
             {

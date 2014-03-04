@@ -46,7 +46,7 @@ namespace WarMachines.Machines
         {
             StringBuilder result = new StringBuilder();
             result.Append(base.ToString());
-            result.Append("\n *Defense: ");
+            result.Append("\r\n *Defense: ");
             result.Append(this.defenseMode ? "ON" : "OFF");
 
 

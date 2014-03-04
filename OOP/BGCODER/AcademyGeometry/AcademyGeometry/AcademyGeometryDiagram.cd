@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GeometryAPI.Vector">
+    <Position X="2" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAGACABAIAAAAAAAAAAQAAAEMAACA=</HashCode>
+      <FileName>GeometryAPI\Vector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeometryAPI.Vector3D">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgQAAAABAAAAAEYAUAAAAAAAAABAAAAAAAAMACYAE=</HashCode>
+      <FileName>GeometryAPI\Vector3D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeometryAPI.Figure">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAICAQAAAAAABEAAAAAAA=</HashCode>
+      <FileName>GeometryAPI\Figure.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GeometryAPI.Vertex">
+    <Position X="2" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeometryAPI\Vertex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GeometryAPI.LineSegment">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABEAAAAAAACAAAAAAAAAAIAEAAAA=</HashCode>
+      <FileName>GeometryAPI\LineSegment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GeometryAPI.Triangle">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAAAsAEAAAA=</HashCode>
+      <FileName>GeometryAPI\Triangle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GeometryAPI.FigureController" Collapsed="true">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAIABAAAAAAAAAEAAIAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>GeometryAPI\FigureController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AcademyGeometry.Program" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GeometryAPI.ITransformable" Collapsed="true">
+    <Position X="9" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAABEAAAAAAA=</HashCode>
+      <FileName>GeometryAPI\ITransformable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GeometryAPI.ILengthMeasurable" Collapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeometryAPI\ILengthMeasurable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GeometryAPI.IAreaMeasurable" Collapsed="true">
+    <Position X="9" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>GeometryAPI\IAreaMeasurable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GeometryAPI.IFlat" Collapsed="true">
+    <Position X="10.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeometryAPI\IFlat.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GeometryAPI.IVolumeMeasurable" Collapsed="true">
+    <Position X="10.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeometryAPI\IVolumeMeasurable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -30,7 +30,7 @@ namespace WarMachines.Machines
         {
             StringBuilder result = new StringBuilder();
             result.Append(base.ToString());
-            result.Append("\n *Stealth: ");
+            result.Append("\r\n *Stealth: ");
             result.Append(this.stealthMode ? "ON" : "OFF");
             return result.ToString();
         }

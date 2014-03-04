@@ -35,14 +35,14 @@ namespace WarMachines.Machines
             result.Append(" - ");
             if (machines.Count() == 0) result.Append("no");
             else result.Append(machines.Count());
-            if (machines.Count() != 1) result.Append(" machines\n");
-            else result.Append(" machine\n");
+            if (machines.Count() != 1) result.Append(" machines\r\n");
+            else result.Append(" machine\r\n");
 
 
             foreach (var machine in machines)
             {
                 result.Append(machine);
-                result.Append("\n");
+                result.Append("\r\n");
             }
             result.Remove(result.Length - 1, 1);
 
