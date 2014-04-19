@@ -1,0 +1,60 @@
+﻿
+body {
+    @img1: "http://www.kidzone.ws/animals/images/index_catfish.jpg";
+    @img2: "http://4.bp.blogspot.com/-DX_5aLrIxVg/T8zgztvecxI/AAAAAAAAM6c/RMKqI5aVWG4/s1600/animal-diversity-7.jpg";
+    @img3: "http://images.fanpop.com/images/image_uploads/animals--the-animal-kingdom-248730_500_375.jpg";
+    @img4: "http://images2.fanpop.com/image/photos/14000000/The-Eagle-the-animal-kingdom-14060189-1600-1200.jpg";
+    @img5: "http://fstoppers.com/wp-content/uploads/2013/05/photoshop-animals-together-new-species-2.jpg";
+
+    .zoom_it(@url) {
+        &:root.zoom {
+            content: url(@url);
+            width: 100%;
+        }
+    }
+
+    .set_thumb(@url) {
+        content: url(@url);
+    }
+
+
+    .img1 {
+        content: url(@img1);
+        width: 20%;
+        float: left;
+
+        &::after {
+            content: url(@img1);
+            display: block;
+            position: absolute;
+            top: 200px;
+            width: 100%;
+            height:800px;
+        }
+    }
+
+
+    .img2 {
+        content: url(@img2);
+        width: 20%;
+        float: left;
+    }
+
+    .img3 {
+        content: url(@img3);
+        width: 20%;
+        float: left;
+    }
+
+    .img4 {
+        content: url(@img4);
+        width: 20%;
+        float: left;
+    }
+
+    .img5 {
+        content: url(@img5);
+        width: 20%;
+        float: left;
+    }
+}

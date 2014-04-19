@@ -1,0 +1,41 @@
+﻿body {
+    font-family:Arial;
+}
+table {
+    border-spacing:0;
+    border:1px solid;
+   
+}
+
+th {
+  border-left:1px solid;
+  text-align:left;
+  color:#f0f5bc;
+   padding:5px;
+}
+
+td {
+  border-left:1px solid;
+   padding:5px;
+ padding-right:1.2em;
+
+}
+
+thead {
+    background-color:green;
+}
+
+tbody tr:nth-child(2n){
+    background-color:#f0f5bc;
+}
+
+img {
+    height:20px;
+    width:40px;
+}
+
+input[type=checkbox] {
+    
+}
+
+

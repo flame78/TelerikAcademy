@@ -1,0 +1,127 @@
+﻿body, h1, h2, div, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: table;
+    font-size: 12px;
+    font-family: Arial;
+    background-color: #eee;
+    border: 1px solid;
+    padding: 3px;
+}
+
+#leftcolumn {
+    display: table-cell;
+    padding: 10px;
+    min-width: 140px;
+}
+
+#main {
+    display: block;
+    padding: 10px;
+    border: 1px solid;
+}
+
+#rightcolumn {
+    display: table-cell;
+    padding: 0;
+    min-width: 150px;
+}
+
+
+    #rightcolumn > div {
+        border: 1px solid;
+        margin: 0 0 3px 3px;
+        position: relative;
+        bottom: 20px;
+    }
+
+    #rightcolumn ul {
+        text-align: center;
+        list-style: none;
+        padding: 0;
+    }
+
+    #rightcolumn a {
+        display: block;
+        text-align: center;
+        margin: 3px;
+    }
+
+    #rightcolumn h2 {
+        color: #ffffff;
+        background-color: #808080;
+        font-size: 1em;
+        text-align: center;
+        width: auto;
+    }
+
+
+
+#main p {
+    margin: 10px;
+}
+
+#main .prev {
+    float: left;
+    border: 2px solid;
+    padding: 4px;
+}
+
+    #main .prev a, #main .next a {
+        text-decoration: none;
+        color: #000;
+    }
+
+#main .next {
+    float: right;
+    border: 2px solid;
+    padding: 4px;
+}
+
+#main > .chapter:after {
+    content: "";
+    display: block;
+    height: 1px;
+    border: 1px solid;
+    margin: 5px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#main a, #rightcolumn a {
+    color: #a90000;
+}
+
+#main h2 {
+    color: #ffffff;
+    background-color: #808080;
+    font-size: 1em;
+}
+
+#main img {
+    float: left;
+    margin: 10px;
+}
+
+#leftcolumn a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+#leftcolumn h2 {
+    font-size: 1em;
+    color: #a90000;
+    width: 100px;
+}
+
+#gs_tti50 {
+    border: 1px solid;
+}
