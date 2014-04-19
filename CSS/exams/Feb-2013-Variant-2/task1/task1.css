@@ -1,0 +1,125 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  zoom: 1;
+}
+body {
+  font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+  font-size: 18px;
+  color: #444;
+}
+body #wrapper {
+  width: 400px;
+}
+body #wrapper ul {
+  position: relative;
+  left: 50px;
+  top: 50px;
+  border: 1px solid #000;
+  list-style: none;
+}
+body #wrapper ul li {
+  background-color: #aaa;
+}
+body #wrapper ul li:not(.current) div {
+  display: none;
+}
+body #wrapper ul li table {
+  border-spacing: 0;
+  margin-left: 6px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border-left: 1px solid #000;
+}
+body #wrapper ul li table th {
+  background: #898989;
+  background: -moz-linear-gradient(top, #ececec 0%, #898989 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ececec), color-stop(100%, #898989));
+  background: -webkit-linear-gradient(top, #ececec 0%, #898989 100%);
+  background: -o-linear-gradient(top, #ececec 0%, #898989 100%);
+  background: -ms-linear-gradient(top, #ececec 0%, #898989 100%);
+  background: linear-gradient(to bottom, #ececec 0%, #898989 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#898989', GradientType=0);
+  background-repeat: no-repeat;
+  padding: 5px;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-top: 1px solid #000;
+}
+body #wrapper ul li table tr:nth-of-type(2n+1) {
+  background: #898989;
+  background: -moz-linear-gradient(top, #cbcbcb 0%, #898989 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cbcbcb), color-stop(100%, #898989));
+  background: -webkit-linear-gradient(top, #cbcbcb 0%, #898989 100%);
+  background: -o-linear-gradient(top, #cbcbcb 0%, #898989 100%);
+  background: -ms-linear-gradient(top, #cbcbcb 0%, #898989 100%);
+  background: linear-gradient(to bottom, #cbcbcb 0%, #898989 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cbcbcb', endColorstr='#898989', GradientType=0);
+  background-repeat: no-repeat;
+}
+body #wrapper ul li table tr:nth-of-type(2n) {
+  background: #cbcbcb;
+  background: -moz-linear-gradient(top, #898989 0%, #cbcbcb 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #898989), color-stop(100%, #cbcbcb));
+  background: -webkit-linear-gradient(top, #898989 0%, #cbcbcb 100%);
+  background: -o-linear-gradient(top, #898989 0%, #cbcbcb 100%);
+  background: -ms-linear-gradient(top, #898989 0%, #cbcbcb 100%);
+  background: linear-gradient(to bottom, #898989 0%, #cbcbcb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#898989', endColorstr='#cbcbcb', GradientType=0);
+  background-repeat: no-repeat;
+}
+body #wrapper ul li table td {
+  padding: 5px;
+  color: #fff;
+  text-align: center;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+body #wrapper ul li div {
+  margin: 5px 15px 0;
+  padding-bottom: 5px;
+}
+body #wrapper ul li h1 {
+  color: #5E5E5E;
+  font-size: 1.6em;
+  text-align: center;
+  margin: 10px 0 5px;
+}
+body #wrapper ul li p {
+  text-align: justify;
+}
+body #wrapper ul li a {
+  background: #aaaaaa;
+  background: -moz-linear-gradient(top, #eeeeee 25%, #aaaaaa 75%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(25%, #eeeeee), color-stop(75%, #aaaaaa));
+  background: -webkit-linear-gradient(top, #eeeeee 25%, #aaaaaa 75%);
+  background: -o-linear-gradient(top, #eeeeee 25%, #aaaaaa 75%);
+  background: -ms-linear-gradient(top, #eeeeee 25%, #aaaaaa 75%);
+  background: linear-gradient(to bottom, #eeeeee 25%, #aaaaaa 75%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#aaaaaa', GradientType=0);
+  background-repeat: no-repeat;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #444;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+body #wrapper ul li a:hover {
+  background: #aaaaaa;
+  background: -moz-linear-gradient(top, #aaaaaa 0%, #aaaaaa 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #aaaaaa), color-stop(100%, #aaaaaa));
+  background: -webkit-linear-gradient(top, #aaaaaa 0%, #aaaaaa 100%);
+  background: -o-linear-gradient(top, #aaaaaa 0%, #aaaaaa 100%);
+  background: -ms-linear-gradient(top, #aaaaaa 0%, #aaaaaa 100%);
+  background: linear-gradient(to bottom, #aaaaaa 0%, #aaaaaa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#aaaaaa', endColorstr='#aaaaaa', GradientType=0);
+  background-repeat: no-repeat;
+}
+body #wrapper ul li:not(:first-child) {
+  border-top: 1px solid #000;
+}
+body #wrapper ul li:not(:last-of-type) {
+  border-bottom: 1px solid #000;
+}
