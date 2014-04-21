@@ -1,0 +1,111 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    zoom: 1;
+}
+
+.linear-gradient(@from-color,@from-pos,@to-color,@to-pos,@repeat: no-repeat) {
+    background: @to-color;
+    background: -moz-linear-gradient(top, @from-color @from-pos, @to-color @to-pos);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-pos,@from-color), color-stop(@to-pos,@to-color));
+    background: -webkit-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: -o-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: -ms-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: linear-gradient(to bottom, @from-color @from-pos,@to-color @to-pos);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{from-color}', endColorstr='@{to-color}',GradientType=0 );
+    background-repeat: @repeat;
+}
+
+body {
+    width: 960px;
+    font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+
+    #wrapper {
+        position: relative;
+        top: 25px;
+        left: 25px;
+
+        form {
+            width: 380px;
+            display: inline-block;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: right;
+            .linear-gradient(#68D1FF,0%,#8CFFFB,100%);
+
+
+            fieldset {
+                text-align: right;
+                padding-right: 15px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-radius: 5px;
+                border: 3px solid #333;
+
+                legend {
+                    text-align: right;
+                    padding: 0 15px 0 15px;
+                    font-size: 1.3em;
+                    font-style: italic;
+                }
+
+
+
+
+                label {
+                }
+
+                input[type="text"], input[type="password"] {
+                    padding: 5px 15px 5px 15px;
+                    margin-top: 1px;
+                    border-radius: 5px;
+                    border: 1px solid #008FCE;
+                    .linear-gradient(#69D2FF,0%,#8BFEFB,100%);
+                }
+
+                input[type="number"] {
+                    border-radius: 5px;
+                    margin-top: 1px;
+                    padding: 5px;
+                    width: 35px;
+                    border: 1px solid #008FCE;
+                    .linear-gradient(#69D2FF,0%,#8BFEFB,100%);
+                }
+            }
+
+            input[type="radio"] {
+                margin-top: 7px;
+            }
+
+            button {
+                 color: #333;
+                margin-top: 15px;
+                font-size: 1.2em;
+                padding: 5px 15px;
+                border-bottom: 1px solid #000;
+                border-radius: 5px;
+                .linear-gradient(#36C2FF,0%,#8BFEFB,100%);
+                &:hover{
+                    .linear-gradient(#9BE1FF,0%,#9BE1FF,100%);
+                }
+            }
+
+            input[type="reset"] {
+                 color: #333;
+                margin-top: 15px;
+                font-size: 1.2em;
+                padding: 5px 15px;
+                border-radius: 5px;
+                border-bottom: 1px solid #000;
+                .linear-gradient(#36C2FF,0%,#8BFEFB,100%);
+                &:hover{
+                    .linear-gradient(#9BE1FF,0%,#9BE1FF,100%);
+                }
+            }
+        }
+    }
+}
