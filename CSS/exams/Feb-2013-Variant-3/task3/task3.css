@@ -1,0 +1,110 @@
+﻿* {
+  padding: 0;
+  margin: 0;
+  zoom: 1;
+}
+body {
+  font-family: Cambria, 'Palatino Linotype', 'Book Antiqua', 'URW Palladio L', serif;
+  font-size: 18px;
+}
+body #wrapper {
+  width: 960px;
+}
+body #wrapper form {
+  margin-left: 25px;
+  margin-top: 25px;
+  border: 1px solid #444;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 15px;
+  background: #444444;
+  background: -moz-linear-gradient(top, #ebff5b 0%, #444444 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ebff5b), color-stop(100%, #444444));
+  background: -webkit-linear-gradient(top, #ebff5b 0%, #444444 100%);
+  background: -o-linear-gradient(top, #ebff5b 0%, #444444 100%);
+  background: -ms-linear-gradient(top, #ebff5b 0%, #444444 100%);
+  background: linear-gradient(to bottom, #ebff5b 0%, #444444 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebff5b', endColorstr='#444444', GradientType=0);
+  background-repeat: no-repeat;
+  color: #fff;
+  width: 380px;
+  text-align: right;
+  font-size: 0.9em;
+}
+body #wrapper form fieldset {
+  font-size: 18px;
+  padding: 5px 15px 5px;
+  border: 3px solid #555;
+  border-radius: 5px;
+}
+body #wrapper form fieldset legend {
+  font-style: italic;
+  padding: 0 15px;
+  font-size: 1.15em;
+  font-weight: bold;
+}
+body #wrapper form fieldset label {
+  font-size: 0.9em;
+}
+body #wrapper form fieldset input {
+  color: #fff;
+  margin: 5px 0 0;
+  border: 2px solid #444;
+  border-radius: 5px;
+  padding: 5px 15px;
+  background: #474744;
+  background: -moz-linear-gradient(top, #e8fc5b 0%, #474744 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e8fc5b), color-stop(100%, #474744));
+  background: -webkit-linear-gradient(top, #e8fc5b 0%, #474744 100%);
+  background: -o-linear-gradient(top, #e8fc5b 0%, #474744 100%);
+  background: -ms-linear-gradient(top, #e8fc5b 0%, #474744 100%);
+  background: linear-gradient(to bottom, #e8fc5b 0%, #474744 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8fc5b', endColorstr='#474744', GradientType=0);
+  background-repeat: no-repeat;
+}
+body #wrapper form fieldset input[type="number"] {
+  padding: 5px;
+  width: 35px;
+  color: #fff;
+}
+body #wrapper form input[type="radio"] {
+  display: none;
+}
+body #wrapper form input[type="radio"]:checked + label {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+body #wrapper form > label {
+  display: inline-block;
+  margin: 10px 0 15px;
+}
+body #wrapper form button,
+body #wrapper form input[type="reset"] {
+  padding: 5px 15px;
+  font-size: 1.2em;
+  border: none;
+  border-bottom: 1px solid #000;
+  border-radius: 5px;
+  background: #464644;
+  background: -moz-linear-gradient(top, #e3fd28 0%, #464644 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e3fd28), color-stop(100%, #464644));
+  background: -webkit-linear-gradient(top, #e3fd28 0%, #464644 100%);
+  background: -o-linear-gradient(top, #e3fd28 0%, #464644 100%);
+  background: -ms-linear-gradient(top, #e3fd28 0%, #464644 100%);
+  background: linear-gradient(to bottom, #e3fd28 0%, #464644 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3fd28', endColorstr='#464644', GradientType=0);
+  background-repeat: no-repeat;
+  color: #333;
+}
+body #wrapper form button:hover,
+body #wrapper form input[type="reset"]:hover {
+  background: #f1ff8e;
+  background: -moz-linear-gradient(top, #f1ff8e 0%, #f1ff8e 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f1ff8e), color-stop(100%, #f1ff8e));
+  background: -webkit-linear-gradient(top, #f1ff8e 0%, #f1ff8e 100%);
+  background: -o-linear-gradient(top, #f1ff8e 0%, #f1ff8e 100%);
+  background: -ms-linear-gradient(top, #f1ff8e 0%, #f1ff8e 100%);
+  background: linear-gradient(to bottom, #f1ff8e 0%, #f1ff8e 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1ff8e', endColorstr='#f1ff8e', GradientType=0);
+  background-repeat: no-repeat;
+}
