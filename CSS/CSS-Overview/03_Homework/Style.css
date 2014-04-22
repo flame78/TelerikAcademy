@@ -1,0 +1,50 @@
+﻿body {
+    background-color: #adadad;
+    color:black;
+    font-size:18px;
+}
+
+h1 {
+    text-align: center;
+    color: lightyellow;
+    font-size:2.5em;
+}
+
+article h1 {
+    text-align: left;
+    font-size:1.5em;
+}
+
+a {
+    text-decoration:none;
+    color:black;
+}
+
+.current {
+    background-color:#dedede;
+}
+
+li {
+    list-style: none;
+    text-align:center;
+    font-size:1.2em;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+}
+
+li:nth-last-child(1) a
+{
+    text-decoration:underline;
+}
+
+article>footer {
+font-size:0.7em;
+}
+
+body>footer {
+    text-align:center;
+    font-size:1.1em;
+}

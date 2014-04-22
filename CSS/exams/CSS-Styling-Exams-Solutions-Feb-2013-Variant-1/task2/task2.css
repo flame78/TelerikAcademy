@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+  font-size: 16px;
+}
+body #wrapper {
+  width: 960px;
+}
+.tab-strip {
+  position: relative;
+  left: 15px;
+  top: 15px;
+  display: inline-block;
+  width: 340px;
+  height: 230px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.tab-strip .tab-content {
+  display: none;
+}
+.tab-strip .current .tab-content {
+  position: absolute;
+  display: block;
+  background-color: #FFF;
+  left: 20px;
+  top: 50px;
+  font-weight: normal;
+}
+.tab-strip .current .tab-content li {
+  list-style: disc;
+}
+.tab-strip .current .tab-content li li {
+  margin-left: 25px;
+  list-style: lower-latin;
+}
+.tab-strip .current .tab-content table {
+  margin: 0;
+  padding: 0;
+  border-spacing: 0px;
+  border-bottom: 1px solid #000;
+}
+.tab-strip .current .tab-content table th {
+  font-weight: bold;
+  padding: 5px 15px;
+  border: 1px solid #000;
+  border-right: none;
+  border-bottom: none;
+  background: #eeeeee;
+  background: -moz-linear-gradient(top, #ababab 0%, #eeeeee 80%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ababab), color-stop(80%, #eeeeee));
+  background: -webkit-linear-gradient(top, #ababab 0%, #eeeeee 80%);
+  background: -o-linear-gradient(top, #ababab 0%, #eeeeee 80%);
+  background: -ms-linear-gradient(top, #ababab 0%, #eeeeee 80%);
+  background: linear-gradient(to bottom, #ababab 0%, #eeeeee 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ababab', endColorstr='#eeeeee', GradientType=0);
+  background-repeat: no-repeat;
+}
+.tab-strip .current .tab-content table th:last-of-type {
+  border-right: 1px solid #000;
+}
+.tab-strip .current .tab-content table td {
+  padding: 5px 15px 5px 5px;
+  border: 1px solid #000;
+  border-right: none;
+  border-bottom: none;
+  background-color: #eee;
+}
+.tab-strip .current .tab-content table td:last-of-type {
+  border-right: 1px solid #000;
+}
+.tab-strip > li {
+  padding: 5px 15px;
+  font-weight: bold;
+  border-right: 1px solid #000;
+}
+.tab-strip > li:not(.current) {
+  background: #adadad;
+  background: -moz-linear-gradient(top, #ededed 0%, #adadad 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ededed), color-stop(100%, #adadad));
+  background: -webkit-linear-gradient(top, #ededed 0%, #adadad 100%);
+  background: -o-linear-gradient(top, #ededed 0%, #adadad 100%);
+  background: -ms-linear-gradient(top, #ededed 0%, #adadad 100%);
+  background: linear-gradient(to bottom, #ededed 0%, #adadad 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#adadad', GradientType=0);
+  background-repeat: no-repeat;
+  font-weight: normal;
+  border-bottom: 1px solid #000;
+  border-radius: 5px;
+}
+.tab-strip > li:last-of-type {
+  border-right: none;
+}
+.tab-strip > li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.4em;
+}
+.tab-strip > li:hover {
+  background: #eeeeee;
+  background: -moz-linear-gradient(top, #eeeeee 0%, #eeeeee 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #eeeeee));
+  background: -webkit-linear-gradient(top, #eeeeee 0%, #eeeeee 100%);
+  background: -o-linear-gradient(top, #eeeeee 0%, #eeeeee 100%);
+  background: -ms-linear-gradient(top, #eeeeee 0%, #eeeeee 100%);
+  background: linear-gradient(to bottom, #eeeeee 0%, #eeeeee 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#eeeeee', GradientType=0);
+  background-repeat: no-repeat;
+}
+.tab-strip > li {
+  display: inline-block;
+}

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CSS-layout", "CSS-layout\CSS-layout.vbproj", "{422359A5-95E8-429F-A59B-9372A5C83139}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{422359A5-95E8-429F-A59B-9372A5C83139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{422359A5-95E8-429F-A59B-9372A5C83139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{422359A5-95E8-429F-A59B-9372A5C83139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{422359A5-95E8-429F-A59B-9372A5C83139}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,291 @@
+﻿body, header, section, footer, article, h1, h2, h3, h4, h5, h6, input, button, label, p, fieldset, nav, ul, li, a, span, strong, em {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 15px;
+}
+
+div, h1, h3, h4, h5, h6, header, footer, body, section, nav, article, aside {
+    display: block;
+}
+
+body {
+    @background-color: #9215F2;
+    @font: 14px normal Arial;
+    @color: #fff;
+
+    .gradient() {
+        background: rgb(213,147,255); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(213,147,255,1) 0%, rgba(146,21,242,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(213,147,255,1)), color-stop(100%,rgba(146,21,242,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(213,147,255,1) 0%,rgba(146,21,242,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(213,147,255,1) 0%,rgba(146,21,242,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, rgba(213,147,255,1) 0%,rgba(146,21,242,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom, rgba(213,147,255,1) 0%,rgba(146,21,242,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d593ff', endColorstr='#9215f2',GradientType=0 ); /* IE6-9 */
+    }
+
+    .clearfix:after, header div#header-container:after, header nav:after, header nav ul:after, header nav ul li ul.sub-nav-list:after, section:after, aside:after {
+        clear: both;
+    }
+
+    .clearfix:after, header div#header-container:after, header nav:after, header nav ul:after, header nav ul li ul.sub-nav-list:after, section:after, aside:after, .clearfix:before, header div#header-container:before, header nav:before, header nav ul:before, header nav ul li ul.sub-nav-list:before, section:before, aside:before {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .clearfix, header div#header-container, header nav, header nav ul, header nav ul li ul.sub-nav-list, section, aside {
+        zoom: 1;
+    }
+
+    font: @font;
+    color: @color;
+    background-color: @background-color;
+
+    header {
+        padding-top: 25px;
+        padding-bottom: 5px;
+        padding-right: 15px;
+        padding-left: 15px;
+        .gradient();
+
+        div#header-container div#logo-container {
+            float: left;
+            position: relative;
+        }
+
+        div#header-container div#reg-form-container {
+            float: right;
+            position: relative;
+            right: 5%;
+            top: 50%;
+
+
+            div {
+                text-align: right;
+
+
+                label {
+                    width: 50px;
+                    margin: 5px;
+                }
+
+                input {
+                    width: 130px;
+                    border: 1px solid #603382;
+                    border-radius: 10px;
+                    padding: 2px 5px;
+                    margin: 5px;
+                    background-color: #B35EF3;
+                }
+            }
+
+            button {
+                margin-left: auto;
+                margin-right: auto;
+                font-weight: bold;
+                border: 1px solid #A0AFAE;
+                border-style: outset;
+                border-radius: 10px;
+                padding: 5px 8px;
+                color: @color;
+                background-color: #B35EF3;
+
+                &:hover {
+                    background-color: #8949b9;
+                    border-style: inset;
+                }
+            }
+        }
+
+        nav {
+            display: inline-block;
+            width: 75%;
+            margin: 20px 20px 20px 20px;
+            padding: 12px;
+            border: 2px solid #000;
+
+            ul {
+                &.nav-list {
+                    list-style-type: none;
+                }
+
+                li {
+                    float: left;
+                    margin: 0;
+
+                    a {
+                        text-decoration: none;
+                        padding: 0 10px 0 10px;
+                        color: @color;
+                        font: 1.4em normal Arial;
+
+                        &.selected {
+                            font-weight: bold;
+                        }
+
+                        &:hover > a {
+                            text-decoration: underline;
+                            color: #a8a8a8;
+                        }
+                    }
+
+                    &:hover > a + ul {
+                        display: block;
+                    }
+
+
+                    ul.sub-nav-list {
+                        position: absolute;
+                        display: none;
+                        background-color: rgba(179, 94, 243, 0.9);
+                        border-radius: 5px;
+                    }
+
+                    ul li {
+                        float: none;
+                        margin: 0 15px;
+                        padding: 10px 0;
+                        border-radius: 0px;
+                        border-bottom: 2px solid black;
+
+                        &:last-of-type {
+                            border-bottom: none;
+                        }
+
+                        & > a {
+                            font-size: 1.2em;
+                            color: @color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    section {
+        width: 75%;
+        float: left;
+        /*       color: black; */
+        article {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid black;
+
+            header {
+                background: none;
+                padding: 5px;
+
+                h1 {
+                    font-size: 1.4em;
+                    padding: 0;
+                }
+            }
+
+            footer {
+                padding: 5px;
+
+                p {
+                    font-size: 16px;
+                    text-align: right;
+                    font-weight: normal;
+
+                    time {
+                        font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        color: #CCA3F8;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    aside {
+        float: left;
+        width: 20%;
+        margin: 20px;
+
+        & > ul {
+            list-style-type: none;
+
+            & > li {
+                margin: 15px 0;
+                padding: 15px;
+                border: 1px solid black;
+                border-radius: 5px;
+
+                & h2 {
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+
+                p {
+                    margin-top: 10px;
+                    margin-right: 5px;
+                    margin-bottom: 10px;
+                    margin-left: 5px;
+                    font-size: 14px;
+
+                    a {
+                        color: #aaaaaa;
+                        text-decoration: none;
+                    }
+
+                    strong {
+                        color: #cccccc;
+                        font-weight: bold;
+                        font-style: normal;
+                    }
+
+                    em {
+                        color: #cccccc;
+                        font-weight: normal;
+                        font-style: italic;
+                    }
+                }
+
+                ul {
+                    list-style-type: none;
+                    margin-top: 10px;
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                    margin-left: 0px;
+
+                    li {
+                        margin-top: 5px;
+                        margin-left: 10px;
+                        margin-bottom: 0px;
+                        margin-right: 0px;
+                        background: url(images/li-dot.png) no-repeat;
+                        background-position: 0 50%;
+                        padding-left: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        clear: both;
+        padding-top: 15px;
+        padding-bottom: 25px;
+        padding-right: 0px;
+        padding-left: 0px;
+
+        p {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}

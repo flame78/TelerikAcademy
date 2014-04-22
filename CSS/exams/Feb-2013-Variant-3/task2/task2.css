@@ -1,0 +1,59 @@
+﻿* {
+  padding: 0;
+  margin: 0;
+  zoom: 1;
+}
+body {
+  font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+  font-size: 16px;
+}
+body #wrapper {
+  width: 960px;
+}
+body #wrapper .select-list {
+  margin-left: 25px;
+  margin-top: 25px;
+}
+body #wrapper .select-list .selected {
+  background: #6c4eff;
+  background: -moz-linear-gradient(top, #6c4eff 0%, #6c4eff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6c4eff), color-stop(100%, #6c4eff));
+  background: -webkit-linear-gradient(top, #6c4eff 0%, #6c4eff 100%);
+  background: -o-linear-gradient(top, #6c4eff 0%, #6c4eff 100%);
+  background: -ms-linear-gradient(top, #6c4eff 0%, #6c4eff 100%);
+  background: linear-gradient(to bottom, #6c4eff 0%, #6c4eff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c4eff', endColorstr='#6c4eff', GradientType=0);
+  background-repeat: no-repeat;
+}
+body #wrapper .select-list a {
+  position: relative;
+  top: -80px;
+}
+body #wrapper .select-list ul {
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #8168ff 0%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8168ff), color-stop(100%, #ffffff));
+  background: -webkit-linear-gradient(top, #8168ff 0%, #ffffff 100%);
+  background: -o-linear-gradient(top, #8168ff 0%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #8168ff 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #8168ff 0%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8168ff', endColorstr='#ffffff', GradientType=0);
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 200px;
+  border-radius: 5px;
+  overflow-y: scroll;
+  display: inline-block;
+}
+body #wrapper .select-list li {
+  padding: 5px 15px;
+}
+body #wrapper .select-list li:first-letter {
+  text-decoration: underline;
+}
+body #wrapper .select-list li:not(:last-child) {
+  border-bottom: 1px solid #000;
+}
+body #wrapper .select-list .all-items {
+  list-style: none;
+}

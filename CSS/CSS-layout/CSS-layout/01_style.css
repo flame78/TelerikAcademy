@@ -1,0 +1,25 @@
+﻿body,ul,li,ol { padding:0; margin:0;}
+
+li {
+    display:block;
+    list-style:none;
+}
+
+ul {
+    list-style:none;
+    display:none;
+    padding-left:10px;
+    color:#aaa;
+}
+
+
+li:hover ul{
+    position:absolute;
+    display:block;
+    background-color:#fff;
+    z-index:1;
+}
+
+ol>li:hover{
+    text-decoration:underline;
+}
