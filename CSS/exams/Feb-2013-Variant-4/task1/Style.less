@@ -1,0 +1,70 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    zoom: 1;
+}
+
+.linear-gradient(@from-color,@from-pos: 0%,@to-color: @from-color,@to-pos: 100%,@repeat: no-repeat) {
+    background: @to-color;
+    background: -moz-linear-gradient(top, @from-color @from-pos, @to-color @to-pos);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-pos,@from-color), color-stop(@to-pos,@to-color));
+    background: -webkit-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: -o-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: -ms-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: linear-gradient(to bottom, @from-color @from-pos,@to-color @to-pos);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{from-color}', endColorstr='@{to-color}',GradientType=0 );
+    background-repeat: @repeat;
+}
+
+body {
+    font-family: Constantina, Georgia, 'Nimbus Roman No9 L', serif;
+    font-size: 16px;
+
+    #wrapper {
+        width: 960px;
+
+        div {
+            margin-left: 25px;
+            margin-top: 25px;
+            display: inline-block;
+            border-radius: 15px;
+            background-color: #ccc;
+            border: 1px solid #000;
+            vertical-align: middle;
+            padding: 15px 0;
+            .linear-gradient(#DE28FF,15%,#F9DBFF,75%);
+
+            .postedby{
+                display:inline-block;
+                margin-top:5px;
+                margin-left:20px;
+                padding:5px 15px;
+                border-top:1px solid #000;
+                border-bottom:1px solid #000;
+            }
+
+            .info{
+                padding:21px 35px 16px 35px;
+                text-align:justify;
+            }
+            .left-arrow {
+                position:relative;
+                float:left;
+                display:inline-block;
+                top:34px;
+            }
+
+            .right-arrow {
+                position:relative;
+                display: block;
+                float: right;
+                top:34px;
+            }
+
+            h1 {
+                padding-left:35px;
+                font-size:1.8em;
+            }
+        }
+    }
+}
