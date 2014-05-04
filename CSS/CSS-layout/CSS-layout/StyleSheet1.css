@@ -1,0 +1,23 @@
+﻿#hr-navigation {
+    text-align:center;
+}
+
+    #hr-navigation ul {
+        display:inline-block;
+    }
+
+        #hr-navigation ul li {
+            background: #333;
+            display: inline-block;
+            list-style-type: none;
+            margin: 5px;
+            width:130px;
+            
+        }
+
+    #hr-navigation li a {
+        display:block;
+        padding: 5px 10px;
+        color: #fff;
+        text-decoration: none;
+    }

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="js-console.css" rel="stylesheet" />
+
+    <title></title>
+</head>
+<body>
+    <label for="x">x:</label>
+    <input type="text" name="x" id="x" />
+    <label for="y">y:</label>
+    <input type="text" name="y" id="y" />
+
+    <button onclick="WithinCircle('#x','#y')">
+        Checks point is within a circle K(center 1,1;radius 3).
+        <br />
+        and out of the rectangle R(top=1, left=-1, width=6, height=2).
+    </button>
+
+
+    <script>
+        function WithinCircle(idx, idy) {
+
+            var x = parseFloat(document.querySelector(idx).value);
+            var y = parseFloat(document.querySelector(idy).value);
+
+            if ((x - 1) * (x - 1) + (y - 1) * (y - 1) <= 3 * 3) {
+
+                // is within circle
+
+                if (y <= 1 && y >= -1) {
+                    if (x >= -1 && x <= 5) {
+
+                        // is not out of the rectangle
+
+                        alert("False");
+                        return;
+                    }
+                }
+
+                alert("True");
+                return;
+            }
+
+            alert("False");
+        }
+    </script>
+</body>
+</html>
