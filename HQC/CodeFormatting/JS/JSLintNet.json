@@ -1,0 +1,13 @@
+﻿{
+  "output": "Error",
+  "ignore": [],
+  "options": {
+    "predef": {},
+    "ass": false,
+    "evil": false,
+    "passfail": false
+  },
+  "runOnSave": false,
+  "runOnBuild": false,
+  "cancelBuild": false
+}

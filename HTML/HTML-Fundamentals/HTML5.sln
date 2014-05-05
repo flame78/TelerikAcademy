@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HTML5", "HTML5\HTML5.vbproj", "{53F8DA33-604E-4635-8D2E-9AC37AB2513F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NestedList", "NestedList\NestedList.vbproj", "{3E13B6FA-7A00-448B-81B7-FBE30B864196}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DodgeSocialNetwork", "ProfileFriendsInfo\DodgeSocialNetwork.vbproj", "{36447F48-B440-4DA0-AF51-21557FCA7634}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53F8DA33-604E-4635-8D2E-9AC37AB2513F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F8DA33-604E-4635-8D2E-9AC37AB2513F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F8DA33-604E-4635-8D2E-9AC37AB2513F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F8DA33-604E-4635-8D2E-9AC37AB2513F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E13B6FA-7A00-448B-81B7-FBE30B864196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E13B6FA-7A00-448B-81B7-FBE30B864196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E13B6FA-7A00-448B-81B7-FBE30B864196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E13B6FA-7A00-448B-81B7-FBE30B864196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36447F48-B440-4DA0-AF51-21557FCA7634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36447F48-B440-4DA0-AF51-21557FCA7634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36447F48-B440-4DA0-AF51-21557FCA7634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36447F48-B440-4DA0-AF51-21557FCA7634}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
