@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="JavaScript.js"></script>
+    <title></title>
+</head>
+<body>
+    <div>
+        <a href="#" onclick="resultToAlert(lastDigitName,document.getElementById('input1').value)">
+            1. Write a function that returns the last digit of given
+            integer as an English word. Examples: 512  "two",
+            1024  "four", 12309  "nine"
+        </a>
+        <br />
+        Input :
+        <input type="text" value="512" id="input1" />
+    </div>
+    <hr />
+    <div>
+        <a href="#" onclick="resultToAlert(reverseNumber,document.getElementById('input2').value)">
+            2. Write a function that reverses the digits of given
+            decimal number. Example: 256  652
+        </a>
+        <br />
+        word :
+        <input type="text" value="256" id="input2" />
+    </div>
+    <hr />
+    <div>
+        <a href="#" onclick="resultToAlert(testFindWordOccurrences)">
+            3. Write a function that finds all the occurrences of
+            word in a text
+             The search can case sensitive or case insensitive
+             Use function overloading
+        </a>
+        <br />
+        word :
+        <input type="text" value="sed" id="input3" />
+        <label for="input3_case_sensetive">Case Sensitive</label>
+        <input type="checkbox" id="input3_case_sensetive" />
+        <br />
+        text : <textarea id="input3_text" rows="10" cols="80">Lorem ipsum dolor sit amet, consedtetur adipiscing elit. Vivamus pellentesque accumsan mauris, sed dignissim enim consedtetur vitae. Nunc nibh justo, varius id leo non, mollis venenatis diam. Nullam aliquet at velit et imperdiet. Sed mollis ac odio vitae sollicitudin. Vivamus luctus posuere libero, non sollicitudin purus aliquet ut. Aenean lobortis gravida lacus quis gravida. Curabitur eget orci urna. Integer sit amet elit elementum, feugiat justo quis, ultrices nibh. Aenean volutpat quam sit amet sollicitudin accumsan. Vestibulum in libero ornare, tincidunt urna vel, vulputate libero. Etiam euismod a velit sit amet imperdiet. Nulla eu condimentum libero. Ut et ipsum tempor, faucibus arcu et, lobortis arcu. Sed et nulla sagittis, sagittis nisi vel, sodales nunc.</textarea>
+    </div>
+    <hr />
+    <div>
+        <a href="#" onclick="resultToAlert(numberOfDivs)">
+            4. Write a function to count the number of divs on the web page
+        </a>
+    </div>
+    <hr />
+    <div>
+        <a href="#" onclick="resultToAlert(testNumberAppearsInArray)">
+            5. Write a function that counts how many times given
+            number appears in given array. Write a test function
+            to check if the function is working correctly.
+        </a>
+        <br />
+        number :
+        <input type="text" value="2" id="input5" />
+        Array :
+        <input type="text" value="1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 2" id="input5Array" size="60" />
+    </div>
+    <hr />
+    <div>
+        <a href="#" onclick="resultToAlert(firstBiggerThanNeighbors, document.getElementById('input7').value)">
+            7. Write a function that returns the index of the first
+            element in array that is bigger than its neighbors, or
+            -1, if there’s no such element.
+             Use the function from the previous exercise.
+        </a>
+        <br />
+        Array :
+        <input type="text" value="1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 2" id="input7" size="60" />
+    </div>
+
+</body>
+</html>
