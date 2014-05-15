@@ -27,6 +27,7 @@ function planarCoordinateSystem() {
     console.log(checkThreeLinesCanFormTriangle(l1,l2,l3));
 
     function checkThreeLinesCanFormTriangle(l1, l2, l3) {
+
         if (l1 instanceof Line && l2 instanceof Line && l3 instanceof Line) {
             if (l1.length < l2.length + l3.length) {
                 if (l2.length < l1.length + l3.length) {
@@ -40,6 +41,7 @@ function planarCoordinateSystem() {
         }
         return false;
     }
+
     function distanceBetweenTwoPoints(point1, point2) {
 
         if (point1 instanceof Point && point2 instanceof Point) {
@@ -49,9 +51,8 @@ function planarCoordinateSystem() {
         }
     }
 
-
-
     function Line(startPoint, endPoint) {
+
         if (startPoint instanceof Point && endPoint instanceof Point) {
 
             this.startPoint = new Point(startPoint.x, startPoint.y);
@@ -63,6 +64,7 @@ function planarCoordinateSystem() {
             throw "Line can make only with two Points";
         }
     }
+
     function Point(x, y) {
 
         if (isNaN(x) || isNaN(y)) {
@@ -75,6 +77,5 @@ function planarCoordinateSystem() {
         this.toString = function () { return 'x=' + x + '; y=' + y; }
 
         return this;
-
     }
 }
