@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6187B62D-58EB-43FF-8F8C-6A426C4D1E45}</ProjectGuid>
+    <ProjectGuid>{B9DB9E2A-A704-4870-838D-D0565A405BEA}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Using_Objects</RootNamespace>
-    <AssemblyName>Using-Objects</AssemblyName>
+    <RootNamespace>JS_1April2013Morning</RootNamespace>
+    <AssemblyName>JS-1April2013Morning</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -57,9 +57,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3ClojureParsing.js" />
+    <Content Include="CleanCode.js" />
     <Content Include="index.html" />
-    <Content Include="planarCoordinateSystem.js" />
-    <Content Include="removesAllElements.js" />
+    <Content Include="JorotheNaughty.js" />
+    <Content Include="Listy.js" />
+    <Content Include="PHPVariables.js" />
+    <Content Include="Sequences.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -86,9 +90,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4141</DevelopmentServerPort>
+          <DevelopmentServerPort>64651</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4141/</IISUrl>
+          <IISUrl>http://localhost:64651/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
