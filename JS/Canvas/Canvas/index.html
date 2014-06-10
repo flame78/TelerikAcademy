@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="Snake.js"></script>
+    <script src="CanvasExtensions.js"></script>
+    <script src="canvas-utils.js"></script>
+    <script src="Picture.js"></script>
+    <script src="FlyingBall.js"></script>
+    <title></title>
+</head>
+<body style="width:800px;">
+    <a href="#" onclick="window.onload()">
+        1. Draw the following graphics using canvas: (double click on image to see original, and click to see point cordinate in console)
+    </a>
+    <br />
+    <canvas id="canvas" width="800" height="500" style="border:2px solid black"></canvas>
+    <br />
+    <a href="#" onclick="flyingBall()">
+        2. Draw a circle that flies inside a box (When it reaches an edge, it should bounce that edge)
+    </a>
+                  <span id="score" style="display:inline-block;float:right;">Score: 0</span>
+    <br />
+    <a href="#" onclick="snake()">
+        3. *Create the famous game "Snake"
+        <pre>
+ The snake is a sequence of rectangles/ellipses
+ The snake can move left, right, up or down
+ The snake dies if it reaches any of the edges or
+when it tries to eat itself
+ A food should be generated
+ When the snake eats the food, it grows and new
+food is generated at random position
+ Implement a high-score board, kept in
+localStorage
+</pre>
+    </a>
+</body>
+</html>

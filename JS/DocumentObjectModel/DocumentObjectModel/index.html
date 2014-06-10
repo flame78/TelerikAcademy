@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="JavaScript.js"></script>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <a href="#" onclick="selectDivDirectInDiv()">
+                1. Write a script that selects all the div nodes that are directly inside other div elements
+                <ul>
+                    <li><div>Create a function using querySelectorAll()</div></li>
+                    <li>Create a function using getElementsByTagName()</li>
+                </ul>
+        </div>
+        <div>
+            <a href="#" onclick="printValueOfInput()">
+                2. Create a function that gets the value of &lt;input type="text"&gt; <input type="text" size="30" value="ands prints its value to the console" />
+            </a>
+        </div>
+        <div>
+            <a href="#" onclick="changeColor()">
+                3. Crеate a function that gets the value of &lt;input type="color"&gt; and sets the background of the body to this value
+                <div><input type="color" value="#000666" onchange="changeColor()" /></div>
+            </a>
+        </div>
+        <div>
+            <a href="#" onclick="shimQuerySelector()">
+                4. *Write a script that shims querySelector and
+                querySelectorAll in older browsers
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B9DB9E2A-A704-4870-838D-D0565A405BEA}</ProjectGuid>
+    <ProjectGuid>{C9260E11-5CF7-4800-AD9E-7DDE06B7E61E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JS_1April2013Morning</RootNamespace>
-    <AssemblyName>JS-1April2013Morning</AssemblyName>
+    <RootNamespace>KineticJS</RootNamespace>
+    <AssemblyName>KineticJS</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -57,14 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="3ClojureParsing.js" />
-    <Content Include="CleanCode.js" />
     <Content Include="index.html" />
-    <Content Include="JorotheNaughty.js" />
-    <Content Include="Listy.js" />
-    <Content Include="PHPVariables.js" />
-    <Content Include="Sequences.js" />
-    <Content Include="ShaverParser.js" />
+    <Content Include="scripts\kinetic-v5.1.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -91,9 +85,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64651</DevelopmentServerPort>
+          <DevelopmentServerPort>3268</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64651/</IISUrl>
+          <IISUrl>http://localhost:3268/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
