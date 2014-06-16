@@ -10,22 +10,6 @@ var items = [{
         text: 'Two'
     },
     {
-        value: 1,
-        text: 'One'
-    },
-    {
-        value: 2,
-        text: 'Two'
-    },
-    {
-        value: 1,
-        text: 'One'
-    },
-    {
-        value: 2,
-        text: 'Two'
-    },
-    {
         value: 3,
         text: 'Three'
     },
@@ -38,9 +22,4 @@ var items = [{
         text: 'Five'
     }];
 
-
-console.log($('#select-template').text());
-var selectTemplate = Handlebars.compile($('#select-template').text());
-var selectHTML = selectTemplate({ items: items });
-console.log(selectHTML);
-$('#select-container').append(selectHTML);
+$('#select-container').append(Handlebars.compile($('#select-template').text())({ items: items }));
