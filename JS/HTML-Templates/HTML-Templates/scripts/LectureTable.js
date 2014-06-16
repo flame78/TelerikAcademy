@@ -129,6 +129,5 @@ function table(container, templateContainer, tableData) {
     var templateString = $(templateContainer).text();
     var template = Handlebars.compile(templateString);
     var html = template(tableData);
-    console.dir(html);
     $(container).append(html);
 }
