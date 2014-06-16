@@ -1,7 +1,6 @@
 ﻿/// <reference path="jquery-2.1.1.js" />
 /// <reference path="handlebars-v1.3.0.js" />
 
-
 var tableData = {
 
     header: {

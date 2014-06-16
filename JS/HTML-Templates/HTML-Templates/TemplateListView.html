@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TemplateListView</title>
+
+    <script src="scripts/jquery-2.1.1.js"></script>
+    <script src="scripts/handlebars-v1.3.0.js"></script>
+
+    <script id="book-item-template" type="…">
+        <li class="book-item">
+            <a href="/#books/{{id}}">
+                <strong>{{title}}</strong>
+            </a>
+        </li>
+    </script>
+
+    <script id="students-row-template" type="…">
+        <tr class="student-row">
+            <td>{{number}}</td>
+            <td>{{name}}</td>
+            <td>{{mark}}</td>
+        </tr>
+    </script>
+
+    <style>
+        table { border-collapse:collapse}
+        th { border:1px solid black; background-color:#AAA}
+        td { border:1px solid black}
+    </style>
+</head>
+<body>
+    <ul id="books-list" data-template="book-item-template"></ul>
+
+    <table>
+        <thead>
+            <tr><th>#</th><th>Name</th><th>Mark</th></tr>
+        </thead>
+        <tbody id="students-table"
+               data-template="students-row-template"></tbody>
+    </table>
+    <hr />
+    <table>
+        <thead>
+            <tr><th>#</th><th>Name</th><th>Mark</th></tr>
+        </thead>
+        <tbody id="students-table-inside-template" >
+            <tr class="student-row">
+                <td>{{number}}</td>
+                <td>{{name}}</td>
+                <td>{{mark}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script src="scripts/TemplateListView.js"></script>
+</body>
+</html>

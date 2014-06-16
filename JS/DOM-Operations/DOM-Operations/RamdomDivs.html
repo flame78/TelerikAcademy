@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="scripts/RandomDivs.js"></script>
+    <script src="scripts/RandomExtensions.js"></script>
+    <title></title>
+</head>
+<body>
+   <div style="z-index:10; position:relative; background-color:rgba(255, 255, 255,0.5);display:inline-block">Number of Divs <input type="text" />
+            </div>
+
+    <script>
+
+        var input = document.getElementsByTagName('input')[0];
+
+        input.onchange = function () {
+
+            randomDivs(parseInt(input.value));
+        }
+        
+    </script>
+</body>
+</html>
