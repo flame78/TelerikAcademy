@@ -62,9 +62,11 @@
 	<script src="jquery.min.js"></script>
 	<script src="scripts.js"></script>
 	<script>
-		$(function () {
+		windows.onload = function(){
+			$(function () {
 			$('#gallery').gallery(3);
 		});
+		};
 	</script>
 </body>
 </html>
