@@ -34,7 +34,7 @@
     <div id="container"></div>
 
     <script>
-        var domModule = new function () {
+        var domModule = function () {
 
             var $buffer = $(document.createDocumentFragment());
             var that = {};
@@ -63,7 +63,7 @@
             }
 
             return that;
-        }
+        }();
 
         var divNumber = 1;
         var div = document.createElement("div");
