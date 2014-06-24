@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <style>
+        div {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <a class="button" href="#">ClickMe</a>
+        <a class="button" href="#">ClickMe</a>
+        <a class="button" href="#">ClickMe</a>
+        <br />
+        <button class="add50divs">Add 50 divs with appendToBuffer </button>
+        <ul>
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+            <li>fourth</li>
+            <li>fifth</li>
+        </ul>
+        <ul>
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+            <li>fourth</li>
+            <li>fifth</li>
+        </ul>
+    </div>
+    <div id="container"></div>
+
+    <script>
+        var domModule = new function () {
+
+            var $buffer = $(document.createDocumentFragment());
+            var that = {};
+
+            that.appendChild = function (element, selector) {
+                $(selector).append(element);
+            }
+
+            that.removeChild = function (selector, element) {
+                $(selector).find(element).remove();
+            }
+
+            that.addHandler = function (selector, event, func) {
+                $(selector).on(event, func);
+            }
+
+            that.appendToBuffer = function (selector, element) {
+                if (!$buffer.find($(selector)).length == 0) {
+                    $buffer.append($(selector).clone());
+                }
+                $($buffer, $(selector)).append(element);
+                if ($($buffer, $(selector)).children().length == 100) {
+                    $(selector).append($($buffer, $(selector)).children());
+                    $($buffer, $(selector)).remove();
+                }
+            }
+
+            return that;
+        }
+
+        var divNumber = 1;
+        var div = document.createElement("div");
+        div.innerHTML = 'First DIV';
+
+
+        //appends div to #wrapper
+        domModule.appendChild(div.cloneNode(true), "#wrapper");
+
+        //removes li:first-child from ul
+        domModule.removeChild("ul", "li:first-child");
+
+        //add handler to each a element with class button
+        domModule.addHandler("a.button", 'click',
+            function () {
+                alert("Clicked")
+            });
+        domModule.addHandler("button.add50divs",'click',add50divs)
+
+        div.style.padding = '2px';
+        div.style.border = '1px solid black';
+        div.style.display = 'inline-block';
+
+        function add50divs() {
+            for (var i = 0; i < 50; i++) {
+                div.innerHTML = 'div ' +divNumber++ ;
+                domModule.appendToBuffer("#container", div.cloneNode(true));
+            }
+        }
+
+    </script>
+</body>
+</html>
