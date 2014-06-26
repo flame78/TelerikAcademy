@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="special-console"></div>
+
+    <script>
+        !function () {
+
+            var specialConsole = function () {
+
+                function writeLine() {
+                    console.log(formatString(arguments));
+                }
+
+                function writeError() {
+                    console.error(formatString(arguments));
+                }
+
+                function writeWarning() {
+                    console.warn(formatString(arguments));
+                }
+
+                function formatString(args) {
+
+                    var string = args[0];
+
+                    if (args.length > 1) {
+
+                        for (var i = 1; i < args.length; i++) {
+
+                            while (string != string.replace('{' + (i - 1) + '}', args[i])) {
+                                string = string.replace('{' + (i - 1) + '}', args[i]);
+                            }
+                        }
+                    }
+
+                    return string;
+                }
+
+
+                return {
+                    writeLine: writeLine,
+                    writeError: writeError,
+                    writeWarning: writeWarning,
+                }
+            }();
+
+            specialConsole.writeLine("Message: hello");
+            //logs to the console "Message: hello"
+            specialConsole.writeLine("Message: {0}", "hello");
+            specialConsole.writeLine("{0} Message: {0}", "hello");
+            //logs to the console "Message: hello"
+            specialConsole.writeError("Error: {0}", "Something happened");
+            specialConsole.writeWarning("Warning: {0}", "A warning")
+        }();
+    </script>
+</body>
+</html>

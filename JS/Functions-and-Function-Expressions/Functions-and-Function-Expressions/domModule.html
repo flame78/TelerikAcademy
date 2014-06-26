@@ -52,10 +52,13 @@
             }
 
             that.appendToBuffer = function (selector, element) {
+
                 if (!$buffer.find($(selector)).length == 0) {
                     $buffer.append($(selector).clone());
                 }
+
                 $($buffer, $(selector)).append(element);
+                
                 if ($($buffer, $(selector)).children().length == 100) {
                     $(selector).append($($buffer, $(selector)).children());
                     $($buffer, $(selector)).remove();

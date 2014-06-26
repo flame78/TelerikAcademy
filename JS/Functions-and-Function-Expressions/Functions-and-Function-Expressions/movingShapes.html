@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+    </style>
+</head>
+<body>
+    <button class="add-shapes">Add Shapes</button>
+    <button class="start-move">Start Move</button>
+    <button class="stop-move">Stop Move</button>
+    <div id="container">
+
+    </div>
+
+    <script>
+        !function () {
+            function movingShapes(container) {
+
+                container = container || 'body';
+                var shapes = [];
+                var divTemplate = document.createElement('div');
+                var angle = 0;
+
+                divTemplate.style.position = 'absolute';
+                divTemplate.style.width = 100 + 'px';
+                divTemplate.style.height = 100 + 'px';
+                divTemplate.innerHTML = 'DIV';
+                divTemplate.style.textAlign = 'center';
+                divTemplate.style.verticalAlign = 'midle';
+
+                function add(movement) {
+
+                    setRandomDiv(divTemplate);
+
+                    var currentDiv = divTemplate.cloneNode(true)
+
+                    currentDiv.dataset.movement = movement;
+
+                    var centerX = parseInt(currentDiv.style.left);
+                    var centerY = parseInt(currentDiv.style.top);
+
+                    currentDiv.dataset.radiusX = randomNumber(0, window.innerHeight - centerX);
+                    currentDiv.dataset.radiusY = randomNumber(0, window.innerWidth - centerY);
+                    currentDiv.dataset.centerX = centerX;
+                    currentDiv.dataset.centerY = centerY;
+
+                    shapes.push(currentDiv);
+                    document.querySelector(container).appendChild(currentDiv);
+                }
+
+                function setRandomDiv(divTemplate) {
+                    divTemplate.style.backgroundColor = randomColor();
+                    divTemplate.style.color = randomColor();
+                    divTemplate.style.top = randomNumber(0, window.innerHeight) + 'px';
+                    divTemplate.style.left = randomNumber(0, window.innerWidth) + 'px';
+                    divTemplate.style.fontSize = randomNumber(20, 70) + 'px';
+                    divTemplate.style.borderRadius = randomNumber(1, 50) + 'px';
+                    divTemplate.style.borderColor = randomColor();
+                    divTemplate.style.borderWidth = randomNumber(1, 20) + 'px';
+                    divTemplate.style.borderStyle = 'solid';
+                }
+
+                function updateShapes() {
+
+                    angle += 0.01;
+
+                    if (angle > Math.PI * 2) {
+                        angle = 0;
+                    }
+
+                    for (var i = 0, length = shapes.length; i < length; i++) {
+
+
+                        var centerX = parseInt(shapes[i].dataset.centerX);
+                        var centerY = parseInt(shapes[i].dataset.centerY);
+                        var radiusX = parseInt(shapes[i].dataset.radiusX);
+                        var radiusY = parseInt(shapes[i].dataset.radiusY);
+
+                        if (shapes[i].dataset.movement == 'ellipse') {
+
+                            shapes[i].style.left = (centerX + (Math.cos(angle) * radiusX)) + 'px';
+                            shapes[i].style.top = (centerY + (Math.sin(angle) * radiusY)) + 'px';
+                        }
+
+                        else {
+
+                            var speedX = radiusX / 50;
+                            var speedY = radiusY / 50;
+
+                            if (angle < Math.PI / 2) {
+                                shapes[i].style.left = parseInt(shapes[i].style.left) + speedX + 'px';
+                            }
+                            else if (Math.PI < angle && angle < Math.PI * 1.5) {
+                                shapes[i].style.left = parseInt(shapes[i].style.left) - speedX + 'px';
+                            }
+                            else if (Math.PI / 2 < angle && angle < Math.PI) {
+                                shapes[i].style.top = parseInt(shapes[i].style.top) + speedY + 'px';
+                            }
+                            else if (Math.PI * 1.5 < angle && angle < Math.PI * 2) {
+                                shapes[i].style.top = parseInt(shapes[i].style.top) - speedY + 'px';
+                            }
+                        }
+                    }
+
+
+                }
+
+                var shapeInterval;
+
+                function startMove() {
+                    shapeInterval = setInterval(function () { updateShapes() }, 20);
+                }
+
+                function stopMove() {
+                    clearInterval(shapeInterval);
+                }
+
+                return {
+                    add: add,
+                    startMove: startMove,
+                    stopMove: stopMove
+                };
+            }
+
+
+            function randomColor() {
+                return 'rgba(' + randomNumber(0, 255) + ',' + randomNumber(0, 255) + ',' + randomNumber(0, 255) + ',' + randomNumber() / 100 + ')';
+            }
+
+            function randomNumber(start, end) {
+
+                if (start === undefined) {
+                    start = 100;
+                }
+
+                if (end === undefined) {
+                    end = start;
+                    start = 0;
+                }
+
+                end += 1;
+                return 0 | Math.random() * (end - start) + start;
+            }
+
+            var movingShapes = movingShapes('#container');
+
+            addShapes();
+            movingShapes.startMove();
+
+            document.querySelector('.start-move').addEventListener('click', movingShapes.startMove);
+            document.querySelector('.stop-move').addEventListener('click', movingShapes.stopMove);
+            document.querySelector('.add-shapes').addEventListener('click', addShapes);
+
+            function addShapes() {
+                //add element with rectangular movement
+                movingShapes.add("rect");
+                //add element with ellipse movement
+                movingShapes.add("ellipse");
+            }
+        }();
+    </script>
+</body>
+
+</html>
