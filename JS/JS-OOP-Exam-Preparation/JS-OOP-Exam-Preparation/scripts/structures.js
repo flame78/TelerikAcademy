@@ -1,4 +1,4 @@
-define(['todo-list/container', 'todo-list/section', 'todo-list/item'], function(Container, Section, Item) {
+define(['./todo-list/container', './todo-list/section', './todo-list/item'], function(Container, Section, Item) {
   'use strict';
   return {
     getContainer: function() {
