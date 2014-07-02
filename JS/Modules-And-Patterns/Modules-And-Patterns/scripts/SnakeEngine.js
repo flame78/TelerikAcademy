@@ -2,15 +2,16 @@
 /// <reference path="SnakeDrawer.js" />
 /// <reference path="Snake.js" />
 
-(function () {
+var snakeEngine = (function () {
     var COLS = 55;
     var ROWS = 30;
     var WIDTH = 770;
-    var HEIGHT = 430;
+    var HEIGHT = 420;
     var CONTAINER = 'container';
-    
+    var gameField = [];
+   
     var snakeLayer = new Kinetic.Layer();
-    var snake = new Snake(28, 15*14, 10, 1);
+    var snake = snakeClass(28, 15 * 14, 10, 1);
     
     var stage = new Kinetic.Stage({
         container: CONTAINER,
@@ -25,19 +26,44 @@
     setGameFieldSize();
     generateStones(stones);
     drawBackground(backgroundLayer, stones);
-    setControls()
 
-    window.requestAnimationFrame(frame);
+    setControls();
+
+    function startGame(){
+        window.requestAnimationFrame(frame);
+        setTimeout(randomApple, 2000);
+    }
+
+    function randomApple() {
+        drawer.apple(random(1, COLS - 1), random(1, ROWS - 1), backgroundLayer);
+        stage.add(backgroundLayer);
+        setTimeout(randomApple, 10000);
+    }
 
     function frame() {
         snake.update();
         var snakeBody = snake.getSnakeData();
         snakeLayer.clear();
-        for (var i = 0; i < snakeBody.length; i++) {
-            drawer.snake(i, snakeBody[i][0], snakeBody[i][1], snakeLayer)
+        for (var cell = 0; cell < snakeBody.length; cell++) {
+            drawer.snake(cell, snakeBody[cell][0], snakeBody[cell][1], snakeLayer)
         }
+        checkForCollision(snakeBody)
         stage.add(snakeLayer);
-        window.requestAnimationFrame(frame);
+
+            window.requestAnimationFrame(frame);
+    }
+
+    function checkForCollision(snakeBody) {
+        var collision = backgroundLayer.getIntersection({
+            x: snakeBody[0][0] + 7,
+            y: snakeBody[0][1] + 7
+        })
+
+        if (collision.getName() == 'apple') {
+            console.log(collision);
+            drawer.apple(-1, -1, backgroundLayer);
+            stage.add(backgroundLayer);
+        }
     }
 
     function setControls() {
@@ -111,5 +137,9 @@
             document.getElementById(CONTAINER).style.zoom = window.innerHeight / HEIGHT;
         }
         document.body.style.overflow = 'hiden';
+    }
+
+    return {
+        startGame:startGame
     }
 }());

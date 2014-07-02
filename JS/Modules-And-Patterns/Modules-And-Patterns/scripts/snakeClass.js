@@ -1,4 +1,4 @@
-﻿function Snake(startPositionX, startPositionY, length, speed) {
+﻿var snakeClass = function (startPositionX, startPositionY, length, speed) {
 
     var self = this;
     var directionX = 1;
@@ -10,7 +10,7 @@
     for (var i = 1; i < length; i++) {
 
 
-        snakeBody.push([startPositionX-14, startPositionY, 0, 0]);
+        snakeBody.push([startPositionX - 14, startPositionY, 0, 0]);
     }
 
     function getSnakeData() {
@@ -39,15 +39,15 @@
             speedX = snakeBody[i][2] * speed;
             speedY = snakeBody[i][3] * speed;
 
-        //    if (Math.abs(snakeBody[i - 1][0] - snakeBody[i][0]) > 13 || Math.abs(snakeBody[i - 1][1] - snakeBody[i][1]) > 13) {
-                snakeBody[i][0] += speedX;
-                snakeBody[i][1] += speedY;
-       //     }
+            //    if (Math.abs(snakeBody[i - 1][0] - snakeBody[i][0]) > 13 || Math.abs(snakeBody[i - 1][1] - snakeBody[i][1]) > 13) {
+            snakeBody[i][0] += speedX;
+            snakeBody[i][1] += speedY;
+            //     }
         }
     }
 
     function increaseLength() {
-        snakeBody.push([snakeBody[length - 1][0], snakeBody[length - 1][1],0,0]);
+        snakeBody.push([snakeBody[length - 1][0], snakeBody[length - 1][1], 0, 0]);
     }
 
     function moveLeft() {
@@ -81,4 +81,4 @@
         getSnakeData: getSnakeData
     }
 
-}
+};

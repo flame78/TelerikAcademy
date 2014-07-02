@@ -57,12 +57,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\apple.png" />
     <Content Include="images\border.png" />
     <Content Include="images\snake.png" />
     <Content Include="images\stone.png" />
     <Content Include="index.html" />
     <Content Include="libs\kinetic-v5.1.0.js" />
-    <Content Include="scripts\Snake.js" />
+    <Content Include="scripts\snakeClass.js" />
     <Content Include="scripts\SnakeEngine.js" />
     <Content Include="scripts\SnakeDrawer.js" />
     <Content Include="Web.config" />
