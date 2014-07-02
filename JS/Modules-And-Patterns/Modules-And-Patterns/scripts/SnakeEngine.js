@@ -1,43 +1,49 @@
 ﻿/// <reference path="../libs/kinetic-v5.1.0.js" />
 /// <reference path="SnakeDrawer.js" />
 /// <reference path="Snake.js" />
-
+'use strict';
 var snakeEngine = (function () {
     var COLS = 55;
     var ROWS = 30;
     var WIDTH = 770;
     var HEIGHT = 420;
     var CONTAINER = 'container';
-    var gameField = [];
-   
+    var snake; 
+    var stage;
+    var stones;
+    var appleItervalID;
+
     var snakeLayer = new Kinetic.Layer();
-    var snake = snakeClass(28, 15 * 14, 10, 1);
-    
-    var stage = new Kinetic.Stage({
-        container: CONTAINER,
-        width: WIDTH,
-        height: HEIGHT
-    });
-
     var backgroundLayer = new Kinetic.Layer();
-
-    var stones = []
-
-    setGameFieldSize();
-    generateStones(stones);
-    drawBackground(backgroundLayer, stones);
-
+    
     setControls();
 
-    function startGame(){
+    function startGame() {
+        
+        snakeLayer.clear();
+        backgroundLayer.clear();
+
+        if (stage) stage.clear();
+
+        stage = new Kinetic.Stage({
+            container: CONTAINER,
+            width: WIDTH,
+            height: HEIGHT
+        });
+       
+        stones = [];
+        snake = snakeClass(28, 15 * 14, 10, 1);
+        generateStones(stones);
+        drawBackground(backgroundLayer, stones);
         window.requestAnimationFrame(frame);
-        setTimeout(randomApple, 2000);
+        appleItervalID = setInterval(randomApple, 2000);
     }
 
     function randomApple() {
         drawer.apple(random(1, COLS - 1), random(1, ROWS - 1), backgroundLayer);
         stage.add(backgroundLayer);
-        setTimeout(randomApple, 10000);
+        clearInterval(appleItervalID);
+        appleItervalID = setInterval(randomApple, 10000);
     }
 
     function frame() {
@@ -47,23 +53,30 @@ var snakeEngine = (function () {
         for (var cell = 0; cell < snakeBody.length; cell++) {
             drawer.snake(cell, snakeBody[cell][0], snakeBody[cell][1], snakeLayer)
         }
-        checkForCollision(snakeBody)
-        stage.add(snakeLayer);
-
+        if (!hasCollision(snakeBody)) {
+            stage.add(snakeLayer);
             window.requestAnimationFrame(frame);
+        }
     }
 
-    function checkForCollision(snakeBody) {
+    function hasCollision(snakeBody) {
         var collision = backgroundLayer.getIntersection({
             x: snakeBody[0][0] + 7,
             y: snakeBody[0][1] + 7
-        })
+        }).getName();
 
-        if (collision.getName() == 'apple') {
-            console.log(collision);
+        if (collision == 'stone' || collision == 'border') {
+        //    window.cancelAnimationFrame(frame);
+            clearInterval(appleItervalID);
+            startGame();
+            return true;
+        }
+
+        if (collision == 'apple') {
             drawer.apple(-1, -1, backgroundLayer);
             stage.add(backgroundLayer);
         }
+        return false;
     }
 
     function setControls() {
@@ -82,7 +95,6 @@ var snakeEngine = (function () {
                     snake.moveDown();
                     break;
                 default:
-                    console.log(ev.keyCode);
             }
         });
     }
@@ -117,6 +129,7 @@ var snakeEngine = (function () {
     }
 
     function generateStones(stones) {
+
         var numberOfStones = random(10, 40);
 
         for (var i = 0; i < numberOfStones; i++) {

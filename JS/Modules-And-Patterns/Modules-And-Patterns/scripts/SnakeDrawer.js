@@ -1,5 +1,5 @@
 ﻿/// <reference path="kinetic-v5.1.0.min.js" />
-
+'use strict';
 var drawer = (function () {
 
     var CELL_SIZE = 14;

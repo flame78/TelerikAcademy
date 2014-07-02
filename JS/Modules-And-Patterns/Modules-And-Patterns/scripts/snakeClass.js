@@ -1,4 +1,5 @@
-﻿var snakeClass = function (startPositionX, startPositionY, length, speed) {
+﻿'use strict';
+var snakeClass = function (startPositionX, startPositionY, length, speed) {
 
     var self = this;
     var directionX = 1;
@@ -18,7 +19,6 @@
     }
 
     function update() {
-
         if (snakeBody[0][0] % 14 == 0 && snakeBody[0][1] % 14 == 0) {
             for (var i = snakeBody.length - 1; i > 0; i--) {
                 snakeBody[i][2] = snakeBody[i - 1][2];
@@ -39,10 +39,8 @@
             speedX = snakeBody[i][2] * speed;
             speedY = snakeBody[i][3] * speed;
 
-            //    if (Math.abs(snakeBody[i - 1][0] - snakeBody[i][0]) > 13 || Math.abs(snakeBody[i - 1][1] - snakeBody[i][1]) > 13) {
             snakeBody[i][0] += speedX;
             snakeBody[i][1] += speedY;
-            //     }
         }
     }
 

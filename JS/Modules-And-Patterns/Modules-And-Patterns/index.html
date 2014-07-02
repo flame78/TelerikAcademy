@@ -14,10 +14,11 @@
 </head>
 <body>
     <div id="container">
+        <button id="start">Start Game</button>
     </div>
     <script src="scripts/SnakeEngine.js"></script>
     <script>
-        snakeEngine.startGame();
+        document.getElementById('start').addEventListener('click',snakeEngine.startGame);
     </script>
 </body>
 </html>
