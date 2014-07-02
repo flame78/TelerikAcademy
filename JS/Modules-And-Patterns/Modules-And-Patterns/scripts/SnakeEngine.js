@@ -6,20 +6,28 @@ var snakeEngine = (function () {
     var COLS = 55;
     var ROWS = 30;
     var WIDTH = 770;
-    var HEIGHT = 420;
+    var HEIGHT = 462;
     var CONTAINER = 'container';
-    var snake; 
+    var snake;
     var stage;
     var stones;
     var appleItervalID;
+    var score = 0;
+    var pauseFlag = false;
+    var animationFrameID;
 
     var snakeLayer = new Kinetic.Layer();
     var backgroundLayer = new Kinetic.Layer();
-    
+
     setControls();
 
+    function restartGame() {
+
+    }
+
     function startGame() {
-        
+
+
         snakeLayer.destroy();
         backgroundLayer.destroy();
 
@@ -30,20 +38,22 @@ var snakeEngine = (function () {
             width: WIDTH,
             height: HEIGHT
         });
-       
+
         stones = [];
         snake = snakeClass(28, 15 * 14, 10, 1);
+        setGameFieldSize();
         generateStones(stones);
         drawBackground(backgroundLayer, stones);
-        window.requestAnimationFrame(frame);
-        appleItervalID = setInterval(randomApple, 2000);
+        snakeScore.result(score, backgroundLayer, stage);
+        animationFrameID = window.requestAnimationFrame(frame);
+        appleItervalID = window.setInterval(randomApple, 2000);
     }
 
     function randomApple() {
         drawer.apple(random(1, COLS - 1), random(1, ROWS - 1), backgroundLayer);
         stage.add(backgroundLayer);
-        clearInterval(appleItervalID);
-        appleItervalID = setInterval(randomApple, 10000);
+        window.clearInterval(appleItervalID);
+        appleItervalID = window.setInterval(randomApple, 10000);
     }
 
     function frame() {
@@ -55,7 +65,7 @@ var snakeEngine = (function () {
         }
         if (!hasCollision(snakeBody)) {
             stage.add(snakeLayer);
-            window.requestAnimationFrame(frame);
+            animationFrameID = window.requestAnimationFrame(frame);
         }
     }
 
@@ -66,7 +76,7 @@ var snakeEngine = (function () {
         }).getName();
 
         if (collision == 'stone' || collision == 'border') {
-            clearInterval(appleItervalID);
+            window.clearInterval(appleItervalID);
             startGame();
             return true;
         }
@@ -78,12 +88,15 @@ var snakeEngine = (function () {
             }).destroy();
             randomApple();
             snake.increaseLength();
+            score += 10;
+            snakeScore.result(score, backgroundLayer, stage);
         }
         return false;
     }
 
     function setControls() {
         document.addEventListener('keydown', function (ev) {
+            console.log(ev.keyCode);
             switch (ev.keyCode) {
                 case 37:
                     snake.moveLeft();
@@ -97,9 +110,26 @@ var snakeEngine = (function () {
                 case 40:
                     snake.moveDown();
                     break;
+                case 19:
+                case 80:
+                    togglePauseGame();
+                    break;
                 default:
             }
         });
+    }
+
+    function togglePauseGame() {
+
+        if (!pauseFlag) {
+            window.cancelAnimationFrame(animationFrameID)
+            window.clearInterval(appleItervalID);
+        }
+        else {
+            animationFrameID = window.requestAnimationFrame(frame);
+            appleItervalID = window.setInterval(randomApple, 10000);
+        }
+        pauseFlag = !pauseFlag;
     }
 
     function drawBackground(layer) {
@@ -112,15 +142,24 @@ var snakeEngine = (function () {
             fill: 'darkgreen',
         });
 
+        var rectScore = new Kinetic.Rect({
+            x: 0,
+            y: 0,
+            width: WIDTH,
+            height: HEIGHT,
+            fill: 'black',
+        });
+
+        layer.add(rectScore)
         layer.add(rect);
-        
+
         for (var i = 0; i < ROWS; i++) {
             drawer.border(0, i, layer);
-            drawer.border(COLS-1, i, layer);
+            drawer.border(COLS - 1, i, layer);
         }
 
         for (var i = 0; i < COLS; i++) {
-            drawer.border(i, ROWS-1, layer);
+            drawer.border(i, ROWS - 1, layer);
             drawer.border(i, 0, layer);
         }
 
@@ -140,9 +179,8 @@ var snakeEngine = (function () {
         }
     }
 
-    function random(from, to)
-    {
-        return (Math.random()*(to-from)+from) | 0
+    function random(from, to) {
+        return (Math.random() * (to - from) + from) | 0
     }
 
     function setGameFieldSize() {
@@ -150,12 +188,12 @@ var snakeEngine = (function () {
             document.getElementById(CONTAINER).style.zoom = window.innerWidth / WIDTH;
         }
         else {
-            document.getElementById(CONTAINER).style.zoom = window.innerHeight / HEIGHT;
+            document.getElementById(CONTAINER).style.zoom = window.innerHeight / (HEIGHT + 4);
         }
         document.body.style.overflow = 'hiden';
     }
 
     return {
-        startGame:startGame
+        startGame: startGame
     }
 }());

@@ -63,6 +63,7 @@
     <Content Include="images\stone.png" />
     <Content Include="index.html" />
     <Content Include="libs\kinetic-v5.1.0.js" />
+    <Content Include="scripts\snakeScore.js" />
     <Content Include="scripts\snakeClass.js" />
     <Content Include="scripts\SnakeEngine.js" />
     <Content Include="scripts\SnakeDrawer.js" />
