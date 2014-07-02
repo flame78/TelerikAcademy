@@ -32,7 +32,7 @@ var drawer = (function () {
     function apple(x, y, layer) {
         appleKJS.setX(x * CELL_SIZE);
         appleKJS.setY(y * CELL_SIZE);
-        layer.add(appleKJS);
+        layer.add(appleKJS.clone());
     }
 
     function snake(cell, x, y, layer) {
@@ -61,7 +61,7 @@ var drawer = (function () {
         borderImg.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAACTFBMVEU+GQlGDQtBGAlFGQlFGQpPFA1SGQNZEQtPIw5PKw1DIBVHIhNAIxpTIwBVIQ5SKw9aJAJeJQZcJwVQJBJYJhJbKxdeLRNfLBRaKh1ZLhtNMitRNSFhGQpnGAxpGwljKAtjLw9vJgtoLQxjIxVgLxFnNg9oMh9qOBZwLw51KxFxMA1xPx5gLiFiLiNuNyxrPSV0PyFrQh9vTCd8TjNxUCKANRSHPBGOShiFVB2IUR2RRQyTRReSQxiWUBOcURafUByHSS+HUyeJVSKKUy+JWCWKUzKPWjKUViqZZB6TYSORYCWRYimSYzOUYTOXbTiebzSecCqfdSuYcj6fej+gTROqVA2rXgehWx6gXxqxXgysaBSubRSsbhavbh2schy0Ygq1Zw29bwK5bAu/bAiyZhG1aBezahixbhy1ahq7YhC/bhK7ahq9bx+zch+5chm7cxy6cx++dhykYy6raiyibjambzChciavdSSocSinczauczarcDitdziofTuyYCuwbSm5ZiO+bCG1dCy5cSCwczWwcjy0fje3eDu4czC7eDCJWkCCZ0bGZwfAYgvBZwrDaADBawbCbADCbgbEbwDBaQvCbgnGbg7Fbw/DaBTDbBPDcwDHcQrFfxrKdRDPeRrDaSHCbSbEbSHEbCPCcSLAcSXAcSbBdy3JciXEcTXBezPAfTDSeSLdfzHEfFS6gRW6giKwgTO2ijO4jD2lhEWsgELUghnWgxzPgC7NgzjAkDbRhCvZgy3VkzThhCfrjSbHk1TZiUXQoE7mi0ntq0NUl06PAAAA40lEQVR4XgUAg3EDAPBj27ZT27Zt27Zt27ZtL9aDw6H6+45R9sDJ/tHW3hV49Da0aLiy5NS+wuLqdKDSwkzmQRcGJbgxJpoOoTZy5XDNupO1OjyOYAmXfyrXjfnFx1dvC5LgAnI9HeJ3lmYXsr4xzIwy+JC6HXdm5+StvIkTV2fg0+C+3Z2yOTlxLklYm4MHhWNBec9uyfIvzusgH774uvbW/rouo9YOH9EGQpF9bGRUCM/K9m6MTAQ/DqCRKKx+5D3tNCgAnmp9fP0DEUml01PjZ8+QeX178/LDcm4qqqqsaP4Hu41Kpx9wMZAAAAAASUVORK5CYII=';
 
         appleKJS = new Kinetic.Image({
-            name: 'apple',
+            name : 'apple',
             image: appleImg,
             width: 14,
             height: 14

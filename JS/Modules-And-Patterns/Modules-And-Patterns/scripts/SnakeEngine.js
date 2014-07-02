@@ -20,8 +20,8 @@ var snakeEngine = (function () {
 
     function startGame() {
         
-        snakeLayer.clear();
-        backgroundLayer.clear();
+        snakeLayer.destroy();
+        backgroundLayer.destroy();
 
         if (stage) stage.clear();
 
@@ -66,15 +66,18 @@ var snakeEngine = (function () {
         }).getName();
 
         if (collision == 'stone' || collision == 'border') {
-        //    window.cancelAnimationFrame(frame);
             clearInterval(appleItervalID);
             startGame();
             return true;
         }
 
         if (collision == 'apple') {
-            drawer.apple(-1, -1, backgroundLayer);
-            stage.add(backgroundLayer);
+            backgroundLayer.getIntersection({
+                x: snakeBody[0][0] + 7,
+                y: snakeBody[0][1] + 7
+            }).destroy();
+            randomApple();
+            snake.increaseLength();
         }
         return false;
     }

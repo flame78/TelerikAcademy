@@ -1,16 +1,14 @@
 ﻿'use strict';
 var snakeClass = function (startPositionX, startPositionY, length, speed) {
 
-    var self = this;
     var directionX = 1;
     var directionY = 0;
     var snakeBody = [];
     var speed = speed;
+    var length = length;
 
     snakeBody.push([startPositionX, startPositionY, directionX, directionY]);
     for (var i = 1; i < length; i++) {
-
-
         snakeBody.push([startPositionX - 14, startPositionY, 0, 0]);
     }
 
@@ -20,7 +18,7 @@ var snakeClass = function (startPositionX, startPositionY, length, speed) {
 
     function update() {
         if (snakeBody[0][0] % 14 == 0 && snakeBody[0][1] % 14 == 0) {
-            for (var i = snakeBody.length - 1; i > 0; i--) {
+            for (var i = length - 1; i > 0; i--) {
                 snakeBody[i][2] = snakeBody[i - 1][2];
                 snakeBody[i][3] = snakeBody[i - 1][3];
             }
@@ -45,7 +43,8 @@ var snakeClass = function (startPositionX, startPositionY, length, speed) {
     }
 
     function increaseLength() {
-        snakeBody.push([snakeBody[length - 1][0], snakeBody[length - 1][1], 0, 0]);
+        snakeBody.push([snakeBody[length - 1][0] - 14 * snakeBody[length - 1][2], snakeBody[length - 1][1] - 14*snakeBody[length - 1][3], snakeBody[length - 1][2], snakeBody[length - 1][3]]);
+        length++;
     }
 
     function moveLeft() {
