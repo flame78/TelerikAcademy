@@ -1,31 +1,37 @@
 ﻿/// <reference path="C:\Users\Ivan\Desktop\github\JS\Modules-And-Patterns\Modules-And-Patterns\libs/kinetic-v5.1.0.js" />
 'use strict';
-var snakeScore = (function (width, height) {
+var SnakeScore = (function (width, height) {
 
-    var resultKJS = new Kinetic.Text({
-        x: width * 3 / 5,
-        y: height - 35,
-        fontSize: 24,
-        fontFamily: 'Calibri',
-        fill: 'white'
-    });
+    var resultKJS,
+        levelKJS,
+        gameOverKJS;
 
-    var levelKJS = new Kinetic.Text({
-        x: width * 1 / 4,
-        y: height - 35,
-        fontSize: 24,
-        fontFamily: 'Calibri',
-        fill: 'white'
-    });
+    (function setKJSContainers() {
+        resultKJS = new Kinetic.Text({
+            x: width * 3 / 5,
+            y: height - 35,
+            fontSize: 24,
+            fontFamily: 'Calibri',
+            fill: 'white'
+        });
 
-    var gameOverKJS = new Kinetic.Text({
-        x: width  / 10,
-        y: height / 4,
-        fontSize: 122,
-        text: 'GAME OVER',
-        fontFamily: 'Calibri',
-        fill: 'red'
-    });
+        levelKJS = new Kinetic.Text({
+            x: width * 1 / 4,
+            y: height - 35,
+            fontSize: 24,
+            fontFamily: 'Calibri',
+            fill: 'white'
+        });
+
+        gameOverKJS = new Kinetic.Text({
+            x: width / 10,
+            y: height / 4,
+            fontSize: 122,
+            text: 'GAME OVER',
+            fontFamily: 'Calibri',
+            fill: 'red'
+        });
+    }());
 
     function gameOver(score, layer, stage) {
         layer.add(gameOverKJS);
@@ -49,4 +55,4 @@ var snakeScore = (function (width, height) {
         level: level,
         gameOver: gameOver
     }
-}(770, 462));
+});
