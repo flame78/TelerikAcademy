@@ -32,11 +32,12 @@ var drawer = (function () {
     function apple(x, y, layer) {
         appleKJS.setX(x * CELL_SIZE);
         appleKJS.setY(y * CELL_SIZE);
-        layer.add(appleKJS.clone());
+        //layer.add(appleKJS.clone());
+        layer.add(appleKJS);
     }
 
     function snake(cell, x, y, layer) {
-        if(!snakeCells[cell]){
+        if (!snakeCells[cell]) {
             snakeCells[cell] = snakeKJS.clone();
         }
         snakeCells[cell].setX(x);
@@ -44,11 +45,20 @@ var drawer = (function () {
         layer.add(snakeCells[cell]);
     }
 
+    function snakeDestroy() {
+        for (var i = 1; i < snakeCells.length; i++) {
+            snakeCells[i].destroy();
+        }
+        snakeCells = [];
+    }
+
+
     return {
         apple: apple,
         border: border,
         stone: stone,
-        snake: snake
+        snake: snake,
+        snakeDestroy:snakeDestroy
     }
 
     function setSources() {
@@ -82,6 +92,7 @@ var drawer = (function () {
         });
 
         snakeKJS = new Kinetic.Image({
+            name: 'snake',
             image: snakeImg,
             width: 14,
             height: 14

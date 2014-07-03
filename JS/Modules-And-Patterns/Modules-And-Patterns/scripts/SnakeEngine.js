@@ -12,12 +12,15 @@ var snakeEngine = (function () {
     var stage;
     var stones;
     var appleItervalID;
-    var score = 0;
+    var score;
     var pauseFlag = false;
     var animationFrameID;
+    var level;
 
     var snakeLayer = new Kinetic.Layer();
     var backgroundLayer = new Kinetic.Layer();
+    var snakeHeadLayer = new Kinetic.Layer();
+    var appleLayer = new Kinetic.Layer();
 
     setControls();
 
@@ -27,11 +30,14 @@ var snakeEngine = (function () {
 
     function startGame() {
 
+        score = 0;
+        level = 1;
 
-        snakeLayer.destroy();
+        window.clearInterval(appleItervalID);
+
         backgroundLayer.destroy();
-
-        if (stage) stage.clear();
+        snakeHeadLayer.destroy();
+        drawer.snakeDestroy();
 
         stage = new Kinetic.Stage({
             container: CONTAINER,
@@ -44,14 +50,14 @@ var snakeEngine = (function () {
         setGameFieldSize();
         generateStones(stones);
         drawBackground(backgroundLayer, stones);
-        snakeScore.result(score, backgroundLayer, stage);
+        updateScore();
         animationFrameID = window.requestAnimationFrame(frame);
         appleItervalID = window.setInterval(randomApple, 2000);
     }
 
     function randomApple() {
-        drawer.apple(random(1, COLS - 1), random(1, ROWS - 1), backgroundLayer);
-        stage.add(backgroundLayer);
+        drawer.apple(random(1, COLS - 1), random(1, ROWS - 1), appleLayer);
+        stage.add(appleLayer);
         window.clearInterval(appleItervalID);
         appleItervalID = window.setInterval(randomApple, 10000);
     }
@@ -59,12 +65,15 @@ var snakeEngine = (function () {
     function frame() {
         snake.update();
         var snakeBody = snake.getSnakeData();
-        snakeLayer.clear();
-        for (var cell = 0; cell < snakeBody.length; cell++) {
+        drawer.snake(cell, snakeBody[0][0], snakeBody[0][1], snakeHeadLayer)
+        for (var cell = 1; cell < snakeBody.length; cell++) {
             drawer.snake(cell, snakeBody[cell][0], snakeBody[cell][1], snakeLayer)
         }
+
+
         if (!hasCollision(snakeBody)) {
             stage.add(snakeLayer);
+            stage.add(snakeHeadLayer);
             animationFrameID = window.requestAnimationFrame(frame);
         }
     }
@@ -73,30 +82,62 @@ var snakeEngine = (function () {
         var collision = backgroundLayer.getIntersection({
             x: snakeBody[0][0] + 7,
             y: snakeBody[0][1] + 7
-        }).getName();
+        });
+
+        if (collision) collision = collision.getName();
 
         if (collision == 'stone' || collision == 'border') {
-            window.clearInterval(appleItervalID);
-            startGame();
+            finishGame();
             return true;
         }
 
+        collision = appleLayer.getIntersection({
+            x: snakeBody[0][0],
+            y: snakeBody[0][1]
+        });
+
+        if (collision) collision = collision.getName();
+
         if (collision == 'apple') {
-            backgroundLayer.getIntersection({
-                x: snakeBody[0][0] + 7,
-                y: snakeBody[0][1] + 7
-            }).destroy();
             randomApple();
             snake.increaseLength();
             score += 10;
-            snakeScore.result(score, backgroundLayer, stage);
+            updateScore();
         }
+
+        collision = snakeLayer.getIntersection({
+            x: snakeBody[0][0] + 7 + 7 * snakeBody[0][2],
+            y: snakeBody[0][1] + 7 + 7 * snakeBody[0][3]
+        });
+
+        if (collision) collision = collision.getName();
+
+        if (collision == 'snake') {
+            finishGame();
+            return true;
+        }
+
         return false;
+    }
+
+    function finishGame() {
+        setTimeout(startGame, 3000);
+        snakeScore.gameOver(level, backgroundLayer, stage);
+    }
+
+    function updateScore() {
+
+        if (score>0 && (score % (10*level*level)) == 0) {
+            level++;
+            snake.increaseSpeed();
+        }
+
+        snakeScore.result(score, appleLayer, stage);
+        snakeScore.level(level, appleLayer, stage);
     }
 
     function setControls() {
         document.addEventListener('keydown', function (ev) {
-            console.log(ev.keyCode);
             switch (ev.keyCode) {
                 case 37:
                     snake.moveLeft();
@@ -134,25 +175,6 @@ var snakeEngine = (function () {
 
     function drawBackground(layer) {
 
-        var rect = new Kinetic.Rect({
-            x: 0,
-            y: 0,
-            width: COLS * 14,
-            height: ROWS * 14,
-            fill: 'darkgreen',
-        });
-
-        var rectScore = new Kinetic.Rect({
-            x: 0,
-            y: 0,
-            width: WIDTH,
-            height: HEIGHT,
-            fill: 'black',
-        });
-
-        layer.add(rectScore)
-        layer.add(rect);
-
         for (var i = 0; i < ROWS; i++) {
             drawer.border(0, i, layer);
             drawer.border(COLS - 1, i, layer);
@@ -172,7 +194,7 @@ var snakeEngine = (function () {
 
     function generateStones(stones) {
 
-        var numberOfStones = random(10, 40);
+        var numberOfStones = random(10, 15);
 
         for (var i = 0; i < numberOfStones; i++) {
             stones.push([random(1, COLS - 1), random(1, ROWS - 1)]);
@@ -184,12 +206,17 @@ var snakeEngine = (function () {
     }
 
     function setGameFieldSize() {
+        var container = document.getElementById(CONTAINER)
+
         if (window.innerWidth / window.innerHeight < WIDTH / HEIGHT) {
-            document.getElementById(CONTAINER).style.zoom = window.innerWidth / WIDTH;
+            container.style.zoom = window.innerWidth / WIDTH;
         }
         else {
-            document.getElementById(CONTAINER).style.zoom = window.innerHeight / (HEIGHT + 4);
+            container.style.zoom = window.innerHeight / (HEIGHT + 4);
+
         }
+        container.style.backgroundColor = 'darkgreen';
+        container.style.display = 'inline-block';
         document.body.style.overflow = 'hiden';
     }
 

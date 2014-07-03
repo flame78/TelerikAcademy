@@ -3,7 +3,7 @@
 var snakeScore = (function (width, height) {
 
     var resultKJS = new Kinetic.Text({
-        x:width*3/4,
+        x: width * 3 / 5,
         y: height - 35,
         fontSize: 24,
         fontFamily: 'Calibri',
@@ -12,13 +12,25 @@ var snakeScore = (function (width, height) {
 
     var levelKJS = new Kinetic.Text({
         x: width * 1 / 4,
-        y: height - 15
+        y: height - 35,
+        fontSize: 24,
+        fontFamily: 'Calibri',
+        fill: 'white'
     });
 
-    var livesKJS = new Kinetic.Text({
-        x: width * 2 / 4,
-        y: height - 15
+    var gameOverKJS = new Kinetic.Text({
+        x: width  / 10,
+        y: height / 4,
+        fontSize: 122,
+        text: 'GAME OVER',
+        fontFamily: 'Calibri',
+        fill: 'red'
     });
+
+    function gameOver(score, layer, stage) {
+        layer.add(gameOverKJS);
+        stage.add(layer);
+    }
 
     function result(score, layer, stage) {
         resultKJS.setText('Score: ' + score);
@@ -26,7 +38,15 @@ var snakeScore = (function (width, height) {
         stage.add(layer);
     }
 
-    return {
-        result:result
+    function level(level, layer, stage) {
+        levelKJS.setText('Level: ' + level);
+        layer.add(levelKJS);
+        stage.add(layer);
     }
-}(770,462));
+
+    return {
+        result: result,
+        level: level,
+        gameOver: gameOver
+    }
+}(770, 462));

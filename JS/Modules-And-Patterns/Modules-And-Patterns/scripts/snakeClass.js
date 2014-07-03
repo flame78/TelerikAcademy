@@ -5,6 +5,8 @@ var snakeClass = function (startPositionX, startPositionY, length, speed) {
     var directionY = 0;
     var snakeBody = [];
     var speed = speed;
+    var newSpeed;
+    var speedChange = false;
     var length = length;
 
     snakeBody.push([startPositionX, startPositionY, directionX, directionY]);
@@ -18,10 +20,16 @@ var snakeClass = function (startPositionX, startPositionY, length, speed) {
 
     function update() {
         if (snakeBody[0][0] % 14 == 0 && snakeBody[0][1] % 14 == 0) {
+            if (speedChange) {
+                speed = newSpeed;
+                speedChange = false;
+            }
+
             for (var i = length - 1; i > 0; i--) {
                 snakeBody[i][2] = snakeBody[i - 1][2];
                 snakeBody[i][3] = snakeBody[i - 1][3];
             }
+
             snakeBody[0][2] = directionX;
             snakeBody[0][3] = directionY;
         }
@@ -42,6 +50,25 @@ var snakeClass = function (startPositionX, startPositionY, length, speed) {
         }
     }
 
+    function increaseSpeed() {
+        switch (speed) {
+            case 1:
+                newSpeed = 2;
+                speedChange = true;
+                break;
+            case 2:
+                newSpeed = 3.5;
+                speedChange = true;
+                break;
+            case 3.5:
+                newSpeed = 7;
+                speedChange = true;
+                break;
+            default:
+                newSpeed = 14;
+                speedChange = true;
+        }
+    }
     function increaseLength() {
         snakeBody.push([snakeBody[length - 1][0] - 14 * snakeBody[length - 1][2], snakeBody[length - 1][1] - 14*snakeBody[length - 1][3], snakeBody[length - 1][2], snakeBody[length - 1][3]]);
         length++;
@@ -75,7 +102,8 @@ var snakeClass = function (startPositionX, startPositionY, length, speed) {
         moveRight: moveRight,
         update: update,
         increaseLength: increaseLength,
-        getSnakeData: getSnakeData
+        getSnakeData: getSnakeData,
+        increaseSpeed: increaseSpeed
     }
 
 };
