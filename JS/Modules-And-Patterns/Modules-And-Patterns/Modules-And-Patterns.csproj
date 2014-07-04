@@ -63,10 +63,10 @@
     <Content Include="images\stone.png" />
     <Content Include="index.html" />
     <Content Include="libs\kinetic-v5.1.0.min.js" />
-    <Content Include="scripts\SnakeScore.js" />
-    <Content Include="scripts\SnakeClass.js" />
-    <Content Include="scripts\SnakeEngine.js" />
-    <Content Include="scripts\SnakeDrawer.js" />
+    <Content Include="scripts\Snake\Score.js" />
+    <Content Include="scripts\Snake\Class.js" />
+    <Content Include="scripts\Snake\Engine.js" />
+    <Content Include="scripts\Snake\drawer.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

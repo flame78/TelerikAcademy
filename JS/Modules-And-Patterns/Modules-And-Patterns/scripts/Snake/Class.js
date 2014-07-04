@@ -1,5 +1,7 @@
 ﻿'use strict';
-var SnakeClass = (function (startPositionX, startPositionY, length, speed) {
+var Snake = Snake || {};
+
+Snake.Class = (function (startPositionX, startPositionY, length, speed) {
 
     var directionX = 1;
     var directionY = 0;

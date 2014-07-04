@@ -1,6 +1,7 @@
 ﻿/// <reference path="C:\Users\Ivan\Desktop\github\JS\Modules-And-Patterns\Modules-And-Patterns\libs/kinetic-v5.1.0.js" />
 'use strict';
-var SnakeScore = (function (width, height) {
+var Snake = Snake || {};
+Snake.Score = (function (width, height) {
 
     var resultKJS,
         levelKJS,

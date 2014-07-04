@@ -1,6 +1,7 @@
-﻿/// <reference path="kinetic-v5.1.0.min.js" />
-'use strict';
-var SnakeDrawer = (function () {
+﻿'use strict';
+var Snake = Snake || {};
+
+Snake.drawer = (function () {
 
     var CELL_SIZE = 14;
 
@@ -99,4 +100,4 @@ var SnakeDrawer = (function () {
         snakeDestroy:snakeDestroy
     }
 
-});
+})();

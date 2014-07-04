@@ -1,17 +1,15 @@
-﻿/// <reference path="../libs/kinetic-v5.1.0.js" />
-/// <reference path="SnakeDrawer.js" />
-/// <reference path="Snake.js" />
-'use strict';
-var SnakeEngine = (function () {
+﻿'use strict';
+var Snake = Snake || {};
+Snake.Engine = (function (container) {
 
     var COLS = 55;
     var ROWS = 30;
     var WIDTH = 770;
     var HEIGHT = 462;
-    var CONTAINER = 'container';
+    var CONTAINER = container;
 
-    var drawer = new SnakeDrawer();
-    var snakeScore = new SnakeScore(WIDTH, HEIGHT);
+    var drawer = Snake.drawer;
+    var snakeScore = new Snake.Score(WIDTH, HEIGHT);
     var snake;
 
     var stones;
@@ -54,7 +52,7 @@ var SnakeEngine = (function () {
     function startGame() {
 
         stones = [];
-        snake = new SnakeClass(28, 15 * 14, 10, 1);
+        snake = new Snake.Class(28, 15 * 14, 10, 1);
         score = 0;
         level = 1;
 
@@ -222,4 +220,4 @@ var SnakeEngine = (function () {
     return {
         startGame: startGame
     }
-}());
+});
