@@ -1,0 +1,24 @@
+﻿.combo-box {
+    display:inline-block;
+}
+
+.combo-box .person-item {
+    display: inline-block;
+    border: 1px solid black;
+    background-color:#EEE;
+}
+
+.combo-box .hiden {
+    display: none;
+}
+
+.combo-box .menu {
+    position: absolute;
+    overflow: scroll;
+    width: 140px;
+    height: 400px;
+}
+
+.combo-box .selected {
+    background-color: lightskyblue;
+}
