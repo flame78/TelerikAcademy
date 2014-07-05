@@ -70,7 +70,6 @@
     <Content Include="Scripts\controls.js" />
     <Content Include="Scripts\item.js" />
     <Content Include="Scripts\Libs\handlebars-v1.3.0.js" />
-    <Content Include="Scripts\Libs\jquery-2.1.1.js" />
     <Content Include="Scripts\Libs\require.js" />
     <Content Include="Scripts\startup.js" />
     <Content Include="styles\ComboBox.css" />
