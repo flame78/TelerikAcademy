@@ -16,17 +16,17 @@
     require(['jquery', 'controls'], function ($,controls) {
 
         var people = [
-        { id: 1, name: "Дончо Минков", age: 18, avatarUrl: "/images/doncho.jpg" },
-        { id: 2, name: "Тодор Стоянов", age: 19, avatarUrl: "/images/todor.jpg" },
+        { id: 1, name: "Дончо Минков", age: 18, avatarUrl: "images/doncho.jpg" },
+        { id: 2, name: "Тодор Стоянов", age: 19, avatarUrl: "images/todor.jpg" },
         { id: 3, name: "Ивайло Кенов", age: 18, avatarUrl: "images/ivo.jpg" },
         { id: 4, name: "Николай Костов", age: 19, avatarUrl: "images/niki.jpg" }];
 
         var people2 = [
-        { id: 1, name: "Pesho", age: 18, avatarUrl: "/images/pesho.png" },
-        { id: 2, name: "Gosho", age: 19, avatarUrl: "/images/gosho.jpg" },
-        { id: 3, name: "Ivan", age: 18, avatarUrl: "/images/ivan.jpg" },
-        { id: 4, name: "Dragan", age: 19, avatarUrl: "/images/dragan.jpg" },
-        { id: 5, name: "Petkan", age: 18, avatarUrl: "/images/petkan.jpg" }];
+        { id: 1, name: "Pesho", age: 18, avatarUrl: "images/pesho.png" },
+        { id: 2, name: "Gosho", age: 19, avatarUrl: "images/gosho.jpg" },
+        { id: 3, name: "Ivan", age: 18, avatarUrl: "images/ivan.jpg" },
+        { id: 4, name: "Dragan", age: 19, avatarUrl: "images/dragan.jpg" },
+        { id: 5, name: "Petkan", age: 18, avatarUrl: "images/petkan.jpg" }];
 
         var comboBox = new controls.ComboBox(people);
         var template = $('#sample-template').html();
