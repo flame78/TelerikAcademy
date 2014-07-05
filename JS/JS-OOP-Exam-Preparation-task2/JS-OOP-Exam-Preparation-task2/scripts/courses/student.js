@@ -1,11 +1,28 @@
 /// <reference path="../libs/requirejs/require.js" />
 define(function () {
 
+    NegativeScoreError.prototype = new Error();
+    
+    function Student(object) {
+        validateName(object.name);
+        this.name = object.name;
+        validateScore(object.exam);
+        this.exam = object.exam;
+        validateScore(object.homework);
+        this.homework = object.homework;
+        validateScore(object.attendance);
+        this.attendance = object.attendance;
+        validateScore(object.teamwork);
+        this.teamwork = object.teamwork;
+        validateScore(object.bonus);
+        this.bonus = object.bonus;
+    }
+
     function NegativeScoreError() {
         this.message = 'Score cant be negative'
     }
-
-    NegativeScoreError.prototype = new Error();
+ 
+    return Student;
 
     function validateScore(score) {
 
@@ -26,30 +43,4 @@ define(function () {
         }
     }
 
-    function StudentConstructor(object) {
-        validateName(object.name);
-        this.name = object.name;
-        validateScore(object.exam);
-        this.exam = object.exam;
-        validateScore(object.homework);
-        this.homework = object.homework;
-        validateScore(object.attendance);
-        this.attendance = object.attendance;
-        validateScore(object.teamwork);
-        this.teamwork = object.teamwork;
-        validateScore(object.bonus);
-        this.bonus = object.bonus;
-    }
-
-   // StudentConstructor.prototype=
-    
-    //{
-    //    exam: exam,
-    //    //homework: this._homework,
-        //attendance: this._attendance,
-        //teamwork: this._teamwork,
-        //bonus: this._bonus,
-    //}
-
-    return StudentConstructor;
 });
