@@ -6,8 +6,8 @@
 
     require.config({
         paths: {
-            'jquery': '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
-            'handlebars': '//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min',
+            'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min',
+            'handlebars': 'http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min',
             'controls': 'controls',
             'item':'item'
         }

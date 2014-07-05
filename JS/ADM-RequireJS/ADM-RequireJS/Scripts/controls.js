@@ -32,7 +32,6 @@ define(['jquery','item'], function ($,item) {
         });
 
         $ComboBoxMenu.on('click', '.person-item', function () {
-            console.log(this);
             $ComboBoxMenu.find('.person-item').removeClass('selected');
             $ComboBoxMain.html($(this).clone());
            $(this).addClass('selected');
