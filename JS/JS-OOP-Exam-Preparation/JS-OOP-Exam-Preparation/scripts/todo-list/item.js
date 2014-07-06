@@ -1,27 +1,35 @@
 define(function () {
     'use strict';
-    var Item;
+    var Item
+
     Item = (function () {
 
-        function Item(content) {
-            if (typeof(content) == "string") {
-                this._itemContent = content;
+        function validateName(content) {
+            if (typeof (name) != 'string') {
+                throw new TypeError('Name must be a string');
             }
-            else {
-                throw new TypeError('The content of the item should be String')
+            if (!content.trim()) {
+                throw new Error('Name cant be empty or white space')
             }
         }
 
-        return Item;
-    })();
+        function Item(content, type) {
+            validateName(content);
+            this._content = content;
 
-    Item.prototype.getData = function () {
-       
-        return {
-            content: this._itemContent
-        };
-            
-    };
+            if (type) {
+                this.type = type;
+            }
+        }
+
+        Item.prototype.getData = function () {
+            return {
+                content: this._content
+            };
+        }
+
+        return Item;
+    }());
 
     return Item;
 });

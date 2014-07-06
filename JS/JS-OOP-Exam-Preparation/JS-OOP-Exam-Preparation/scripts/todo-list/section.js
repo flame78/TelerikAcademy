@@ -1,46 +1,44 @@
-define(['./item'], function (Item) {
+define(['todo-list/item'], function (Item) {
     'use strict';
-    var Section;
+    var Section
 
     Section = (function () {
 
-        function Section(title) {
-            if (typeof (title) == "string") {
-                this._title = title;
-                this._items = [];
+        function validateTitle(title) {
+            if (typeof (title) != 'string') {
+                throw new TypeError('Title must be a string');
             }
-            else {
-                throw new TypeError('The title of the section should be String');
+            if (!title.trim()) {
+                throw new Error('Title can not be empty or white space');
+            }
+        }
+
+        function Section(title) {
+            validateTitle(title);
+            this._title = title;
+            this._items = [];
+        }
+
+        Section.prototype.add = function (item) {
+            if (!(item instanceof Item)) {
+                throw new TypeError('Section can add only instance of Item');
+            }
+            this._items.push(item);
+        }
+
+        Section.prototype.getData = function () {
+            var items = this._items.map(function (item) {
+                return item.getData();
+            });
+
+            return {
+                Title: this._title,
+                Items: items
             }
         }
 
         return Section;
     }());
 
-    Section.prototype.add = function (item) {
-
-        if (item instanceof Item) {
-            this._items.push(item);
-        }
-        else {
-            throw new TypeError('The item of the section should be Item type');
-        }
-    };
-
-    Section.prototype.getData = function () {
-
-        var resultItems = [];
-
-        for (var index in this._items) {
-            resultItems.push(this._items[index].getData());
-        }
-
-        return {
-            title: this._title,
-            items: resultItems
-        }
-    };
-
     return Section;
 });
-
