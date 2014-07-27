@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="JavaScript1.js" />
+    <Content Include="LIBS\jquery-2.1.1.js" />
+    <Content Include="LIBS\q.js" />
+    <Content Include="LIBS\sammy.js" />
+    <Content Include="rest.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
