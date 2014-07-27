@@ -1,0 +1,104 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    zoom: 1;
+}
+
+html, body {
+    font-family: Tahoma, sans-serif;
+}
+
+
+.linear-gradient(@from-color,@from-pos: 0%,@to-color: @from-color,@to-pos: 100%,@repeat: no-repeat) {
+    background: @to-color;
+    background: -moz-linear-gradient(top, @from-color @from-pos, @to-color @to-pos);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(@from-pos,@from-color), color-stop(@to-pos,@to-color));
+    background: -webkit-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: -o-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: -ms-linear-gradient(top, @from-color @from-pos,@to-color @to-pos);
+    background: linear-gradient(to bottom, @from-color @from-pos,@to-color @to-pos);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{from-color}', endColorstr='@{to-color}',GradientType=0 );
+    background-repeat: @repeat;
+}
+
+.clear {
+    clear: both;
+}
+
+#wrapper {
+    width: 960px;
+    margin-left: 4px;
+    font-size: 14px;
+
+    a {
+        text-decoration: none;
+    }
+
+    #archive {
+        ul {
+            float: right;
+
+            li {
+                display: inline-block;
+                font-size: 10px;
+
+                a {
+                    padding: 0 5px;
+                    color: #333;
+                }
+            }
+        }
+    }
+
+    #header {
+        display: block;
+        background: url(images/topnav_divider.png) repeat;
+
+        #nav {
+            padding: 20px 5px 22px;
+            display: inline-block;
+
+            ul {
+                margin-left: 45px;
+
+                li {
+                    display: inline-block;
+                    margin-right: 20px;
+
+                    &:first-letter {
+                        text-transform: uppercase;
+                    }
+
+                    a {
+                        font-size: 18px;
+                        color: #FEFFFF;
+                    }
+                }
+            }
+        }
+
+        h1 {
+            padding: 15px;
+            color: #FEFFFF;
+            display: inline-block;
+            float: right;
+        }
+    }
+
+
+
+    #content {
+
+           color:#333;
+        h1 {
+         
+            font-size:24px;
+            margin: 16px 0 ;
+        }
+
+        p{
+            text-align:justify;
+            margin-bottom:14px;
+        }
+    }
+}

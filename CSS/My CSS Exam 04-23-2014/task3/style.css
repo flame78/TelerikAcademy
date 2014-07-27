@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+}
+body {
+  font-size: 14px;
+  font-family: 'Times New Roman';
+  padding: 3px 5px;
+  width: 705px;
+}
+#root #previewer #large {
+  position: relative;
+  top: -22px;
+  padding: 18px 21px 15px 15px;
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #999;
+}
+#root #previewer #large h1 {
+  padding-left: 6px;
+  margin-bottom: 20px;
+}
+#root #previewer #large img {
+  border: 2px solid #999;
+  border-radius: 5px;
+}
+#root #previewer #list {
+  position: relative;
+  left: -4px;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid #999;
+  width: 200px;
+}
+#root #previewer #list .title {
+  padding: 5px;
+  font-size: 1.5em;
+  display: block;
+}
+#root #previewer #list button {
+  background-color: #ccc;
+  padding: 16px 34px 15px 33px;
+  border: 2px solid #999;
+  border-radius: 5px;
+  font-size: 1em;
+}
+#root #previewer #list button:hover {
+  background-color: #E6E6E6;
+}
+#root #previewer #list ul {
+  list-style: none;
+  height: 300px;
+  overflow: auto;
+  padding: 5px;
+}
+#root #previewer #list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #999;
+}
+#root #previewer #list li strong {
+  display: block;
+}
+#root #previewer #list li img {
+  margin-top: 10px;
+  border-radius: 5px;
+}
+#root #previewer #list li:hover strong {
+  text-decoration: underline;
+}
+#root #previewer #list .current {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+#root #previewer #list .current img {
+  width: 40%;
+}
