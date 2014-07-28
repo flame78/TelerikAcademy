@@ -1,5 +1,6 @@
 ﻿'use strict';
-define(['http-requester', 'crypto-js'], function (httpRequester) {
+/*define(['http-requester', 'crypto-js'], function (httpRequester) {*/
+var persister = (function () {
     var sessionData = {};
     var appName;
 
@@ -47,7 +48,17 @@ define(['http-requester', 'crypto-js'], function (httpRequester) {
             this.rootUrl = rootUrl + '/user/'
         }
 
-        UserService.prototype.login = function (userData, success, error) {
+        UserService.prototype.login = function (userData) {
+            var deferred = Q.defer();
+
+           
+                success: function (resultData) {
+                    deferred.resolve(resultData);
+                },
+                error: function (errorData) {
+                    deferred.reject(errorData);
+                }
+            });
             var url = this.rootUrl + 'login';
             var encryptedUserData = {
                 username: userData.username,

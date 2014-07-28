@@ -9,27 +9,24 @@
 <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en" class="no-js">
- <!--<![endif]-->
+<!--<![endif]-->
 <head>
     <meta charset="UTF-8" />
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
     <title>Login and Registration Form with HTML5 and CSS3</title>
     <link rel="stylesheet" type="text/css" href="styles/login-register-form.css" />
- 
-  <!--  <script src="libs/jquery-2.1.1.js"></script>
-    <script src="scripts/http_requester.js"></script>
+
+    <script src="libs/jquery-2.1.1.js"></script>
+    <script src="libs/q.js"></script>
+    <script src="scripts/http_requester_q.js"></script>
     <script src="libs/sammy.js"></script>
-    <script src="libs/q.js"></script>-->
-    <script data-main="scripts/app" src="libs/require.js"></script>
+    <script src="libs/sha1.js"></script>
+    <!--   <script data-main="scripts/app" src="libs/require.js"></script>-->
 </head>
 <body>
-    <div class="container">
         <section>
             <div id="container_demo">
-                <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
-                <a class="hiddenanchor" id="toregister"></a>
-                <a class="hiddenanchor" id="tologin"></a>
-
+                
                 <div id="wrapper">
                     <div id="login" class="animate form hiden">
                         <form action="#/log" autocomplete="on" method="PUT">
@@ -110,10 +107,9 @@
         </section>
         <section>
             <div>
-                <button id="logout" class="animate hide">Logout</button>
+                <button id="logout" class="animate hiden">Logout</button>
             </div>
         </section>
-
-      
+    <script src="scripts/app.js"></script>
 </body>
 </html>

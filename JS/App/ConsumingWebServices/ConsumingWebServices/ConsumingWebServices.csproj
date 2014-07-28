@@ -60,11 +60,14 @@
     <Content Include="index.html" />
     <Content Include="libs\jquery-2.1.1.js" />
     <Content Include="libs\q.js" />
+    <Content Include="libs\require.js" />
     <Content Include="libs\sammy.js" />
+    <Content Include="libs\sha1.js" />
     <Content Include="login-register.html" />
     <Content Include="rest.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\http_requester.js" />
+    <Content Include="scripts\http_requester_q.js" />
     <Content Include="scripts\persister.js" />
     <Content Include="server\app.js" />
     <Content Include="server\node_modules\express\index.js" />

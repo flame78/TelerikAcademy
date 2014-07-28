@@ -1,105 +1,96 @@
 /// <reference path="http_requester.js" />
 /// <reference path="../libs/require.js" />
-'use strict';
-(function () {
+/// <reference path="persister.js" />
 
-    require.config({
-        paths: {
-            'jquery': "../libs/jquery-2.1.1",
-            'sammy': "../libs/sammy",
-            'q': '../libs/q',
-            'persister': 'persister',
-            'http_requester': 'http_requester',
-        }
+/*  require.config({
+      paths: {
+          'jquery': "../libs/jquery-2.1.1",
+          'sammy': "../libs/sammy",
+          'q': '../libs/q',
+          'persister': 'persister',
+          'http_requester': 'http_requester',
+      }
+  });
+
+
+  require(['http_requester'], function (hr) {*/
+
+
+var app = $.sammy('#container_demo',function () {
+
+    var apiURL = 'http://localhost:3000/students';
+    var appName = 'template';
+
+    var persister = persister.getDataProvider(apiURL, appName);
+    
+    $('#logout').on('click', function () {
+        show('#login');
+        hide('#logout');
     });
 
+    function toggleShowHide(id) {
+        $(id).removeClass('hiden');
+        $(id).toggleClass('hide');
+        $(id).toggleClass('show');
+    }
 
-    require(['http_requester'], function (hr) {
-        var apiURL = 'http://localhost:3000/students';
+    function show(id) {
+        $(id).removeClass('hiden');
+        $(id).removeClass('hide');
+        $(id).addClass('show');
+    }
 
-        debugger;
-        hr.postJSON(apiURL, { name: 'Pesho', grade: 5 }, function (data) { console.log(data); }, function (err) { console.log(err); });
+    function hide(id) {
+        $(id).removeClass('show');
+        $(id).addClass('hide');
+    }
 
-        hr.getJSON(apiURL, function (data) { console.log(data); }, function (err) { console.log(err); });
-
-        hr.deleteRequest(apiUrl+'/1',function (data) { console.log(data); }, function (err) { console.log(err); });
+    this.put('#/log', function () {
+        toggleShowHide('#login');
+        show('#logout');
+        return false;
     });
 
-    /*  require(["jquery", "sammy"], function ($, sammy){
-  
-          var app = $.sammy(function () {
-  
-                  var persister = 
-                  $('#logout').on('click', function () {
-                      show('#login');
-                      hide('#logout');
-                  });
-  
-                  function toggleShowHide(id) {
-                      $(id).removeClass('hiden');
-                      $(id).toggleClass('hide');
-                      $(id).toggleClass('show');
-                  }
-  
-                  function show(id) {
-                      $(id).removeClass('hiden');
-                      $(id).removeClass('hide');
-                      $(id).addClass('show');
-                  }
-  
-                  function hide(id) {
-                      $(id).removeClass('show');
-                      $(id).addClass('hide');
-                  }
-  
-                  this.put('#/log', function () {
-                      toggleShowHide('#login');
-                      toggleShowHide('#logout');
-                      return false;
-                  });
-  
-                  this.put('#/reg', function () {
-                      toggleShowHide('#register');
-                      toggleShowHide('#logout');
-                  });
-  
-                  this.get('#/login', function () {
-                      console.log($('#register').hasClass('show'));
-                      if ($('#register').hasClass('show')) hide('#register');
-                      show('#login');
-                  });
-  
-                  this.get('#/register', function () {
-                      hide('#login');
-                      show('#register');
-                  });
-  
-                  this.get('#/', function () {
-                      this.redirect('#/login');
-                  });
-              });
-  
-      app.run('#/');
-      */
+    this.put('#/reg', function () {
+        toggleShowHide('#register');
+        show('#logout');
+    });
+
+    this.get('#/login', function () {
+        if ($('#register').hasClass('show')) hide('#register');
+        show('#login');
+    });
+
+    this.get('#/register', function () {
+        hide('#login');
+        show('#register');
+    });
+
+    this.get('#/', function () {
+        this.redirect('#/login');
+    });
+});
+
+app.run('#/');
 
 
-    /*   require(["jquery", "sammy"], function ($, sammy) {
-           var app = sammy("#wrapper",function () {
-               this.get("#/", function () {
-                   alert("In home");
-                   $("body").append(
-                   )
-               });
-   
-               this.get("#/about", function () {
-   
-               });
-   
-               this.get("#/item/:id", function (id) {
-                   alert("In item with id: " + this.params["id"]);
-               });
+
+/*   require(["jquery", "sammy"], function ($, sammy) {
+       var app = sammy("#wrapper",function () {
+           this.get("#/", function () {
+               alert("In home");
+               $("body").append(
+               )
            });
-           app.run("#/");
-   
-       });*/
-}());
+
+           this.get("#/about", function () {
+
+           });
+
+           this.get("#/item/:id", function (id) {
+               alert("In item with id: " + this.params["id"]);
+           });
+       });
+       app.run("#/");
+
+   });*/
