@@ -57,17 +57,24 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="index.html" />
+    <Content Include="indexold.html" />
+    <Content Include="libs\bootstrap.js" />
+    <Content Include="libs\handlebars-v1.3.0.js" />
     <Content Include="libs\jquery-2.1.1.js" />
+    <Content Include="libs\mocha.js" />
     <Content Include="libs\q.js" />
     <Content Include="libs\require.js" />
     <Content Include="libs\sammy.js" />
     <Content Include="libs\sha1.js" />
-    <Content Include="login-register.html" />
+    <Content Include="index.html" />
+    <Content Include="libs\underscore.js" />
     <Content Include="rest.js" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\controller.js" />
+    <Content Include="scripts\data-provider.js" />
     <Content Include="scripts\http_requester.js" />
-    <Content Include="scripts\http_requester_q.js" />
+    <Content Include="scripts\http-requester-q.js" />
+    <Content Include="scripts\message-box.js" />
     <Content Include="scripts\persister.js" />
     <Content Include="server\app.js" />
     <Content Include="server\node_modules\express\index.js" />
@@ -282,8 +289,10 @@
     <Content Include="server\node_modules\express\node_modules\send\node_modules\mime\test.js" />
     <Content Include="server\node_modules\express\test.js" />
     <Content Include="server\routes\students.js" />
-    <Content Include="styles\animate-custom.css" />
     <Content Include="styles\login-register-form.css" />
+    <Content Include="views\login.html" />
+    <Content Include="views\main.html" />
+    <Content Include="views\register.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

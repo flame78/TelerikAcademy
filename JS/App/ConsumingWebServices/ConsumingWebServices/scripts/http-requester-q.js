@@ -1,4 +1,4 @@
-﻿
+﻿define(['jquery', 'q'], function ($, Q) {
     var http_requester_q = (function () {
 
         var requestTimeout = 5000; // milliseconds
@@ -15,7 +15,7 @@
                 success: function (resultData) {
                     deferred.resolve(resultData);
                 },
-                error:function (errorData) {
+                error: function (errorData) {
                     deferred.reject(errorData);
                 }
             });
@@ -51,7 +51,7 @@
                 success: function (resultData) {
                     deferred.resolve(resultData);
                 },
-                error:function (errorData) {
+                error: function (errorData) {
                     deferred.reject(errorData);
                 }
             });
@@ -63,3 +63,6 @@
             deleteRequest: deleteRequest
         };
     }());
+
+    return http_requester_q;
+});
