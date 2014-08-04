@@ -1,10 +1,9 @@
-﻿namespace PhonebookConsoleClient.Command
+﻿namespace Phonebook.ConsoleClient.Command
 {
     using System;
 
-    using Contracts;
-
-    using Phonebook.Contracts;
+    using Phonebook.ConsoleClient.Contracts;
+    using Phonebook.Lib.Contracts;
 
     internal class ListEntriesCommand : IPhonebookCommand
     {

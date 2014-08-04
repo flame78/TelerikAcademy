@@ -1,8 +1,7 @@
-﻿namespace PhonebookConsoleClient.Command
+﻿namespace Phonebook.ConsoleClient.Command
 {
-    using Contracts;
-
-    using Phonebook.Contracts;
+    using Phonebook.ConsoleClient.Contracts;
+    using Phonebook.Lib.Contracts;
 
     internal class ChangePhoneCommand : IPhonebookCommand
     {

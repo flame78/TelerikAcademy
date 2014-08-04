@@ -1,4 +1,4 @@
-﻿namespace Phonebook
+﻿namespace Phonebook.Lib
 {
     using System;
     using System.Collections.Generic;

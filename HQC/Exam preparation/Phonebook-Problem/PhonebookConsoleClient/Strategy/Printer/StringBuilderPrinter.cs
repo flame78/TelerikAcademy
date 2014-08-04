@@ -1,16 +1,16 @@
-﻿namespace PhonebookConsoleClient.Strategy.Printer
+﻿namespace Phonebook.ConsoleClient.Strategy.Printer
 {
     using System.Text;
 
-    using Contracts;
+    using Phonebook.ConsoleClient.Contracts;
 
     internal class StringBuilderPrinter : IPrinter
     {
         private readonly StringBuilder data = new StringBuilder();
 
-        public void Print(string data)
+        public void Print(string message)
         {
-            this.data.AppendLine(data);
+            this.data.AppendLine(message);
         }
 
         public string GetData()

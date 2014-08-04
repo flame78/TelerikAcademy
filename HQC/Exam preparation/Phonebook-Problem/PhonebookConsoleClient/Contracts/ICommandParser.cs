@@ -1,8 +1,8 @@
-﻿namespace PhonebookConsoleClient.Contracts
+﻿namespace Phonebook.ConsoleClient.Contracts
 {
-    using Strategy.Parser;
+    using Phonebook.ConsoleClient.Strategy.Parser;
 
-    public interface ICommandParser
+    internal interface ICommandParser
     {
         CommandData Parse(string commandLine);
     }

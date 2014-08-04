@@ -58,13 +58,13 @@
     <Content Include="TestsData\ResultDefaultScenario.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhonebookConsoleClient\PhonebookConsoleClient.csproj">
+    <ProjectReference Include="..\PhonebookConsoleClient\Phonebook.ConsoleClient.csproj">
       <Project>{d60d857e-37f2-4205-bab5-ee3c4b7b1911}</Project>
-      <Name>PhonebookConsoleClient</Name>
+      <Name>Phonebook.ConsoleClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Phonebook\Phonebook.csproj">
+    <ProjectReference Include="..\Phonebook\Phonebook.Lib.csproj">
       <Project>{394d834d-7346-4f35-bd5f-508c60183ce3}</Project>
-      <Name>Phonebook</Name>
+      <Name>Phonebook.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

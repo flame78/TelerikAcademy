@@ -1,15 +1,15 @@
-﻿namespace PhonebookConsoleClient.Strategy.Parser
+﻿namespace Phonebook.ConsoleClient.Strategy.Parser
 {
-    public class CommandData
+    internal class CommandData
     {
-        public CommandData(string command, string[] numbers)
+        internal CommandData(string command, string[] numbers)
         {
             this.Name = command;
             this.Arguments = numbers;
         }
 
-        public string Name { get; set; }
+        internal string Name { get; set; }
 
-        public string[] Arguments { get; set; }
+        internal string[] Arguments { get; set; }
     }
 }

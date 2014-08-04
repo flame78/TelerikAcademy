@@ -1,10 +1,10 @@
-﻿namespace Phonebook
+﻿namespace Phonebook.Lib
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using Phonebook.Contracts;
+    using Phonebook.Lib.Contracts;
 
     public class PhonebookRepositorySlow : IPhonebookRepository
     {

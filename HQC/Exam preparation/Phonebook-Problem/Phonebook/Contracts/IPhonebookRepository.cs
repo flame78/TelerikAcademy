@@ -1,4 +1,4 @@
-﻿namespace Phonebook.Contracts
+﻿namespace Phonebook.Lib.Contracts
 {
     using System.Collections.Generic;
 

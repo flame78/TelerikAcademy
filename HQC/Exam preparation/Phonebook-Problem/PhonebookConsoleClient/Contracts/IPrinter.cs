@@ -1,6 +1,6 @@
-﻿namespace PhonebookConsoleClient.Contracts
+﻿namespace Phonebook.ConsoleClient.Contracts
 {
-    public interface IPrinter
+    internal interface IPrinter
     {
         void Print(string data);
 

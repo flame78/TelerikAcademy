@@ -1,12 +1,11 @@
 ﻿namespace Phonebook.Tests
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    using PhonebookConsoleClient;
+    using Phonebook.ConsoleClient;
 
     [TestClass]
     public class TestPhonebookConsoleClient
@@ -38,27 +37,5 @@
 
             Assert.AreEqual(expected, result.ToString());
         }
-    }
-
-    [TestClass]
-    public class PhonebookRepositorysTests
-    {
-        private IList<PhonebookEntry> phonebookRepositoryData;
-
-        // public CarsControllerTests()
-        // : this(new JustMockCarsRepository())
-        // {
-        // }
-
-        // public CarsControllerTests(ICarsRepositoryMock carsDataMock)
-        // {
-        // this.carsData = carsDataMock.CarsData;
-        // }
-
-        // [TestInitialize]
-        // public void CreateController()
-        // {
-        // this.controller = new CarsController(this.carsData);
-        // }
     }
 }

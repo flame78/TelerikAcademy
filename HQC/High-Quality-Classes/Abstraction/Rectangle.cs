@@ -5,6 +5,7 @@
     public class Rectangle : IFigure
     {
         private double height;
+
         private double width;
 
         public Rectangle(double width, double height)
@@ -51,13 +52,13 @@
 
         public double CalcPerimeter()
         {
-            double perimeter = 2 * (this.Width + this.Height);
+            var perimeter = 2 * (this.Width + this.Height);
             return perimeter;
         }
 
         public double CalcSurface()
         {
-            double surface = this.Width * this.Height;
+            var surface = this.Width * this.Height;
             return surface;
         }
     }

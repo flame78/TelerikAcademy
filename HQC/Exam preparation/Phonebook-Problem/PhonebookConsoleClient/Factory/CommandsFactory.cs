@@ -1,29 +1,23 @@
-﻿namespace PhonebookConsoleClient.CommandsFactory
+﻿namespace Phonebook.ConsoleClient.Factory
 {
     using System.Collections.Generic;
 
-    using Command;
-
-    using Contracts;
-
-    using Phonebook;
-
-    using Strategy.Formater;
-
-    using Strategy.Printer;
+    using Phonebook.ConsoleClient.Command;
+    using Phonebook.ConsoleClient.Contracts;
+    using Phonebook.Lib.Contracts;
 
     internal class CommandsFactory : ICommandsFactory
     {
-        private readonly PhoneNumberFormater formater;
+        private readonly IPhoneNumberFormater formater;
 
-        private readonly PhonebookRepository phonebookRepository;
+        private readonly IPhonebookRepository phonebookRepository;
 
-        private readonly StringBuilderPrinter printer;
+        private readonly IPrinter printer;
 
         public CommandsFactory(
-            PhonebookRepository phonebookRepository, 
-            PhoneNumberFormater formater, 
-            StringBuilderPrinter printer)
+            IPhonebookRepository phonebookRepository, 
+            IPhoneNumberFormater formater, 
+            IPrinter printer)
         {
             this.formater = formater;
             this.phonebookRepository = phonebookRepository;

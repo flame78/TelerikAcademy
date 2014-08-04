@@ -1,16 +1,13 @@
-﻿
-namespace PhonebookConsoleClient.Strategy.Formater
+﻿namespace Phonebook.ConsoleClient.Strategy.Formater
 {
     using System.Text;
 
-    using Contracts;
+    using Phonebook.ConsoleClient.Contracts;
 
     internal class PhoneNumberFormater : IPhoneNumberFormater
     {
-      
         private const string DefaultCountryCode = "+359";
 
-     
         public string Format(string number)
         {
             var result = new StringBuilder();

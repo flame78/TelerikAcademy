@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{394D834D-7346-4F35-BD5F-508C60183CE3}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D60D857E-37F2-4205-BAB5-EE3C4B7B1911}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Phonebook</RootNamespace>
-    <AssemblyName>Phonebook</AssemblyName>
+    <RootNamespace>Phonebook.ConsoleClient</RootNamespace>
+    <AssemblyName>Phonebook.ConsoleClient</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,24 +32,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PowerCollections">
-      <HintPath>..\packages\XAct.Wintellect.PowerCollections.0.0.1\lib\net20\PowerCollections.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PhonebookEntry.cs">
-      <SubType>
-      </SubType>
-    </Compile>
-    <Compile Include="Contracts\IPhonebookRepository.cs" />
-    <Compile Include="PhonebookRepositorySlow.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PhonebookRepository.cs">
-      <SubType>
-      </SubType>
-    </Compile>
+    <Compile Include="Command\AddPhoneCommand.cs" />
+    <Compile Include="Command\ChangePhoneCommand.cs" />
+    <Compile Include="Factory\CommandsFactory.cs" />
+    <Compile Include="Contracts\ICommandsFactory.cs" />
+    <Compile Include="Contracts\IPhonebookCommand.cs" />
+    <Compile Include="Strategy\Parser\CommandData.cs" />
+    <Compile Include="Strategy\Parser\ConsoleCommandParser.cs" />
+    <Compile Include="Contracts\ICommandParser.cs" />
+    <Compile Include="Contracts\IPhoneNumberFormater.cs" />
+    <Compile Include="Command\ListEntriesCommand.cs" />
+    <Compile Include="Strategy\Formater\PhoneNumberFormater.cs" />
+    <Compile Include="Contracts\IPrinter.cs" />
+    <Compile Include="PhonebookConsoleClient.cs" />
+    <Compile Include="Strategy\Printer\StringBuilderPrinter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentation\Quality-Code-Exam-Phonebook.doc" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Phonebook\Phonebook.Lib.csproj">
+      <Project>{394d834d-7346-4f35-bd5f-508c60183ce3}</Project>
+      <Name>Phonebook.Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

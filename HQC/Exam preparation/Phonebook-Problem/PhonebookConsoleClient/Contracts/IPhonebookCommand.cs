@@ -1,6 +1,6 @@
-﻿namespace PhonebookConsoleClient.Contracts
+﻿namespace Phonebook.ConsoleClient.Contracts
 {
-    public interface IPhonebookCommand
+    internal interface IPhonebookCommand
     {
         void Execute(string[] arguments);
     }

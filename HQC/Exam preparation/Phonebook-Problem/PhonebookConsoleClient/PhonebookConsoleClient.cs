@@ -1,14 +1,12 @@
-﻿namespace PhonebookConsoleClient
+﻿namespace Phonebook.ConsoleClient
 {
     using System;
 
-    using Phonebook;
-
-    using Strategy.Formater;
-
-    using Strategy.Parser;
-
-    using Strategy.Printer;
+    using Phonebook.ConsoleClient.Factory;
+    using Phonebook.ConsoleClient.Strategy.Formater;
+    using Phonebook.ConsoleClient.Strategy.Parser;
+    using Phonebook.ConsoleClient.Strategy.Printer;
+    using Phonebook.Lib;
 
     public class PhonebookConsoleClient
     {
@@ -17,7 +15,7 @@
             var printer = new StringBuilderPrinter();
             var phonebookRepository = new PhonebookRepository();
             var formater = new PhoneNumberFormater();
-            var consoleCommandsFactory = new CommandsFactory.CommandsFactory(phonebookRepository, formater, printer);
+            var consoleCommandsFactory = new CommandsFactory(phonebookRepository, formater, printer);
 
             var commands = consoleCommandsFactory.GetCommands();
             var commandParser = new ConsoleCommandParser(commands);

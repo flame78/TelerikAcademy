@@ -1,8 +1,8 @@
-﻿namespace PhonebookConsoleClient.Contracts
+﻿namespace Phonebook.ConsoleClient.Contracts
 {
     using System.Collections.Generic;
 
-    public interface ICommandsFactory
+    internal interface ICommandsFactory
     {
         Dictionary<string, IPhonebookCommand> GetCommands();
     }
