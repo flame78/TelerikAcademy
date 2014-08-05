@@ -7,18 +7,15 @@
 
     internal class ListEntriesCommand : IPhonebookCommand
     {
-        private readonly IPhoneNumberFormater formater;
-
-        private readonly IPrinter printer;
+         private readonly IPrinter printer;
 
         private readonly IPhonebookRepository repository;
 
-        public ListEntriesCommand(IPhonebookRepository repository, IPhoneNumberFormater formater, IPrinter printer)
+        public ListEntriesCommand(IPhonebookRepository repository, IPrinter printer)
         {
             this.printer = printer;
             this.repository = repository;
-            this.formater = formater;
-        }
+          }
 
         public void Execute(string[] arguments)
         {

@@ -50,8 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="TestPhonebookConsoleClient.cs" />
+    <Compile Include="Phonebook.Console.Client.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PhonebookRepository.Tests.cs" />
+    <Compile Include="PhonebookRepositorySlow.Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestsData\InputDefaultScenario.txt" />

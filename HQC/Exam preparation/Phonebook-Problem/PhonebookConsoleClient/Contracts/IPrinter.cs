@@ -4,6 +4,6 @@
     {
         void Print(string data);
 
-        string GetData();
+        void Visit(IVisitor visitor);
     }
 }

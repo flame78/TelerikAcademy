@@ -37,6 +37,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IPhoneNumberFormater.cs" />
+    <Compile Include="Formater\PhoneNumberFormater.cs" />
     <Compile Include="PhonebookEntry.cs">
       <SubType>
       </SubType>

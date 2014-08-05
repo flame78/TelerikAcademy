@@ -15,9 +15,10 @@
         private readonly MultiDictionary<string, PhonebookEntry> multidict;
 
         private readonly OrderedSet<PhonebookEntry> sorted;
+        private IPhoneNumberFormater formater;
 
-        public PhonebookRepository(IEnumerable<PhonebookEntry> entries)
-            : this()
+        public PhonebookRepository(IPhoneNumberFormater formater, IEnumerable<PhonebookEntry> entries)
+            : this(formater)
         {
             foreach (var entry in entries)
             {
@@ -25,15 +26,19 @@
             }
         }
 
-        public PhonebookRepository()
+        public PhonebookRepository(IPhoneNumberFormater formater)
         {
             this.dict = new Dictionary<string, PhonebookEntry>();
             this.multidict = new MultiDictionary<string, PhonebookEntry>(false);
             this.sorted = new OrderedSet<PhonebookEntry>();
+            this.formater = formater;
         }
 
         public bool AddPhone(string name, IEnumerable<string> numbers)
         {
+            var formatedNumbers = new List<string>(numbers.Count());
+            formatedNumbers.AddRange(numbers.Select(number => this.formater.Format(number)));
+
             var nameInLowerInvariant = name.ToLowerInvariant();
 
             PhonebookEntry entry;
@@ -47,25 +52,28 @@
                 this.sorted.Add(entry);
             }
 
-            foreach (var number in numbers)
+            foreach (var number in formatedNumbers)
             {
                 this.multidict.Add(number, entry);
             }
 
-            entry.Phones.UnionWith(numbers);
+            entry.Phones.UnionWith(formatedNumbers);
             return notNameAlredyExist;
         }
 
-        public int ChangePhone(string oldent, string newent)
+        public int ChangePhone(string currentNumber, string newNumber)
         {
-            var found = this.multidict[oldent].ToList();
+            currentNumber = this.formater.Format(currentNumber);
+            newNumber = this.formater.Format(newNumber);
+
+            var found = this.multidict[currentNumber].ToList();
             foreach (var entry in found)
             {
-                entry.Phones.Remove(oldent);
-                this.multidict.Remove(oldent, entry);
+                entry.Phones.Remove(currentNumber);
+                this.multidict.Remove(currentNumber, entry);
 
-                entry.Phones.Add(newent);
-                this.multidict.Add(newent, entry);
+                entry.Phones.Add(newNumber);
+                this.multidict.Add(newNumber, entry);
             }
 
             return found.Count;

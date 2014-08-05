@@ -13,9 +13,9 @@
             this.data.AppendLine(message);
         }
 
-        public string GetData()
+        public void Visit(IVisitor visitor)
         {
-            return this.data.ToString();
+            visitor.Recieve(this.data.ToString());
         }
     }
 }

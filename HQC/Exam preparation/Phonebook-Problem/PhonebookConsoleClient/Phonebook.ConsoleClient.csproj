@@ -38,18 +38,18 @@
   <ItemGroup>
     <Compile Include="Command\AddPhoneCommand.cs" />
     <Compile Include="Command\ChangePhoneCommand.cs" />
+    <Compile Include="Contracts\IVisitor.cs" />
     <Compile Include="Factory\CommandsFactory.cs" />
     <Compile Include="Contracts\ICommandsFactory.cs" />
     <Compile Include="Contracts\IPhonebookCommand.cs" />
     <Compile Include="Strategy\Parser\CommandData.cs" />
     <Compile Include="Strategy\Parser\ConsoleCommandParser.cs" />
     <Compile Include="Contracts\ICommandParser.cs" />
-    <Compile Include="Contracts\IPhoneNumberFormater.cs" />
     <Compile Include="Command\ListEntriesCommand.cs" />
-    <Compile Include="Strategy\Formater\PhoneNumberFormater.cs" />
     <Compile Include="Contracts\IPrinter.cs" />
     <Compile Include="PhonebookConsoleClient.cs" />
     <Compile Include="Strategy\Printer\StringBuilderPrinter.cs" />
+    <Compile Include="Visitor\PrintVisitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Documentation\Quality-Code-Exam-Phonebook.doc" />

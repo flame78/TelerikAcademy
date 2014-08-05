@@ -3,19 +3,20 @@
     using System;
 
     using Phonebook.ConsoleClient.Factory;
-    using Phonebook.ConsoleClient.Strategy.Formater;
     using Phonebook.ConsoleClient.Strategy.Parser;
     using Phonebook.ConsoleClient.Strategy.Printer;
+    using Phonebook.ConsoleClient.Visitor;
     using Phonebook.Lib;
+    using Phonebook.Lib.Formater;
 
     public class PhonebookConsoleClient
     {
         public static void Main()
         {
+
             var printer = new StringBuilderPrinter();
-            var phonebookRepository = new PhonebookRepository();
-            var formater = new PhoneNumberFormater();
-            var consoleCommandsFactory = new CommandsFactory(phonebookRepository, formater, printer);
+            var phonebookRepository = new PhonebookRepository(new PhoneNumberFormater());
+            var consoleCommandsFactory = new CommandsFactory(phonebookRepository, printer);
 
             var commands = consoleCommandsFactory.GetCommands();
             var commandParser = new ConsoleCommandParser(commands);
@@ -33,7 +34,7 @@
                 commands[command.Name].Execute(command.Arguments);
             }
 
-            Console.Write(printer.GetData());
+            printer.Visit(new PrintVisitor());
         }
     }
 }

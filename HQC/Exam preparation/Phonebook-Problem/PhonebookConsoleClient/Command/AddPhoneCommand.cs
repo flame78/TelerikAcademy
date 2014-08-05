@@ -7,29 +7,22 @@
 
     internal class AddPhoneCommand : IPhonebookCommand
     {
-        private readonly IPhoneNumberFormater formater;
-
         private readonly IPrinter printer;
 
         private readonly IPhonebookRepository repository;
 
-        public AddPhoneCommand(IPhonebookRepository repository, IPhoneNumberFormater formater, IPrinter printer)
+        public AddPhoneCommand(IPhonebookRepository repository, IPrinter printer)
         {
             this.printer = printer;
             this.repository = repository;
-            this.formater = formater;
         }
 
         public void Execute(string[] arguments)
         {
             var name = arguments[0];
-            var number = arguments.Skip(1).ToList();
-            for (var i = 0; i < number.Count; i++)
-            {
-                number[i] = this.formater.Format(number[i]);
-            }
-
-            if (this.repository.AddPhone(name, number))
+            var numbers = arguments.Skip(1);
+       
+            if (this.repository.AddPhone(name, numbers))
             {
                 this.printer.Print("Phone entry created");
             }
