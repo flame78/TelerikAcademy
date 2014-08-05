@@ -7,7 +7,7 @@
 
     internal class ListEntriesCommand : IPhonebookCommand
     {
-         private readonly IPrinter printer;
+        private readonly IPrinter printer;
 
         private readonly IPhonebookRepository repository;
 
@@ -15,7 +15,7 @@
         {
             this.printer = printer;
             this.repository = repository;
-          }
+        }
 
         public void Execute(string[] arguments)
         {

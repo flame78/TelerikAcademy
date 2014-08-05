@@ -5,7 +5,7 @@
 
     internal class ChangePhoneCommand : IPhonebookCommand
     {
-         private readonly IPrinter printer;
+        private readonly IPrinter printer;
 
         private readonly IPhonebookRepository repository;
 

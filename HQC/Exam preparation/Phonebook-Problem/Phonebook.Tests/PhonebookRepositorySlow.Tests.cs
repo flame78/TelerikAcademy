@@ -1,39 +1,32 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Phonebook.Tests
+﻿namespace Phonebook.Tests
 {
     using System.Linq;
-    using System.Runtime.InteropServices;
-    using System.Text;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Phonebook.Lib;
     using Phonebook.Lib.Contracts;
-    using Phonebook.Lib.Formater;
 
     [TestClass]
     public class PhonebookRepositorySlowTests
     {
-
         private IPhonebookRepository phonebookRepository;
 
         [TestInitialize]
-
         public void Initialize()
         {
             this.phonebookRepository = new PhonebookRepositorySlow();
-            for (int i = 0; i < 10000; i++)
+            for (var i = 0; i < 1000; i++)
             {
                 this.phonebookRepository.AddPhone(i.ToString(), new[] { i.ToString() });
             }
         }
 
-
         [TestMethod]
-        public void CheckForCorrectAdding()
+        public void CheckForCorrectAddingWithSlowRepository()
         {
-            var entries = this.phonebookRepository.ListEntries(0, 10000);
-            Assert.AreEqual(10000, entries.Count());
+            var entries = this.phonebookRepository.ListEntries(0, 1000);
+            Assert.AreEqual(1000, entries.Count());
         }
     }
 }

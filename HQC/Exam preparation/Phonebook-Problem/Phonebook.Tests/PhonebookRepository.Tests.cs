@@ -1,11 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Phonebook.Tests
+﻿namespace Phonebook.Tests
 {
+    using System;
     using System.Linq;
-    using System.Runtime.InteropServices;
-    using System.Text;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     using Phonebook.Lib;
     using Phonebook.Lib.Contracts;
@@ -14,26 +12,37 @@ namespace Phonebook.Tests
     [TestClass]
     public class UnitTest1
     {
-
-        private IPhonebookRepository phonebookRepository; 
+        private IPhonebookRepository phonebookRepository;
 
         [TestInitialize]
-
         public void Initialize()
         {
             this.phonebookRepository = new PhonebookRepository(new PhoneNumberFormater());
-            for (int i = 0; i < 10000; i++)
+            for (var i = 0; i < 1000; i++)
             {
-                this.phonebookRepository.AddPhone(i.ToString(),new[] {i.ToString()});
+                this.phonebookRepository.AddPhone(i.ToString(), new[] { "0"+i.ToString() });
             }
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void AddWithNullForNameTest()
+        {
+            this.phonebookRepository.AddPhone(null, new[] { "112" });
+        }
+
+        [TestMethod]
+        public void TestChangePhoneReturnResultNumberOfChanged()
+        {
+            var changedNumbers = this.phonebookRepository.ChangePhone("00", "11");
+            Assert.AreEqual(1, changedNumbers);
+        }
 
         [TestMethod]
         public void CheckForCorrectAdding()
         {
-            var entries = this.phonebookRepository.ListEntries(0, 10000);
-            Assert.AreEqual(10000, entries.Count());
+            var entries = this.phonebookRepository.ListEntries(0, 1000);
+            Assert.AreEqual(1000, entries.Count());
         }
     }
 }

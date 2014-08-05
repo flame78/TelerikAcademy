@@ -8,13 +8,11 @@
 
     internal class CommandsFactory : ICommandsFactory
     {
-            private readonly IPhonebookRepository phonebookRepository;
+        private readonly IPhonebookRepository phonebookRepository;
 
         private readonly IPrinter printer;
 
-        public CommandsFactory(
-            IPhonebookRepository phonebookRepository, 
-             IPrinter printer)
+        public CommandsFactory(IPhonebookRepository phonebookRepository, IPrinter printer)
         {
             this.phonebookRepository = phonebookRepository;
             this.printer = printer;
@@ -28,19 +26,19 @@
                                      "AddPhone", 
                                      new AddPhoneCommand(
                                      this.phonebookRepository, 
-                                    this.printer)
+                                     this.printer)
                                  }, 
                                  {
                                      "ChangePhone", 
                                      new ChangePhoneCommand(
                                      this.phonebookRepository, 
-                                    this.printer)
+                                     this.printer)
                                  }, 
                                  {
                                      "List", 
                                      new ListEntriesCommand(
                                      this.phonebookRepository, 
-                                      this.printer)
+                                     this.printer)
                                  }
                              };
 

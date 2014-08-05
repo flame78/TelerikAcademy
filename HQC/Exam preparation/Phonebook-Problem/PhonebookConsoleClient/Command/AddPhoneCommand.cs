@@ -21,7 +21,7 @@
         {
             var name = arguments[0];
             var numbers = arguments.Skip(1);
-       
+
             if (this.repository.AddPhone(name, numbers))
             {
                 this.printer.Print("Phone entry created");

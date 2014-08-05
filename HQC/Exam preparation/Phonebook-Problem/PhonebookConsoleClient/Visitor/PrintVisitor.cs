@@ -1,11 +1,10 @@
-﻿
-namespace Phonebook.ConsoleClient.Visitor
+﻿namespace Phonebook.ConsoleClient.Visitor
 {
     using System;
 
     using Phonebook.ConsoleClient.Contracts;
 
-    class PrintVisitor : IVisitor
+    internal class PrintVisitor : IVisitor
     {
         public void Recieve(string data)
         {

@@ -13,7 +13,6 @@
     {
         public static void Main()
         {
-
             var printer = new StringBuilderPrinter();
             var phonebookRepository = new PhonebookRepository(new PhoneNumberFormater());
             var consoleCommandsFactory = new CommandsFactory(phonebookRepository, printer);

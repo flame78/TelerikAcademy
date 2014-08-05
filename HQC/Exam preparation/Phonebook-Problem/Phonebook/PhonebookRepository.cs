@@ -12,10 +12,11 @@
     {
         private readonly Dictionary<string, PhonebookEntry> dict;
 
+        private readonly IPhoneNumberFormater formater;
+
         private readonly MultiDictionary<string, PhonebookEntry> multidict;
 
         private readonly OrderedSet<PhonebookEntry> sorted;
-        private IPhoneNumberFormater formater;
 
         public PhonebookRepository(IPhoneNumberFormater formater, IEnumerable<PhonebookEntry> entries)
             : this(formater)
@@ -36,6 +37,11 @@
 
         public bool AddPhone(string name, IEnumerable<string> numbers)
         {
+            if (name == null || numbers == null)
+            {
+                throw new ArgumentNullException("Null argument cant be added");
+            }
+
             var formatedNumbers = new List<string>(numbers.Count());
             formatedNumbers.AddRange(numbers.Select(number => this.formater.Format(number)));
 
@@ -43,9 +49,9 @@
 
             PhonebookEntry entry;
 
-            var notNameAlredyExist = !this.dict.TryGetValue(nameInLowerInvariant, out entry);
+            var isNameAlredyExist = this.dict.TryGetValue(nameInLowerInvariant, out entry);
 
-            if (notNameAlredyExist)
+            if (!isNameAlredyExist)
             {
                 entry = new PhonebookEntry(name, new SortedSet<string>());
                 this.dict.Add(nameInLowerInvariant, entry);
@@ -58,7 +64,7 @@
             }
 
             entry.Phones.UnionWith(formatedNumbers);
-            return notNameAlredyExist;
+            return !isNameAlredyExist;
         }
 
         public int ChangePhone(string currentNumber, string newNumber)

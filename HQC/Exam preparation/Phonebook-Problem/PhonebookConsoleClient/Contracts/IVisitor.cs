@@ -1,8 +1,7 @@
-﻿
-namespace Phonebook.ConsoleClient.Contracts
+﻿namespace Phonebook.ConsoleClient.Contracts
 {
     internal interface IVisitor
     {
-          void Recieve(string data);
+        void Recieve(string data);
     }
 }
