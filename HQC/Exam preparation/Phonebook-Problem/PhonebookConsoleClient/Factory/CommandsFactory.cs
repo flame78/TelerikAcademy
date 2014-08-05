@@ -4,15 +4,15 @@
 
     using Phonebook.ConsoleClient.Command;
     using Phonebook.ConsoleClient.Contracts;
-    using Phonebook.Lib.Contracts;
+    using Phonebook.Lib;
 
     internal class CommandsFactory : ICommandsFactory
     {
-        private readonly IPhonebookRepository phonebookRepository;
+        private readonly PhonebookRepositoryWithRemove phonebookRepository;
 
         private readonly IPrinter printer;
 
-        public CommandsFactory(IPhonebookRepository phonebookRepository, IPrinter printer)
+        public CommandsFactory(PhonebookRepositoryWithRemove phonebookRepository, IPrinter printer)
         {
             this.phonebookRepository = phonebookRepository;
             this.printer = printer;
@@ -37,6 +37,12 @@
                                  {
                                      "List", 
                                      new ListEntriesCommand(
+                                     this.phonebookRepository, 
+                                     this.printer)
+                                 }, 
+                                 {
+                                     "Remove", 
+                                     new RemoveCommand(
                                      this.phonebookRepository, 
                                      this.printer)
                                  }

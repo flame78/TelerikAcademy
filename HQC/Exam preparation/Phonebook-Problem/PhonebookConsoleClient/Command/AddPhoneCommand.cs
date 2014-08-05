@@ -1,5 +1,6 @@
 ﻿namespace Phonebook.ConsoleClient.Command
 {
+    using System;
     using System.Linq;
 
     using Phonebook.ConsoleClient.Contracts;
@@ -19,6 +20,11 @@
 
         public void Execute(string[] arguments)
         {
+            if (arguments.Length < 2)
+            {
+                throw new ArgumentException("Invalid Parameters");
+            }
+
             var name = arguments[0];
             var numbers = arguments.Skip(1);
 

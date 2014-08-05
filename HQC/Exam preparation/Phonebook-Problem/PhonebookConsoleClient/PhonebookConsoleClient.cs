@@ -14,11 +14,11 @@
         public static void Main()
         {
             var printer = new StringBuilderPrinter();
-            var phonebookRepository = new PhonebookRepository(new PhoneNumberFormater());
+            var phonebookRepository = new PhonebookRepositoryWithRemove(new PhoneNumberFormater());
             var consoleCommandsFactory = new CommandsFactory(phonebookRepository, printer);
 
             var commands = consoleCommandsFactory.GetCommands();
-            var commandParser = new ConsoleCommandParser(commands);
+            var commandParser = new ConsoleCommandParser();
 
             while (true)
             {
@@ -29,7 +29,6 @@
                 }
 
                 var command = commandParser.Parse(commandLine);
-
                 commands[command.Name].Execute(command.Arguments);
             }
 

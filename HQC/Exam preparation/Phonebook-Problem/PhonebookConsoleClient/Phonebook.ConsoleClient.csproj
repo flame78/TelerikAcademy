@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Command\AddPhoneCommand.cs" />
     <Compile Include="Command\ChangePhoneCommand.cs" />
+    <Compile Include="Command\RemoveCommand.cs" />
     <Compile Include="Contracts\IVisitor.cs" />
     <Compile Include="Factory\CommandsFactory.cs" />
     <Compile Include="Contracts\ICommandsFactory.cs" />

@@ -10,13 +10,13 @@
 
     public class PhonebookRepository : IPhonebookRepository
     {
-        private readonly Dictionary<string, PhonebookEntry> dict;
+        protected readonly MultiDictionary<string, PhonebookEntry> EntriesByNumber;
 
-        private readonly IPhoneNumberFormater formater;
+        protected readonly IPhoneNumberFormater NumberFormater;
 
-        private readonly MultiDictionary<string, PhonebookEntry> multidict;
+        protected readonly OrderedSet<PhonebookEntry> SortedEntries;
 
-        private readonly OrderedSet<PhonebookEntry> sorted;
+        protected readonly Dictionary<string, PhonebookEntry> UnsortedEntries;
 
         public PhonebookRepository(IPhoneNumberFormater formater, IEnumerable<PhonebookEntry> entries)
             : this(formater)
@@ -29,10 +29,10 @@
 
         public PhonebookRepository(IPhoneNumberFormater formater)
         {
-            this.dict = new Dictionary<string, PhonebookEntry>();
-            this.multidict = new MultiDictionary<string, PhonebookEntry>(false);
-            this.sorted = new OrderedSet<PhonebookEntry>();
-            this.formater = formater;
+            this.UnsortedEntries = new Dictionary<string, PhonebookEntry>();
+            this.EntriesByNumber = new MultiDictionary<string, PhonebookEntry>(false);
+            this.SortedEntries = new OrderedSet<PhonebookEntry>();
+            this.NumberFormater = formater;
         }
 
         public bool AddPhone(string name, IEnumerable<string> numbers)
@@ -43,24 +43,24 @@
             }
 
             var formatedNumbers = new List<string>(numbers.Count());
-            formatedNumbers.AddRange(numbers.Select(number => this.formater.Format(number)));
+            formatedNumbers.AddRange(numbers.Select(number => this.NumberFormater.Format(number)));
 
             var nameInLowerInvariant = name.ToLowerInvariant();
 
             PhonebookEntry entry;
 
-            var isNameAlredyExist = this.dict.TryGetValue(nameInLowerInvariant, out entry);
+            var isNameAlredyExist = this.UnsortedEntries.TryGetValue(nameInLowerInvariant, out entry);
 
             if (!isNameAlredyExist)
             {
                 entry = new PhonebookEntry(name, new SortedSet<string>());
-                this.dict.Add(nameInLowerInvariant, entry);
-                this.sorted.Add(entry);
+                this.UnsortedEntries.Add(nameInLowerInvariant, entry);
+                this.SortedEntries.Add(entry);
             }
 
             foreach (var number in formatedNumbers)
             {
-                this.multidict.Add(number, entry);
+                this.EntriesByNumber.Add(number, entry);
             }
 
             entry.Phones.UnionWith(formatedNumbers);
@@ -69,17 +69,17 @@
 
         public int ChangePhone(string currentNumber, string newNumber)
         {
-            currentNumber = this.formater.Format(currentNumber);
-            newNumber = this.formater.Format(newNumber);
+            currentNumber = this.NumberFormater.Format(currentNumber);
+            newNumber = this.NumberFormater.Format(newNumber);
 
-            var found = this.multidict[currentNumber].ToList();
+            var found = this.EntriesByNumber[currentNumber].ToList();
             foreach (var entry in found)
             {
                 entry.Phones.Remove(currentNumber);
-                this.multidict.Remove(currentNumber, entry);
+                this.EntriesByNumber.Remove(currentNumber, entry);
 
                 entry.Phones.Add(newNumber);
-                this.multidict.Add(newNumber, entry);
+                this.EntriesByNumber.Add(newNumber, entry);
             }
 
             return found.Count;
@@ -87,7 +87,7 @@
 
         public IEnumerable<PhonebookEntry> ListEntries(int start, int count)
         {
-            if (start < 0 || start + count > this.dict.Count)
+            if (start < 0 || start + count > this.UnsortedEntries.Count)
             {
                 throw new ArgumentOutOfRangeException("Invalid start index or count.");
             }
@@ -96,7 +96,7 @@
 
             for (var i = start; i <= start + count - 1; i++)
             {
-                var entry = this.sorted[i];
+                var entry = this.SortedEntries[i];
                 list[i - start] = entry;
             }
 

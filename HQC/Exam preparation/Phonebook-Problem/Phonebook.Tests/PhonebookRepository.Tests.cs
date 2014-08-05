@@ -10,7 +10,7 @@
     using Phonebook.Lib.Formater;
 
     [TestClass]
-    public class UnitTest1
+    public class PhonebookRepositoryTest
     {
         private IPhonebookRepository phonebookRepository;
 
@@ -20,7 +20,7 @@
             this.phonebookRepository = new PhonebookRepository(new PhoneNumberFormater());
             for (var i = 0; i < 1000; i++)
             {
-                this.phonebookRepository.AddPhone(i.ToString(), new[] { "0"+i.ToString() });
+                this.phonebookRepository.AddPhone(i.ToString(), new[] { "0" + i });
             }
         }
 

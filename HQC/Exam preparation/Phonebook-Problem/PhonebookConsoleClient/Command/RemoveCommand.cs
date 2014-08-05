@@ -3,15 +3,15 @@
     using System;
 
     using Phonebook.ConsoleClient.Contracts;
-    using Phonebook.Lib.Contracts;
+    using Phonebook.Lib;
 
-    internal class ListEntriesCommand : IPhonebookCommand
+    internal class RemoveCommand : IPhonebookCommand
     {
         private readonly IPrinter printer;
 
-        private readonly IPhonebookRepository repository;
+        private readonly PhonebookRepositoryWithRemove repository;
 
-        public ListEntriesCommand(IPhonebookRepository repository, IPrinter printer)
+        public RemoveCommand(PhonebookRepositoryWithRemove repository, IPrinter printer)
         {
             this.printer = printer;
             this.repository = repository;
@@ -19,23 +19,21 @@
 
         public void Execute(string[] arguments)
         {
-            if (arguments.Length != 2)
+            if (arguments.Length != 1)
             {
                 throw new ArgumentException("Invalid Parameters");
             }
 
             try
             {
-                var entries = this.repository.ListEntries(int.Parse(arguments[0]), int.Parse(arguments[1]));
-
-                foreach (var entry in entries)
+                if (!this.repository.Remove(arguments[0]))
                 {
-                    this.printer.Print(entry.ToString());
+                    this.printer.Print("Phone number could not be found");
                 }
             }
             catch (ArgumentOutOfRangeException)
             {
-                this.printer.Print("Invalid range");
+                this.printer.Print("Invalid phone number");
             }
         }
     }
