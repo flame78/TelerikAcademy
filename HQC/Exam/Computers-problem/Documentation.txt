@@ -1,0 +1,57 @@
+Design pattern: Simple Factory
+	SimpleComputersFactory class
+
+Design pattern: Strategy
+	* 
+
+Design pattern: Template Method
+	* 
+
+Design pattern: Abstract factory
+	IComputersFactory interface 
+
+Design pattern: Composite
+	Computer class 
+
+Design pattern: Mediator
+	* 
+
+Found bottlenecks:
+	
+     1. internal void rand(int a, int b)
+        {
+            // First Bottleneck
+            int randomNumber;
+            do
+            {
+                randomNumber = Random.Next(0, 1000);
+            }
+            while (!(randomNumber >= a && randomNumber <= b));
+            this.ram.SaveValue(randomNumber);
+        }
+	Fixed
+/----------------------------------------------------------------------/
+     2. Pri izchislqvaneto na korena se polzva cikyl
+
+Found bugs:
+	1. V klasa Motherboard ne se incializirashe videoCard 
+	2. continue;
+                Console.WriteLine("Invalid command!");
+	   Nikoga nqma da stigne do invalid command	* 
+	3. Lipsvashe %
+		this.motherboard.DrawOnVideoCard(string.Format("Battery status: {0}%", this.battery.Percentage)); 
+
+Single responsibility principle
+	Na mnogo mesta naprimer Motherboard, Computer
+
+Open/closed principle
+	Na mnogo mesta v computer, ram, motherboard
+
+Liskov substitution principle
+	Metodite koito imashe Computer za da pishe v Ram-a i otpe4atvane prez video kartata sa izneseni v Motherboard kydeto im e mqstoto. 
+
+Interface segregation principle
+	Interfejsite bqha ok
+
+Dependency inversion principle
+	Pak na mnogo mesta computer, ram, factory, motherboard
