@@ -31,14 +31,14 @@
 
         public double CalcPerimeter()
         {
-            double perimeter = 2 * Math.PI * this.radius;
+            var perimeter = 2 * Math.PI * this.radius;
 
             return perimeter;
         }
 
         public double CalcSurface()
         {
-            double surface = Math.PI * this.radius * this.radius;
+            var surface = Math.PI * this.radius * this.radius;
 
             return surface;
         }
