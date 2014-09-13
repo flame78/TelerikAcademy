@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InternetUsageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Browsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrowserName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InternetUsageRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateTime" Type="datetime" Nullable="false" />
+          <Property Name="SiteId" Type="int" Nullable="false" />
+          <Property Name="BrowserId" Type="int" Nullable="false" />
+          <Property Name="MacAdressId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MacAdresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mac" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sites">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteAdress" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BrowserInternetUsageRecord">
+          <End Role="Browsers" Type="Self.Browsers" Multiplicity="1" />
+          <End Role="InternetUsageRecords" Type="Self.InternetUsageRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Browsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetUsageRecords">
+              <PropertyRef Name="BrowserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacAdressInternetUsageRecord">
+          <End Role="MacAdresses" Type="Self.MacAdresses" Multiplicity="1" />
+          <End Role="InternetUsageRecords" Type="Self.InternetUsageRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacAdresses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetUsageRecords">
+              <PropertyRef Name="MacAdressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteInternetUsageRecord">
+          <End Role="Sites" Type="Self.Sites" Multiplicity="1" />
+          <End Role="InternetUsageRecords" Type="Self.InternetUsageRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetUsageRecords">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InternetUsageModelStoreContainer">
+          <EntitySet Name="Browsers" EntityType="Self.Browsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternetUsageRecords" EntityType="Self.InternetUsageRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MacAdresses" EntityType="Self.MacAdresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sites" EntityType="Self.Sites" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BrowserInternetUsageRecord" Association="Self.FK_BrowserInternetUsageRecord">
+            <End Role="Browsers" EntitySet="Browsers" />
+            <End Role="InternetUsageRecords" EntitySet="InternetUsageRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacAdressInternetUsageRecord" Association="Self.FK_MacAdressInternetUsageRecord">
+            <End Role="MacAdresses" EntitySet="MacAdresses" />
+            <End Role="InternetUsageRecords" EntitySet="InternetUsageRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteInternetUsageRecord" Association="Self.FK_SiteInternetUsageRecord">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="InternetUsageRecords" EntitySet="InternetUsageRecords" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InternetUsageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Browser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrowserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InternetUsageRecords" Relationship="Self.FK_BrowserInternetUsageRecord" FromRole="Browsers" ToRole="InternetUsageRecords" />
+        </EntityType>
+        <EntityType Name="InternetUsageRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SiteId" Type="Int32" Nullable="false" />
+          <Property Name="BrowserId" Type="Int32" Nullable="false" />
+          <Property Name="MacAdressId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Browser" Relationship="Self.FK_BrowserInternetUsageRecord" FromRole="InternetUsageRecords" ToRole="Browsers" />
+          <NavigationProperty Name="MacAdress" Relationship="Self.FK_MacAdressInternetUsageRecord" FromRole="InternetUsageRecords" ToRole="MacAdresses" />
+          <NavigationProperty Name="Site" Relationship="Self.FK_SiteInternetUsageRecord" FromRole="InternetUsageRecords" ToRole="Sites" />
+        </EntityType>
+        <EntityType Name="MacAdress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mac" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InternetUsageRecords" Relationship="Self.FK_MacAdressInternetUsageRecord" FromRole="MacAdresses" ToRole="InternetUsageRecords" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InternetUsageRecords" Relationship="Self.FK_SiteInternetUsageRecord" FromRole="Sites" ToRole="InternetUsageRecords" />
+        </EntityType>
+        <Association Name="FK_BrowserInternetUsageRecord">
+          <End Role="Browsers" Type="Self.Browser" Multiplicity="1" />
+          <End Role="InternetUsageRecords" Type="Self.InternetUsageRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Browsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetUsageRecords">
+              <PropertyRef Name="BrowserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MacAdressInternetUsageRecord">
+          <End Role="MacAdresses" Type="Self.MacAdress" Multiplicity="1" />
+          <End Role="InternetUsageRecords" Type="Self.InternetUsageRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MacAdresses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetUsageRecords">
+              <PropertyRef Name="MacAdressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SiteInternetUsageRecord">
+          <End Role="Sites" Type="Self.Site" Multiplicity="1" />
+          <End Role="InternetUsageRecords" Type="Self.InternetUsageRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sites">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternetUsageRecords">
+              <PropertyRef Name="SiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InternetUsageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Browsers" EntityType="Self.Browser" />
+          <EntitySet Name="InternetUsageRecords" EntityType="Self.InternetUsageRecord" />
+          <EntitySet Name="MacAdresses" EntityType="Self.MacAdress" />
+          <EntitySet Name="Sites" EntityType="Self.Site" />
+          <AssociationSet Name="FK_BrowserInternetUsageRecord" Association="Self.FK_BrowserInternetUsageRecord">
+            <End Role="Browsers" EntitySet="Browsers" />
+            <End Role="InternetUsageRecords" EntitySet="InternetUsageRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MacAdressInternetUsageRecord" Association="Self.FK_MacAdressInternetUsageRecord">
+            <End Role="MacAdresses" EntitySet="MacAdresses" />
+            <End Role="InternetUsageRecords" EntitySet="InternetUsageRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SiteInternetUsageRecord" Association="Self.FK_SiteInternetUsageRecord">
+            <End Role="Sites" EntitySet="Sites" />
+            <End Role="InternetUsageRecords" EntitySet="InternetUsageRecords" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InternetUsageModelStoreContainer" CdmEntityContainer="InternetUsageEntities">
+          <EntitySetMapping Name="Browsers">
+            <EntityTypeMapping TypeName="InternetUsageModel.Browser">
+              <MappingFragment StoreEntitySet="Browsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BrowserName" ColumnName="BrowserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternetUsageRecords">
+            <EntityTypeMapping TypeName="InternetUsageModel.InternetUsageRecord">
+              <MappingFragment StoreEntitySet="InternetUsageRecords">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+                <ScalarProperty Name="BrowserId" ColumnName="BrowserId" />
+                <ScalarProperty Name="MacAdressId" ColumnName="MacAdressId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MacAdresses">
+            <EntityTypeMapping TypeName="InternetUsageModel.MacAdress">
+              <MappingFragment StoreEntitySet="MacAdresses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Mac" ColumnName="Mac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="InternetUsageModel.Site">
+              <MappingFragment StoreEntitySet="Sites">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SiteAdress" ColumnName="SiteAdress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
