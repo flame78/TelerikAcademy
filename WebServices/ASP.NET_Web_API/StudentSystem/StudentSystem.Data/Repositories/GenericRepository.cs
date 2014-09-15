@@ -8,8 +8,8 @@
 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private IStudentSystemDbContext context;
-        private IDbSet<T> set;
+        private readonly IStudentSystemDbContext context;
+        private readonly IDbSet<T> set;
 
         public GenericRepository()
             : this(new StudentSystemDbContext())

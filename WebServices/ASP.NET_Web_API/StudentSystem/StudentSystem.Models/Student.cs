@@ -7,16 +7,18 @@
     public class Student
     {
         private ICollection<Course> courses;
+        private ICollection<Homework> homeworks;
+        private ICollection<Student> trainees;
 
         public Student()
         {
             this.courses = new HashSet<Course>();
-            this.Homeworks = new HashSet<Homework>();
-            this.Trainees = new HashSet<Student>();
+            this.homeworks = new HashSet<Homework>();
+            this.trainees = new HashSet<Student>();
             this.AdditionalInformation = new StudentInfo();
         }
 
-        //   [Key]
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -34,15 +36,41 @@
         public virtual Student Assistant { get; set; }
 
         [InverseProperty("Assistant")]
-        public virtual ICollection<Student> Trainees { get; set; }
+        public virtual ICollection<Student> Trainees
+        {
+            get
+            {
+                return this.trainees;
+            }
+            set
+            {
+                this.trainees = value;
+            }
+        }
 
-        //public virtual ICollection<Course> Courses
-        //{
-        //    get { return this.courses; }
-        //    set { this.courses = value; }
-        //}
+        public virtual ICollection<Course> Courses
+        {
+            get
+            {
+                return this.courses;
+            }
+            set
+            {
+                this.courses = value;
+            }
+        }
 
-        public virtual ICollection<Homework> Homeworks { get; set; }
+        public virtual ICollection<Homework> Homeworks
+        {
+            get
+            {
+                return this.homeworks;
+            }
+            set
+            {
+                this.homeworks = value;
+            }
+        }
 
         public StudentInfo AdditionalInformation { get; set; }
 

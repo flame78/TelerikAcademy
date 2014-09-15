@@ -7,24 +7,36 @@
     using System.Data.Entity;
     using System.Net;
 
-    using StudentSystem.Data;
     using StudentSystem.Models;
+    using StudentSystem.Services.Models;
+    using StudentSystem.Data.Repositories;
 
     public class StudentsController : ApiController
     {
-        private StudentSystemDbContext db = new StudentSystemDbContext();
+        private readonly IGenericRepository<Student> students;
 
-        // GET: api/Students
-        public IQueryable<Student> GetStudents()
+        public StudentsController()
+            : this(new GenericRepository<Student>())
         {
-            return db.Students;
         }
 
-        // GET: api/Students/5
-        [ResponseType(typeof(Student))]
+        public StudentsController(IGenericRepository<Student> students)
+        {
+            this.students = students;
+        }
+
+        [HttpGet]
+        public IHttpActionResult All()
+        {
+            return Ok(this.students.All().Select(StudentModel.FromStudent));
+        }
+
+        [HttpGet]
         public IHttpActionResult GetStudent(int id)
         {
-            Student student = db.Students.Find(id);
+            var student = this.students.SearchFor(
+                s => s.Id == id).Select(StudentModel.FromStudent).FirstOrDefault();
+
             if (student == null)
             {
                 return NotFound();
@@ -33,84 +45,84 @@
             return Ok(student);
         }
 
-        // PUT: api/Students/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutStudent(int id, Student student)
+        [HttpPut]
+        public IHttpActionResult Update(int id, StudentModel student)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != student.Id)
+            var existingStudent =
+                this.students.SearchFor(s => s.Id == id).FirstOrDefault();
+
+            if (existingStudent == null)
             {
-                return BadRequest();
+                return this.BadRequest("That student does not exists!");
             }
 
-            db.Entry(student).State = EntityState.Modified;
+            existingStudent.FirstName = student.FirstName;
+            existingStudent.LastName = student.LastName;
 
-            try
+            if (student.Level != null)
             {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                existingStudent.Level = student.Level;
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            if (student.AdditionalInformation != null)
+            {
+                existingStudent.AdditionalInformation = student.AdditionalInformation;
+            }
+
+            students.SaveChanges();
+
+            return this.Ok(student);
+
         }
 
-        // POST: api/Students
-        [ResponseType(typeof(Student))]
-        public IHttpActionResult PostStudent(Student student)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/Students
+        //[ResponseType(typeof(Student))]
+        //public IHttpActionResult PostStudent(Student student)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Students.Add(student);
-            db.SaveChanges();
+        //    db.Students.Add(student);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = student.Id }, student);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = student.Id }, student);
+        //}
 
-        // DELETE: api/Students/5
-        [ResponseType(typeof(Student))]
-        public IHttpActionResult DeleteStudent(int id)
-        {
-            Student student = db.Students.Find(id);
-            if (student == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Students/5
+        //[ResponseType(typeof(Student))]
+        //public IHttpActionResult DeleteStudent(int id)
+        //{
+        //    Student student = db.Students.Find(id);
+        //    if (student == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Students.Remove(student);
-            db.SaveChanges();
+        //    db.Students.Remove(student);
+        //    db.SaveChanges();
 
-            return Ok(student);
-        }
+        //    return Ok(student);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool StudentExists(int id)
-        {
-            return db.Students.Count(e => e.Id == id) > 0;
-        }
+        //private bool StudentExists(int id)
+        //{
+        //    return db.Students.Count(e => e.Id == id) > 0;
+        //}
     }
 }

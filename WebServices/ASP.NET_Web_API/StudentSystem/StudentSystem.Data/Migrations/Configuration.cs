@@ -11,7 +11,7 @@ namespace StudentSystem.Data.Migrations
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "StudentSystem.Data.StudentSystemDbContext";
+            ContextKey = "StudentSystemDbContext";
         }
 
         protected override void Seed(StudentSystemDbContext context)

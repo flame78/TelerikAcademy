@@ -12,7 +12,14 @@
 
         public StudentsSystemData()
             : this(new StudentSystemDbContext())
+
         {
+           }
+
+        public StudentsSystemData(IStudentSystemDbContext context)
+        {
+            this.context = context;
+            this.repositories = new Dictionary<Type, object>();
         }
 
         public IGenericRepository<Course> Courses
@@ -44,11 +51,7 @@
             this.context.SaveChanges();
         }
 
-        public StudentsSystemData(IStudentSystemDbContext context)
-        {
-            this.context = context;
-            this.repositories = new Dictionary<Type, object>();
-        }
+        
 
         private IGenericRepository<T> GetRepository<T>() where T : class
         {

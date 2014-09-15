@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using System;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq.Expressions;
 
     using StudentSystem.Models;
@@ -22,10 +23,13 @@
                  };
             }
         }
+
         public Guid Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Description { get; set; }
     }
 }
