@@ -1,5 +1,6 @@
 ﻿namespace StudentSystem.Services.Controllers
 {
+    using System;
     using System.Web.Http;
     using System.Linq;
     using System.Web.Http.Description;
@@ -7,35 +8,52 @@
     using System.Data.Entity;
     using System.Net;
 
+    using Microsoft.Ajax.Utilities;
+
+    using StudentSystem.Data;
     using StudentSystem.Models;
     using StudentSystem.Services.Models;
     using StudentSystem.Data.Repositories;
 
     public class StudentsController : ApiController
     {
-        private readonly IGenericRepository<Student> students;
+        private readonly IStudentSystemData context;
 
         public StudentsController()
-            : this(new GenericRepository<Student>())
+            : this(new StudentsSystemData())
         {
         }
 
-        public StudentsController(IGenericRepository<Student> students)
+        public StudentsController(IStudentSystemData context)
         {
-            this.students = students;
+            this.context = context;
         }
 
         [HttpGet]
         public IHttpActionResult All()
         {
-            return Ok(this.students.All().Select(StudentModel.FromStudent));
+            return Ok(this.context.Students.All().Select(StudentModel.FromStudent));
         }
 
         [HttpGet]
-        public IHttpActionResult GetStudent(int id)
+        public IHttpActionResult ById(int id)
         {
-            var student = this.students.SearchFor(
+            var student = this.context.Students.SearchFor(
                 s => s.Id == id).Select(StudentModel.FromStudent).FirstOrDefault();
+
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(student);
+        }
+
+        [HttpGet]
+        public IHttpActionResult AllDataById(int id)
+        {
+            var student = this.context.Students.SearchFor(
+                s => s.Id == id).FirstOrDefault();
 
             if (student == null)
             {
@@ -54,7 +72,7 @@
             }
 
             var existingStudent =
-                this.students.SearchFor(s => s.Id == id).FirstOrDefault();
+                this.context.Students.SearchFor(s => s.Id == id).FirstOrDefault();
 
             if (existingStudent == null)
             {
@@ -66,63 +84,82 @@
 
             if (student.Level != null)
             {
-                existingStudent.Level = student.Level;
+                existingStudent.Level = (int)student.Level;
             }
 
             if (student.AdditionalInformation != null)
             {
-                existingStudent.AdditionalInformation = student.AdditionalInformation;
+
+                existingStudent.AdditionalInformation.Address =
+                    student.AdditionalInformation.Address
+                    ?? existingStudent.AdditionalInformation.Address;
+
+                existingStudent.AdditionalInformation.Email =
+                    student.AdditionalInformation.Email
+                    ?? existingStudent.AdditionalInformation.Email;
             }
 
-            students.SaveChanges();
+            context.SaveChanges();
 
             return this.Ok(student);
 
         }
 
-        //// POST: api/Students
-        //[ResponseType(typeof(Student))]
-        //public IHttpActionResult PostStudent(Student student)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPost]
+        public IHttpActionResult Create(StudentModel student)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    db.Students.Add(student);
-        //    db.SaveChanges();
+            var newStudent = new Student
+                                 {
+                                     FirstName = student.FirstName,
+                                     LastName = student.LastName,
+                                     Level = (int)student.Level,
+                                     AdditionalInformation = student.AdditionalInformation
 
-        //    return CreatedAtRoute("DefaultApi", new { id = student.Id }, student);
-        //}
+                                 };
 
-        //// DELETE: api/Students/5
-        //[ResponseType(typeof(Student))]
-        //public IHttpActionResult DeleteStudent(int id)
-        //{
-        //    Student student = db.Students.Find(id);
-        //    if (student == null)
-        //    {
-        //        return NotFound();
-        //    }
+            this.context.Students.Add(newStudent);
+            this.context.SaveChanges();
 
-        //    db.Students.Remove(student);
-        //    db.SaveChanges();
+            student.Id = newStudent.Id;
 
-        //    return Ok(student);
-        //}
+            return this.Ok(student);
+        }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            Student student = this.context.Students.Find(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
 
-        //private bool StudentExists(int id)
-        //{
-        //    return db.Students.Count(e => e.Id == id) > 0;
-        //}
+            this.context.Students.Delete(student);
+            this.context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult AddCourseToStudent(int id, Guid courseId)
+        {
+            var student = context.Students.Find(id);
+            var course = context.Courses.Find(courseId);
+
+            if (student == null || course == null)
+            {
+                return this.NotFound();
+            }
+
+            student.Courses.Add(course);
+            context.SaveChanges();
+
+            return this.Ok();
+        }
     }
 }

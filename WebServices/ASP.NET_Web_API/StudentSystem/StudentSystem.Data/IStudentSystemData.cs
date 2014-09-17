@@ -8,5 +8,7 @@
         IGenericRepository<Course> Courses { get; }
 
         StudentsRepository Students { get; }
+
+        void SaveChanges();
     }
 }

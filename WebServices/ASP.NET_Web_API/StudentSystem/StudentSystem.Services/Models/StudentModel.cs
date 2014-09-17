@@ -21,6 +21,7 @@
             {
                 return s => new StudentModel()
                  {
+                     Id = s.Id,
                      FirstName =  s.FirstName,
                      LastName =  s.LastName,
                      AdditionalInformation = s.AdditionalInformation,
@@ -42,7 +43,7 @@
         [MaxLength(20)]
         public string LastName { get; set; }
 
-        public int Level { get; set; }
+        public int? Level { get; set; }
 
        public StudentInfo AdditionalInformation { get; set; }
     }

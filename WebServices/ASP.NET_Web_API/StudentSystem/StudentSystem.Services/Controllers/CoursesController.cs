@@ -4,28 +4,34 @@
     using System.Linq;
     using System.Web.Http;
 
-    using StudentSystem.Data.Repositories;
+    using StudentSystem.Data;
     using StudentSystem.Models;
     using StudentSystem.Services.Models;
 
     public class CoursesController : ApiController
     {
-        private readonly IGenericRepository<Course> courses;
+        private readonly IStudentSystemData context;
 
         public CoursesController()
-            : this(new GenericRepository<Course>())
+            : this(new StudentsSystemData())
         {
         }
 
-        public CoursesController(IGenericRepository<Course> courses)
+        public CoursesController(IStudentSystemData context)
         {
-            this.courses = courses;
+            this.context = context;
         }
 
         [HttpGet]
         public IHttpActionResult All()
         {
-            return Ok(this.courses.All().Select(CourseModel.FromCourse));
+            return Ok(this.context.Courses.All().Select(CourseModel.FromCourse));
+        }
+
+        [HttpGet]
+        public IHttpActionResult ById(Guid id)
+        {
+            return this.Ok(context.Courses.Find(id));
         }
 
         [HttpPost]
@@ -42,8 +48,8 @@
                 Name = course.Name
             };
 
-            this.courses.Add(newCourse);
-            this.courses.SaveChanges();
+            this.context.Courses.Add(newCourse);
+            this.context.SaveChanges();
             course.Id = newCourse.Id;
             return Ok(course);
         }
@@ -56,7 +62,7 @@
                 return this.BadRequest();
             }
 
-            var existingCourse = courses.SearchFor(c => c.Id == id).FirstOrDefault();
+            var existingCourse = context.Courses.Find(id);
 
             if (existingCourse == null)
             {
@@ -65,7 +71,7 @@
 
             existingCourse.Name = course.Name;
             existingCourse.Description = course.Description;
-            courses.SaveChanges();
+            context.SaveChanges();
           
             return this.Ok();
         }
@@ -73,18 +79,34 @@
         [HttpDelete]
         public IHttpActionResult Delete(Guid id)
         {
-            var existingCourse = courses.SearchFor(c => c.Id == id).FirstOrDefault();
+            var existingCourse = context.Courses.Find(id);
 
             if (existingCourse == null)
             {
                 return this.NotFound();
             }
 
-            courses.Delete(existingCourse);
-            courses.SaveChanges();
+            context.Courses.Delete(existingCourse);
+            context.SaveChanges();
 
             return this.Ok();
         }
 
+        [HttpPut]
+        public IHttpActionResult AddStudentToCourse(Guid id, int studentId)
+        {
+            var course = context.Courses.Find(id);
+            var student = context.Students.Find(studentId);
+
+            if (course == null || student == null)
+            {
+                return this.NotFound();
+            }
+
+            course.Students.Add(student);
+            context.SaveChanges();
+
+            return this.Ok();
+        }
     }
 }

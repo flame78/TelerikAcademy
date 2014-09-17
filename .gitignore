@@ -154,3 +154,4 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/WebServices/ASP.NET_Web_API/StudentSystem/packages
