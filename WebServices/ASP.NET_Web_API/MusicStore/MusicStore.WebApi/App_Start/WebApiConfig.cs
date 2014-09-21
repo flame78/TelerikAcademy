@@ -8,6 +8,8 @@ using Newtonsoft.Json.Serialization;
 
 namespace MusicStore.WebApi
 {
+    using System.Web.Http.Cors;
+
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
@@ -16,6 +18,7 @@ namespace MusicStore.WebApi
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();

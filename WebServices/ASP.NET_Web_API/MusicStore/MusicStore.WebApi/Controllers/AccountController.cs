@@ -22,7 +22,7 @@ namespace MusicStore.WebApi.Controllers
     using MusicStore.Models;
 
     [Authorize]
-    [RoutePrefix("api/Account")]
+    [RoutePrefix("api/Users")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
