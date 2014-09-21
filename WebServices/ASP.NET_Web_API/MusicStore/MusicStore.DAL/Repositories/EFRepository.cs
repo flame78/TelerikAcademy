@@ -6,10 +6,10 @@
     public class EFRepository<T> : IRepository<T> where T : class
     {
 
-        private readonly IMusicStoreDbContext context;
+        private readonly IApplicationDbContext context;
         private readonly IDbSet<T> set;
 
-        public EFRepository(IMusicStoreDbContext context)
+        public EFRepository(IApplicationDbContext context)
         {
             this.context = context;
             this.set = context.Set<T>();

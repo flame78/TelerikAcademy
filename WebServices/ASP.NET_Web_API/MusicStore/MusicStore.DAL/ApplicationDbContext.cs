@@ -4,20 +4,17 @@ namespace MusicStore.DAL
 {
     using System.Data.Entity;
 
+    using MusicStore.DAL.Migrations;
     using MusicStore.DAL.Repositories;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IMusicStoreDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", throwIfV1Schema: false )
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-
+       
         public IDbSet<Country> Countries { get; set; }
 
         public IDbSet<Producer> Producers { get; set; }
@@ -26,9 +23,21 @@ namespace MusicStore.DAL
 
         public IDbSet<Album> Albums { get; set; }
 
-        public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
+        public static ApplicationDbContext Create()
         {
-            throw new System.NotImplementedException();
+            return new ApplicationDbContext();
         }
+
+        //public new void SaveChanges()
+        //{
+        //    base.SaveChanges();
+        //}
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
+
+
     }
 }

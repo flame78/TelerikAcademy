@@ -56,12 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMusicStoreData.cs" />
+    <Compile Include="IApplicationData.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ApplicationData.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IMusicStoreDbContext.cs" />
+    <Compile Include="IApplicationDbContext.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
   </ItemGroup>

@@ -6,23 +6,21 @@
     using MusicStore.DAL.Repositories;
     using MusicStore.Models;
 
-    public class ApplicationData : IMusicStoreData
+    public class ApplicationData : IApplicationData
     {
-        private readonly IMusicStoreDbContext context;
-        private readonly Dictionary<Type, Object> repositories;
+        private readonly IApplicationDbContext context;
+        private readonly IDictionary<Type, Object> repositories;
 
-        public ApplicationData()
-            : this(new ApplicationDbContext())
-        {
-        }
+        //public ApplicationData()
+        //    : this(new ApplicationDbContext())
+        //{
+        //}
 
-        public ApplicationData(IMusicStoreDbContext context)
+        public ApplicationData(IApplicationDbContext context)
         {
             this.context = context;
             this.repositories = new Dictionary<Type, object>();
         }
-
-       
 
         public IRepository<Album> Albums
         {
@@ -40,7 +38,7 @@
             }
         }
 
-        public IRepository<Country> Coutries
+        public IRepository<Country> Countries
         {
             get
             {
@@ -72,20 +70,20 @@
 
         private IRepository<T> GetRepository<T>() where T : class
         {
-            var typeOfModel = typeof(T);
-            if (!this.repositories.ContainsKey(typeOfModel))
+            var typeOfRepository = typeof(T);
+            if (!this.repositories.ContainsKey(typeOfRepository))
             {
-                var type = typeof(EFRepository<T>);
-
+                //var type = typeof(EFRepository<T>);
                 //if (typeOfModel.IsAssignableFrom(typeof(Student)))
                 //{
                 //    type = typeof(StudentsRepository);
                 //}
 
-                this.repositories.Add(typeOfModel, Activator.CreateInstance(type, this.context));
+                var newRepository = Activator.CreateInstance(typeof(EFRepository<T>), context);
+                this.repositories.Add(typeOfRepository, newRepository);
             }
 
-            return (IRepository<T>)this.repositories[typeOfModel];
+            return (IRepository<T>)this.repositories[typeOfRepository];
         }
     }
 }

@@ -3,9 +3,11 @@
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
 
+    using Microsoft.AspNet.Identity.EntityFramework;
+
     using MusicStore.Models;
 
-    public interface IMusicStoreDbContext
+    public interface IApplicationDbContext
     {
         IDbSet<Album> Albums { get; set; }
 
@@ -15,11 +17,12 @@
 
         IDbSet<Song> Songs { get; set; }
 
+        IDbSet<T> Set<T>() where T : class;
+
+        DbEntityEntry<T> Entry<T>(T entity) where T : class;
+
         int SaveChanges();
 
-        IDbSet<TEntity> Set<TEntity>() where TEntity : class;
-
-        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
     }
 }
 

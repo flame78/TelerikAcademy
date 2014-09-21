@@ -3,13 +3,13 @@
     using MusicStore.DAL.Repositories;
     using MusicStore.Models;
 
-    public interface IMusicStoreData
+    public interface IApplicationData
     {
         IRepository<Album> Albums { get; }
 
         IRepository<ApplicationUser> Artists { get; }
 
-        IRepository<Country> Coutries { get; }
+        IRepository<Country> Countries { get; }
 
         IRepository<Producer> Producers { get; }
 
