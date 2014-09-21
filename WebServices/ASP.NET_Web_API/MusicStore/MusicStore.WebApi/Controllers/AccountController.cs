@@ -331,7 +331,7 @@ namespace MusicStore.WebApi.Controllers
             }
 
         //    var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-            var user = new ApplicationUser() { UserName = model.UserName };
+            var user = new ApplicationUser() { UserName = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

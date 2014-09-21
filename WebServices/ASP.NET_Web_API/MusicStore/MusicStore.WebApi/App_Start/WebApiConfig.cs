@@ -18,7 +18,6 @@ namespace MusicStore.WebApi
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
-            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -28,6 +27,10 @@ namespace MusicStore.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.EnableCors(new EnableCorsAttribute("*","*","*"));
+
+            
         }
     }
 }
