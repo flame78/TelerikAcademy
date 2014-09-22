@@ -10,6 +10,8 @@ namespace Exam.DAL
 
         IRepository<Category> Categories { get; }
 
+        IRepository<Comment> Comments { get; }
+
         void SaveChanges();
 
         IRepository<Tag> Tags { get; }

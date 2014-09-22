@@ -21,6 +21,8 @@
 
         public IDbSet<Tag> Tags { get; set; }
 
+        public IDbSet<Comment> Comments { get; set; } 
+
         public static ExamDbContext Create()
         {
             return new ExamDbContext();

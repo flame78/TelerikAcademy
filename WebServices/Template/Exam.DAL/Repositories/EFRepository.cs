@@ -15,9 +15,10 @@
             this.set = context.Set<T>();
         }
 
-        public void Add(T entity)
+        public T Add(T entity)
         {
             this.ChangeEntityState(entity, EntityState.Added);
+            return entity;
         }
 
         public IQueryable<T> All()

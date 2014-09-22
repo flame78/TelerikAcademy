@@ -4,7 +4,7 @@
 
     public interface IRepository<T> where T : class
     {
-        void Add(T entity);
+        T Add(T entity);
 
         IQueryable<T> All();
 

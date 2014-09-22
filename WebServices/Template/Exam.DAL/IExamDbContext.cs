@@ -11,6 +11,8 @@
 
         IDbSet<Category> Categories { get; set; }
 
+        IDbSet<Comment> Comments { get; set; } 
+
         int SaveChanges();
 
         IDbSet<T> Set<T>() where T : class;
