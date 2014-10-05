@@ -27,10 +27,11 @@ http.createServer(function (req, res) {
                 if (err) {
                     res.writeHead(400, {'Content-Type': 'text/html'});
                     res.write('<h1>Invalid Link</h1>');
+                    res.write('<script>alert("Invalid Link");window.location="/";</script>')
                     res.end();
                 }
                 else {
-                    res.writeHead(200, {'Content-Type': 'text/html'});
+                    res.writeHead(200, {'Content-Type': 'text/plain'});
                     res.write(data);
                     res.end();
                 }
@@ -42,7 +43,7 @@ http.createServer(function (req, res) {
     res.writeHead(200, {'content-type': 'text/html'});
     res.end(
             '<form action="/upload" enctype="multipart/form-data" method="post">' +
-            '<input type="file" name="upload" multiple="multiple"><br>' +
+            '<input type="file" name="upload"><br>' +
             '<input type="submit" value="Upload">' +
             '</form>'
     );
