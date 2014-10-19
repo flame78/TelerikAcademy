@@ -1,0 +1,49 @@
+extends ../shared/layout
+block main-content
+    .container
+        .col-md-6.col-md-offset-3
+            .well.bs-component
+                form.form-horizontal(method="post")
+                    fieldset
+                        legend Event
+                        .form-group
+                            label.col-lg-4.control-label(for="title") Title
+                            .col-lg-8
+                                input.form-control(id="title" type="text" name="title" placeholder="title" required)
+                        .form-group
+                            label.col-lg-4.control-label(for="description") Description
+                            .col-lg-8
+                                input.form-control(id="description" type="text" name="description" placeholder="description" required)
+                        .form-group
+                            label.col-lg-2.control-label(for='select') Category
+                            .col-lg-10
+                                select(name="category").form-control
+                                    for category in categories
+                                        option(value="#{category.name}") #{category.name}
+                        .form-group
+                            label.col-lg-2.control-label(for='select') Initiative
+                            .col-lg-10
+                                select(name="type").form-control
+                                    for initiative in initiatives
+                                        option(value="#{initiative.name}") #{initiative.name}
+                        .form-group
+                            label.col-lg-2.control-label(for='select') Season
+                            .col-lg-10
+                                select(name="season").form-control
+                                    for season in seasons
+                                        option(value="#{season.name}") #{season.name}
+                        legend Location
+                        .form-group
+                            label.col-lg-4.control-label(for="latitude") Latitude
+                            .col-lg-8
+                                input.form-control(id="latitude" type="text" name="locationLatitude" placeholder="latitude")
+                        .form-group
+                            label.col-lg-4.control-label(for="longitude") Longitude
+                            .col-lg-8
+                                input.form-control(id="longitude" type="text" name="locationLongitude" placeholder="longitude" )
+                        .form-group
+                            input.btn.btn-primary.center-block(type="submit" value="Create")
+
+block page-scripts
+    script(src="/app/bootstrapFileInput.js")
+

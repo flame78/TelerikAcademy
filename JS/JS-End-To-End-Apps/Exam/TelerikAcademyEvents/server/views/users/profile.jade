@@ -1,0 +1,55 @@
+extends ../shared/layout
+block main-content
+    .container
+        .col-md-12
+            .well.bs-component
+                form.form-horizontal(method="get" enctype="multipart/form-data")
+                    fieldset
+                        legend  #{currentUser.firstName} #{currentUser.lastName} profile
+                        table.table.table-striped.table-hover
+                            tr
+                                td Email address
+                                td #{currentUser.emailAddress}
+                            tr
+                                td Phone number
+                                td #{currentUser.phoneNumber}
+                            tr
+                                td Facebook profile
+                                td
+                                    a.btn.btn-primary.center-block(href="#{currentUser.facebookLink}") #{currentUser.facebookLink}
+                            tr
+                                td Twitter profile
+                                td
+                                    a.btn.btn-primary.center-block(href="#{currentUser.twitterLink}") #{currentUser.twitterLink}
+                            tr
+                                td LinkedIn profile
+                                td
+                                    a.btn.btn-primary.center-block(href="#{currentUser.linkedInLink}") #{currentUser.linkedInLink}
+                            tr
+                                td Google+ profile
+                                td
+                                    a.btn.btn-primary.center-block(href="#{currentUser.googlePlusLink}") #{currentUser.googlePlusLink}
+                        .form-group
+                            a.btn.btn-primary.center-block(href="/editprofile")
+                                | Edit profile
+                        img.center-block(src="/avatar" height="400")
+                        legend  Your events
+                            table.table.table-striped.table-hover
+                                tr
+                                    th Title
+                                    th Description
+                                    th Location Latitude
+                                    th Location Longditude
+                                    th Category
+                                    th Type
+                                for event in events
+                                    tr
+                                        td #{event.title}
+                                        td #{event.description}
+                                        td #{event.locationLatitude}
+                                        td #{event.locationLongitude}
+                                        td #{event.category}
+                                        td #{event.type}
+
+block page-scripts
+    script(src="/app/bootstrapFileInput.js")

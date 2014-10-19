@@ -1,0 +1,82 @@
+<div class="container row" ng-controller="tripsCtrl">
+    <h2 class="text-center">Trips</h2>
+
+    <div ng-if="permission.isAuthenticated">
+        <div class="row">
+            <button type="button" class="btn btn-default btn-sm pull-right" ng-click="createNewTrip()">
+                Create
+            </button>
+        </div>
+        <p></p>
+
+        <div class="row">
+            <div class="col-md-3 text-center">
+                Sort
+                <select ng-model="sort.sort" ng-change="changeSort()">
+                    <option value="date" selected>Date</option>
+                    <option value="driver">Driver Name</option>
+                    <option value="from">From</option>
+                    <option value="to">To</option>
+                </select>
+            </div>
+            <div class="col-md-3 text-center">
+                Order
+                <select ng-model="order.order" ng-change="changeSort()">
+                    <option value="asc" selected>Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+            <div class="col-md-3 text-center">
+                From
+                <select ng-model="destinations.from" ng-change="changeFromTo()" >
+                    <option ng-repeat="city in cities" city-directive city="city"></option>
+                </select>
+            </div>
+            <div class="col-md-3 text-center">
+                To
+                <select ng-model="destinations.to" ng-change="changeFromTo()">
+                    <option ng-repeat="city in cities" city-directive city="city"></option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-4">
+                    <input type="checkbox" name="vehicle" value="false">Include finished <br>
+                    <input type="checkbox" name="vehicle" value="false">Only mine <br>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="applyFilter()">
+                        Filter
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <button type="button" class="btn btn-default btn-sm" ng-click="changePage('-')"><<</button>
+                <input type="text" size="1" ng-model="page.currentPage" ng-disabled="true"/>
+                <button type="button" class="btn btn-default btn-sm" ng-click="changePage('+')">>></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped table-hover text-center">
+            <thead>
+            <tr>
+                <th class="text-center">Driver</th>
+                <th class="text-center">From</th>
+                <th class="text-center">To</th>
+                <th class="text-center">Departure Time</th>
+                <th ng-if="permission.isAuthenticated">IsMine</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="permission.isAuthenticated" ng-repeat="trip in trips" authorized-trip-directive trip="trip">
+            </tr>
+            <tr ng-if="!permission.isAuthenticated" ng-repeat="trip in trips" trip-directive trip="trip">
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

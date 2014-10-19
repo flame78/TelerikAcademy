@@ -1,0 +1,58 @@
+<div class="container row" ng-controller="MainCtrl">
+    <div>
+        <h1 class="text-center">Welcome to Trip Exchange</h1>
+
+        <h2 class="text-center">Find your way home!</h2>
+    </div>
+    <div class="text-center">
+        <div class="col-md-3">
+            <h4>Trips</h4>
+            {{stats.trips}}
+        </div>
+        <div class="col-md-3">
+            <h4>Finished trips</h4>
+        {{stats.finishedTrips}}
+        </div>
+        <div class="col-md-3">
+            <h4>Users</h4>
+        {{stats.users}}
+        </div>
+        <div class="col-md-3">
+            <h4>Drivers</h4>
+            {{stats.drivers}}
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h3 class="text-center">Latest trips</h3>
+        <table class="table table-striped text-center table-hover text-center">
+            <thead >
+            <tr>
+                <th class="text-center">Driver</th>
+                <th class="text-center">From</th>
+                <th class="text-center">To</th>
+                <th class="text-center">Departure Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="trip in trips" trip-directive trip="trip">
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-5">
+        <h3 class="text-center">Latest drivers</h3>
+        <table class="table table-striped text-center table-hover text-center">
+            <thead>
+            <tr>
+                <th class="text-center">Name</th>
+                <th class="text-center">Upcoming Trips</th>
+                <th class="text-center">Total Trips</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="driver in drivers" driver-directive driver="driver">
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
