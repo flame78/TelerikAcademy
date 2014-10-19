@@ -1,0 +1,43 @@
+<div class="container" ng-controller="GamesController">
+    <div class="row">
+        <div class="col-md-6">
+            Sort by:
+            <select ng-model="sort.sortBy">
+                <option value="Board">Board</option>
+                <option value="FirstPlayerName">FirstPlayerName</option>
+                <option value="SecondPlayerName">SecondPlayerName</option>
+                <option value="State">State</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            Search: <input type="text" ng-model="search.searchString"/>
+        </div>
+    </div>
+    <table class="table table-striped text-center table-hover">
+        <thead>
+        <tr>
+            <th>Driver</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Departure Time</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr ng-repeat="game in games | filter: {Board: search.searchString} | orderBy: sort.sortBy | limitTo: 200">
+            <td>{{game.Board}}</td>
+            <td>{{game.FirstPlayerName}}</td>
+            <td>{{game.SecondPlayerName}}</td>
+            <td>{{game.State}}</td>
+            <td ng-switch on="game.Action">
+                <button type="button" class="btn btn-default btn-xs" ng-switch-when="join" ng-click="gameJoin(game.Id)">
+                    Join
+                </button>
+                <button type="button" class="btn btn-default btn-xs" ng-switch-when="play" ng-click="gamePlay(game.Id)">
+                    Play
+                </button>
+            </td>
+        </tr>-->
+        </tbody>
+    </table>
+</div>
