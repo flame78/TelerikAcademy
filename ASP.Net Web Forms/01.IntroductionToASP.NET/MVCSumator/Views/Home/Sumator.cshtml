@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Sumator";
+}
+<hr />
+<form action="/Home/CalculateSum" method="post">
+
+    <input id="inpFirstNumber" type="text" name="firstNumber" value=@ViewBag.FirstNumber />
+    <input id="inpSecondNumber" type="text" name="secondNumber" value="@ViewBag.SecondNumber"/>
+    <input type="submit" value="Calculate Sum"/>
+    <br />
+    <label>Sum:</label>
+    <label>@ViewBag.Sum</label>
+</form>
+
