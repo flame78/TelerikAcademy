@@ -1,0 +1,1 @@
+﻿Default pages for account managing.

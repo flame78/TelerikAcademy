@@ -1,0 +1,1 @@
+﻿folder for pictures, css and etc. for design
