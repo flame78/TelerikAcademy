@@ -1,0 +1,9 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Bulgarian/Bulgarian.Master" AutoEventWireup="true" CodeBehind="Contacts.master.cs" Inherits="InternationalCompany.Bulgarian.Contacts.Contacts" %>
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+    <div>
+        <a href="Bulgaria.aspx">България</a>
+        <a href="UK.aspx">Англия</a>
+    </div>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server" />
+</asp:Content>

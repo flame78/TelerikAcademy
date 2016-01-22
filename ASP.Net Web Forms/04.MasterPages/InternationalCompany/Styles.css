@@ -1,0 +1,20 @@
+﻿body {
+}
+
+header {
+    text-align: center;
+}
+
+footer {
+    clear: both;
+    text-align: center;
+}
+
+#sidemenu {
+    float: left;
+    width: 140px;
+}
+
+#languagemenu {
+    float: right;
+}

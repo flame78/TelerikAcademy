@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="InternationalCompany.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Styles.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+        <span>Our International Company</span>
+        <aside id="languagemenu">
+        <a href="~/English/Home.aspx" runat="server">English</a>
+        <a href="~/Bulgarian/Home.aspx" runat="server">Български</a>
+        </aside>
+    </header>
+    <aside id="sidemenu">
+        <asp:ContentPlaceHolder ID="MenuPlaceHolder" runat="server" />
+    </aside>
+    <form id="form1" runat="server">
+        <div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <footer>
+        (c) 2016
+    </footer>
+</body>
+</html>

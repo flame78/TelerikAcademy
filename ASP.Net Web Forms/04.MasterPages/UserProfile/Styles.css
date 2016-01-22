@@ -1,0 +1,36 @@
+﻿body {
+}
+
+h3 {
+    margin: 0px;
+}
+
+h1 {
+    margin: 0px;
+}
+
+h4 {
+    margin: 0px;
+}
+
+#content {
+    height: 86px;
+    background: #b6ff00
+}
+
+#sidemenu {
+    float: left;
+    width: 200px;
+    background: #0094ff;
+}
+
+#header {
+    background: #b200ff;
+    text-align: center;
+}
+
+#footer {
+    clear: both;
+    text-align: center;
+    background: #808080
+}
