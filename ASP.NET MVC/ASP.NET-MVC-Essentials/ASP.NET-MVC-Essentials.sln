@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.BitCalculator", "BitCalculator\2.BitCalculator.csproj", "{29FEF7D6-0D9D-471F-B0F7-2369DE364155}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.MoviesInformationalSystem", "MoviesInformationalSystem\3.MoviesInformationalSystem.csproj", "{8ED0DBDC-39D1-4C6A-835A-BBD66134855C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Web Forms vs MVC", "1.Web Forms vs MVC", "{58D09407-A3E7-433B-A0DE-B0EBAEF5DC7C}"
+	ProjectSection(SolutionItems) = preProject
+		Differences and similarities between ASP.NET Web Forms and ASP.NET MVC.txt = Differences and similarities between ASP.NET Web Forms and ASP.NET MVC.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.CustomRouteConstraint", "CustomRouteConstraint\4.CustomRouteConstraint.csproj", "{A3BA5BE8-CBCD-4D67-949D-8B2D7FE91BAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29FEF7D6-0D9D-471F-B0F7-2369DE364155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29FEF7D6-0D9D-471F-B0F7-2369DE364155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29FEF7D6-0D9D-471F-B0F7-2369DE364155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29FEF7D6-0D9D-471F-B0F7-2369DE364155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ED0DBDC-39D1-4C6A-835A-BBD66134855C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ED0DBDC-39D1-4C6A-835A-BBD66134855C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ED0DBDC-39D1-4C6A-835A-BBD66134855C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ED0DBDC-39D1-4C6A-835A-BBD66134855C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BA5BE8-CBCD-4D67-949D-8B2D7FE91BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BA5BE8-CBCD-4D67-949D-8B2D7FE91BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BA5BE8-CBCD-4D67-949D-8B2D7FE91BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BA5BE8-CBCD-4D67-949D-8B2D7FE91BAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

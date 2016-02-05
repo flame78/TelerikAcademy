@@ -1,0 +1,53 @@
+﻿@model BitCalculator.Models.CalculatorConfiguration
+@{
+    ViewBag.Title = "Bit Calculator";
+}
+
+<div class="col-xs-8">
+
+    <h1>
+        @ViewBag.Title
+    </h1>
+
+    @using (Html.BeginForm())
+    { 
+        <div class="control-group">
+            @Html.LabelFor(m => m.Quantity, new { @class = "control-label" })
+            <div class="control">
+                @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", onchange="this.form.submit();" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Type, new { @class = "control-label" })
+            <div class="control">
+                @Html.DropDownListFor(m => m.Type, (List<SelectListItem>)ViewBag.Types, new { @class = "form-control", onchange = "this.form.submit();" })
+            </div>
+        </div>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Kilo, new { @class = "control-label" })
+            <div class="control">
+                @Html.DropDownListFor(m => m.Kilo, new List<SelectListItem>() { new SelectListItem() { Text = "1000" }, new SelectListItem() { Text = "1024" } }, new { @class = "form-control", onchange = "this.form.submit();" })
+            </div>
+        </div>
+        <br />
+        <div class="control-group">
+            <label for="mySubmit" class="btn btn-primary"><span class="glyphicon glyphicon-refresh"/> Calculate</label>
+            <input id="mySubmit" class="hidden" type="submit" />
+        </div>
+        <br />
+    }
+
+    @if (Model.Kilo == 1000)
+    {
+        <p>Bandwidth (Kilo = 1000 bits)</p>
+    }
+    else if (Model.Kilo == 1024)
+    {
+        <p>Storage(Kilo = 1024 bits)</p>
+    }
+
+    @Html.Action("ShowResult", Model); 
+
+</div>

@@ -1,0 +1,31 @@
+﻿@using MoviesInformationalSystem.Models
+@model List<MovieViewModel>
+@{
+    ViewBag.Title = "Movies Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Movies</h1>
+
+@{
+    foreach (MovieViewModel movie in Model)
+    {
+        <div class="col-sm-4">
+        <h2>@movie.Title</h2>
+
+            <div>Leading Actors</div>
+            <div class="row">
+                @if (movie.LeadingFemaleRoleName != null)
+                {
+                    <div class="col-sm-6">@movie.LeadingFemaleRoleName</div>
+                }
+                @if (movie.LeadingMaleRoleName != null )
+                {
+                    <div class="col-sm-6">@movie.LeadingMaleRoleName</div>
+                }
+            </div>
+        </div>
+    }
+
+    <div class="clearfix"></div>
+}
