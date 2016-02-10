@@ -1,0 +1,5 @@
+﻿@model MoviesSystem.Web.Models.MovieDetailedViewModel
+
+@Html.DisplayForModel()
+
+@Ajax.ActionLink("Back", "Index", null, new AjaxOptions { UpdateTargetId = "body" }, new { @class = "btn btn-default" })

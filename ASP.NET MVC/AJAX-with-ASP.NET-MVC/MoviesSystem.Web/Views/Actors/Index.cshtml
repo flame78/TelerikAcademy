@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MoviesSystem.Web.Models.ActorViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Ajax.ActionLink("Create New", "Create", "Actors", new AjaxOptions { UpdateTargetId = "body", LoadingElementId = "ajax-loader"})
+</p>
+<table class="table">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @Html.DisplayFor(m => item)
+            <td>
+                @Ajax.ActionLink("Edit", "Edit", "Actors", new { id = item.Id }, new AjaxOptions { UpdateTargetId = "body", LoadingElementId = "ajax-loader" }) |
+                @Ajax.ActionLink("Details", "Details", "Actors", new { id = item.Id}, new AjaxOptions { UpdateTargetId = "body", HttpMethod = "Get" } ) 
+            </td>
+        </tr>
+    }
+
+</table>
