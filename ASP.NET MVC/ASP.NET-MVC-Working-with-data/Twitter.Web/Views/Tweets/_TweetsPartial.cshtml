@@ -1,0 +1,14 @@
+﻿@using System.Text.RegularExpressions
+@model System.Collections.Generic.ICollection<Twitter.Web.ViewModels.TweetViewModel>
+
+<div class="row">
+    @foreach (var tweet in Model)
+    {
+        <div class="well">
+            <div>
+                <h3>@Html.Raw(Regex.Replace(Html.Encode(tweet.Content), @"#([-\w+]+)", "<a href=\"/Tweets/ByTag/%23$1\">$&</a>"))</h3>
+                <h4><a href="/Tweets/ByAuthor/@tweet.AuthorName">@tweet.AuthorName</a> @tweet.CreationDate</h4>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,6 @@
+﻿@using System.Text.RegularExpressions
+@model ICollection<Twitter.Web.ViewModels.TweetViewModel>
+
+<h2>Latest 15 tweets</h2>
+
+@Html.Partial("_TweetsPartial", Model)
