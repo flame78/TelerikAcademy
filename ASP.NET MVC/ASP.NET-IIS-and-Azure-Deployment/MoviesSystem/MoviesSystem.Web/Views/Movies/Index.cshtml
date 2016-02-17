@@ -1,0 +1,34 @@
+﻿@using MoviesSystem.Web.Infrastructure.Constants
+@model IEnumerable<MoviesSystem.Web.Models.MovieViewModel>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Title)</th>
+        <th>@Html.DisplayNameFor(m => m.Year)</th>
+        <th>@Html.DisplayNameFor(m => m.StudioName)</th>
+        <th></th>
+    </tr>
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => movie.Title)</td>
+            <td>@Html.DisplayFor(m => movie.Year)</td>
+            <td>@Html.DisplayFor(m => movie.StudioName)</td>
+            <td>
+                @Ajax.ActionLink("Details", "Details", new { Id = movie.Id }, new AjaxOptions { UpdateTargetId = "body" }, new { @class = "btn btn-success" })
+                @if (User.IsInRole(MoviesSystemRoles.Administrator))
+                {
+                    @Ajax.ActionLink("Edit", "Edit", new { Id = movie.Id }, new AjaxOptions { UpdateTargetId = "body" }, new { @class = "btn btn-default" }) @: 
+                    @Ajax.ActionLink("Delete", "Delete", new { Id = movie.Id }, new AjaxOptions { UpdateTargetId = "body" }, new { @class = "btn btn-danger" })
+                }
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Create", "Create",null, new { @class = "btn btn-info" })
+
+
+
+
+
+

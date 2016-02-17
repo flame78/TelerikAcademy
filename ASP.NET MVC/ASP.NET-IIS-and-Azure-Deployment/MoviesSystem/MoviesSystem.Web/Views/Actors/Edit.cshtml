@@ -1,0 +1,29 @@
+﻿@model MoviesSystem.Web.Models.ActorViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "body" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Actor</h4>
+        <hr/>
+
+        @Html.EditorForModel()
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default"/>
+                @Ajax.ActionLink("Cancel", "Index", null, new AjaxOptions { UpdateTargetId = "body", AllowCache = false }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}
+
+

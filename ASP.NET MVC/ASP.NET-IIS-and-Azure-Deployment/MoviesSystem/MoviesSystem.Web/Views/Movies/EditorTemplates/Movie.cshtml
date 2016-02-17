@@ -1,0 +1,58 @@
+﻿@using MoviesSystem.Data.Models
+@model MoviesSystem.Data.Models.Movie
+
+@Html.ValidationSummary()
+
+@using (Ajax.BeginForm(new AjaxOptions { UpdateTargetId = "body" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+
+    var actors = ViewBag.Actors as List<Actor>;
+
+    <table class="form-group">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Title)
+            </th>
+            <td>
+                @Html.EditorFor(m => m.Title)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Year)
+            </th>
+            <td>
+                @Html.EditorFor(m => m.Year)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Studio
+            </th>
+            <td>
+                @Html.DropDownList("StudioId", (SelectList)ViewBag.Studios)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Leading Female Role
+            </th>
+            <td>
+                @Html.DropDownList("LeadingFemaleRoleActorId", new SelectList(actors.Where(a => a.Gender == Gender.Female), "Id", "Name", Model.LeadingFemaleRoleActorId), "-- None --")
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Leading Male Role
+            </th>
+            <td>
+                @Html.DropDownList("LeadingMaleRoleActorId", new SelectList(actors.Where(a => a.Gender == Gender.Male), "Id", "Name", Model.LeadingMaleRoleActorId), "-- None --")
+            </td>
+        </tr>
+
+    </table>
+    @Ajax.ActionLink("Back", "Index", null, new AjaxOptions { UpdateTargetId = "body" }, new { @class = "btn btn-info" })
+    <input type="submit" value="Save" class="btn btn-danger"/>
+}

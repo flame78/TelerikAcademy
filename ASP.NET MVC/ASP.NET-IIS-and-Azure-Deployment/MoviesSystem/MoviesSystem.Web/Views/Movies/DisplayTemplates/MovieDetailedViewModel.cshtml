@@ -1,0 +1,30 @@
+﻿@model MoviesSystem.Web.Models.MovieDetailedViewModel
+
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(m => m.Title)
+    </dt>
+    <dd>
+        @Html.DisplayFor(m => m.Title)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(m => m.Year)
+    </dt>
+    <dd>
+        @Html.DisplayFor(m => m.Year)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(m => m.StudioName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(m => m.StudioName)
+    </dd>
+    <dt>Leading Female Role</dt>
+    <dd>
+        @Html.DisplayFor(m => m.LeadingFemaleRoleActorName)
+    </dd>
+    <dt>Leading Male Role</dt>
+    <dd>
+        @Html.DisplayFor(m => m.LeadingMaleRoleActorName)
+    </dd>
+</dl>
