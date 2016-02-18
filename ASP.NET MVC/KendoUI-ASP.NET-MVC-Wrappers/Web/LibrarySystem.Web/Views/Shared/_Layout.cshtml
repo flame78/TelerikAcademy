@@ -1,0 +1,78 @@
+﻿@using LibrarySystem.Common
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - LibrarySystem</title>
+    @Styles.Render("~/Content/kendo")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/kendo")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("LibrarySystem", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Categories", "Index", "Home", new { area = string.Empty }, null)</li>
+                </ul>
+                @if (User.IsInRole(GlobalConstants.AdministratorRoleName))
+            {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Administration", "Index", "AdministrationGrid", new { area = string.Empty }, null)</li>
+                    </ul>
+                }
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    @if (Request.IsAuthenticated)
+    {
+        <br/>
+
+        <div class="form-group pull-right col-sm-4">
+            @using (Html.BeginForm("Search", "Books", FormMethod.Post, new { id = "searchForm", }))
+            {
+                @Html.AntiForgeryToken()
+                @(Html.Kendo().AutoComplete().Name("q").HtmlAttributes(new { style = "width:70%;" }).DataTextField("Text").Filter("contains").MinLength(1).Events(ev => { ev.Select("selectAutoComplete"); }).Placeholder("Search book title and author").DataSource(source =>
+                      { source.Read(read => { read.Action("GetBooks", "Books").Data("onAdditionalData"); }).ServerFiltering(true); }))
+
+                <input class="btn btn-success" type="submit" value="Search">
+            }
+        </div>
+        <br />
+        <br />
+    }
+    }
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - LibrarySystem</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+            function onAdditionalData() {
+                return {
+                    text: $("#q").val()
+                };
+            }
+            function selectAutoComplete(e) {
+                window.location.href = "/BookDetails/" + this.dataItem(e.item.index()).Id;
+            };
+    </script>
+</body>
+</html>

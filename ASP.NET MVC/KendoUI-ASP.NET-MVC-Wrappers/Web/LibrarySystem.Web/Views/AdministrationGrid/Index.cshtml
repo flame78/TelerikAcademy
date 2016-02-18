@@ -1,0 +1,41 @@
+﻿@using LibrarySystem.Web.ViewModels.Books
+@using LibrarySystem.Web.ViewModels.Home
+
+@(Html.Kendo().Grid<BookViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Title);
+          columns.Bound(c => c.Description).Width(1000);
+          columns.Bound(c => c.CategoryName);
+          columns.Bound(c => c.ISBN);
+          columns.Bound(c => c.WebSite);
+          columns.Bound(c => c.Author);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(150);
+      })
+      .ToolBar(toolbar => {
+          toolbar.Create();
+      })
+      .ColumnMenu()
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Navigatable()
+      .Selectable(selectable => {
+          selectable.Mode(GridSelectionMode.Multiple);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable(filterable => filterable.Mode(GridFilterMode.Row))
+      //.Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .PageSize(4)
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("Books_Read", "AdministrationGrid"))
+          .Create(create => create.Action("Books_Create", "AdministrationGrid"))
+          .Update(update => update.Action("Books_Update", "AdministrationGrid"))
+          .Destroy(destroy => destroy.Action("Books_Destroy", "AdministrationGrid"))
+      )
+)

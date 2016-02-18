@@ -1,0 +1,16 @@
+﻿@model LibrarySystem.Web.ViewModels.Books.BookViewModel
+
+@{
+    ViewBag.Title = "Book Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="well well-sm">
+    <h3>@Model.Title</h3>
+</div>
+<h4>by @Model.Author</h4>
+<p><i>ISBN @Model.ISBN</i></p>
+<p><i>Web site: <a href="@Model.WebSite">@Model.WebSite</a></i></p>
+<p>@Model.Description</p>
+@Html.ActionLink("Back to books", "Index", "Home")

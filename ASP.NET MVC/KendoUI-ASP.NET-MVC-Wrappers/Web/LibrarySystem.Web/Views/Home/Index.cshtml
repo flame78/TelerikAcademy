@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<a href=""></a>
+<div class="demo-section k-content">
+    @(Html.Kendo().TreeView()
+        .Name("treeview")
+        .Template("#= item.Name #")
+        .DataTextField("Name")
+        .DataSource(dataSource => dataSource.Read(read => read.Action("Tree", "Home"))))
+</div>
