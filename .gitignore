@@ -55,6 +55,8 @@ ipch/
 *.cachefile
 
 # Visual Studio profiler
+packages/
+.vs/
 *.psess
 *.vsp
 *.vspx
@@ -153,19 +155,4 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Mac desktop service store files
-.DS_Store
-/WebServices/ASP.NET_Web_API/StudentSystem/packages
-/WebServices/ASP.NET_Web_API/MusicStore/packages
-/WebServices/Template/packages
-/ASP.NET MVC/ASP.NET-Caching/.vs/config
-/ASP.NET MVC/AJAX-with-ASP.NET-MVC/MoviesSystem.Web
-/ASP.NET MVC/AJAX-with-ASP.NET-MVC/.vs/config
-/ASP.NET MVC/KendoUI-ASP.NET-MVC-Wrappers/Web/LibrarySystem.Web/App_Data/LibrarySystem.mdf
-/ASP.NET MVC/KendoUI-ASP.NET-MVC-Wrappers/Web/LibrarySystem.Web/App_Data/LibrarySystem_log.ldf
-/ASP.NET MVC/KendoUI-ASP.NET-MVC-Wrappers/Web/LibrarySystem.Web/Content/Kendo-css
-/ASP.NET MVC/KendoUI-ASP.NET-MVC-Wrappers/Web/LibrarySystem.Web/Libraries/Kendo.Mvc.dll
-/ASP.NET MVC/KendoUI-ASP.NET-MVC-Wrappers/Web/LibrarySystem.Web/Libraries/Kendo.Mvc.xml
-/ASP.NET MVC/KendoUI-ASP.NET-MVC-Wrappers/Web/LibrarySystem.Web/Scripts/Kendo
-/SolutionCleaner/SolutionCleaner.exe
-/SolutionCleaner/SolutionCleaner.sln
-/ASP.NET MVC/KendoUI-ASP.NET-MVC-Wrappers/.vs/config
+
